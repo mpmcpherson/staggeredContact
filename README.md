@@ -19,7 +19,7 @@ Framing this out really quickly, just because I need to get it down.
 
 > EventListingTable [^2]
 
-- [ ] build database tables
+- [X] build database tables
 - [ ] reframe UI slightly
 - [ ] start cranking out logic
 
