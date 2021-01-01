@@ -7,6 +7,8 @@ Framing this out really quickly, just because I need to get it down.
 
 > LastContactedTable
 
+> ContactHistoryTable
+
 > scheduleTable
 >>hangs from personTable
 

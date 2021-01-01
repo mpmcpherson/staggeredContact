@@ -128,19 +128,28 @@
 	"buffers":
 	[
 		{
-			"contents": "",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 2048,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "README.md",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 2045,
+				"buffer_size": 70,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "uiSite/resources/defaultConnector.php",
+			"settings":
+			{
+				"buffer_size": 236,
 				"line_ending": "Unix"
 			}
 		}
@@ -309,10 +318,14 @@
 	},
 	"expanded_folders":
 	[
-		"/home/michaelmcpherson/src/staggeredContact"
+		"/home/michaelmcpherson/src/staggeredContact",
+		"/home/michaelmcpherson/src/staggeredContact/uiSite",
+		"/home/michaelmcpherson/src/staggeredContact/uiSite/resources"
 	],
 	"file_history":
 	[
+		"/home/michaelmcpherson/src/staggeredContact/.gitignore",
+		"/home/michaelmcpherson/src/staggeredContact/.gitattributes",
 		"/home/michaelmcpherson/src/phpInsecureREST/jsExamplesForObjectsToCreate.md",
 		"/home/michaelmcpherson/src/staggeredContact/README.md",
 		"/home/michaelmcpherson/raspberry projects",
@@ -438,9 +451,7 @@
 		"/home/michaelmcpherson/src/DnDModuleGenerator/dungeon goals",
 		"/home/michaelmcpherson/src/DnDModuleGenerator/basicGenerator.php",
 		"/home/michaelmcpherson/src/DnDModuleGenerator/05dndPlotList",
-		"/home/michaelmcpherson/Documents/smugdamian",
-		"/home/michaelmcpherson/src/writtenRecords/how to symbolic link your www-http folder to dev source",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/README.md"
+		"/home/michaelmcpherson/Documents/smugdamian"
 	],
 	"find":
 	{
@@ -476,15 +487,73 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 484.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "uiSite/resources/defaultConnector.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 236,
 						"regions":
 						{
 						},
@@ -497,41 +566,10 @@
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"default_dir": "/home/michaelmcpherson/src/phpInsecureREST",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "README.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2045,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1969,
-								1969
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 559.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
