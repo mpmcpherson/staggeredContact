@@ -52,5 +52,6 @@ Unless I populate `tags` in the UI with the contents of both `personTable` and `
 
 There's definitely a more space efficient way to do this, but it's late and I'm tired.
 
-[^1] this is probably scope creep
-[^2] okay, *this* is already scope creep
+[^1]: this is probably scope creep
+
+[^2]: okay, *this* is already scope creep
