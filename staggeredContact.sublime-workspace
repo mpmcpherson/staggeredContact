@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"viewpo",
+				"$viewportTitle〔variable〕"
+			],
+			[
 				"req",
 				"require_once"
 			],
@@ -128,29 +132,70 @@
 	"buffers":
 	[
 		{
-			"file": "README.md",
+			"contents": "<!DOCTYPE html>\n<html>\n<?php require 'resources/uiConfig.php';?>\n<head>\n\n<title><?php echo $title; ?></title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no\" />\n<link rel=\"stylesheet\" href=\"css\\style.css\">\n\n</head>\n\n<body>\n\t\n\n\t<div class=\"oneTenth pageHead\"><h2><?php echo $header; ?></h2></div>\n\n\t<div class=\"wrapper ninety\" id=\"container\">\n\n\t\t<div class=\"leftBar ninety\" id=\"leftBar\">\n\t\t\t<div class=\"titleBorder\"style=\"font-weight: bold;\"><?php echo $leftBar; ?></div>\n\t\t\t<br />\n\t\t\t<div id=\"array_of_people\"></div>\n\t\t</div>\n\n\n\t\t<div class=\"mainBody ninety\" id=\"body\">\n\t\t\t<div class=\"header\">\n\t\t\t\t<h3 class=\"titleBorder\"><?php echo $viewportTitle; ?></h3>\n\t\t\t</div> \n\t\t\t \n\t\t\t<div id=\"text\">Here's some text, and isn't it interesting?</div>\n\t\t\t<div id=\"text\">Lorem ipsum dolor sit amet. Dulche et decorum est</div>\n\t\t\t<div id=\"text\">Here's some text, and isn't it interesting?</div>\n\t\t\t<div> End Text </div>\t\n\t\t</div>\n\n\t\t<div class=\"rightBar ninety\" id=\"leftBar\">\n\t\t\t<div class=\"titleBorder\" style=\"font-weight: bold;\"><?php echo $rightBar; ?></div>\n\t\t\t<br />\n\t\t\t<div id=\"array_of_people\"></div>\n\t\t</div>\n\n\t</div>\n</body>\t\n</html> \n\n<script type=\"text/javascript\" src=\"js\\helper.js\"></script>\n<script type=\"text/javascript\" src=\"js\\app.js\"></script>\n<script type=\"text/javascript\">\n\t\n\t\n</script>",
+			"file": "staggeredContacts/index.php",
+			"file_size": 1308,
+			"file_write_time": 132540122268779016,
 			"settings":
 			{
-				"buffer_size": 2048,
+				"buffer_size": 1354,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": ".gitignore",
+			"file": "staggeredContacts/js/helper.js",
 			"settings":
 			{
-				"buffer_size": 70,
+				"buffer_size": 1496,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "staggeredContacts/js/app.js",
+			"settings":
+			{
+				"buffer_size": 375,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "uiSite/resources/defaultConnector.php",
+			"file": "staggeredContacts/resources/loadPeople.php",
 			"settings":
 			{
-				"buffer_size": 236,
+				"buffer_size": 441,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "<?php"
+			}
+		},
+		{
+			"file": "staggeredContacts/css/style.css",
+			"settings":
+			{
+				"buffer_size": 1629,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "deployLocal.sh",
+			"settings":
+			{
+				"buffer_size": 98,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "staggeredContacts/resources/uiConfig.php",
+			"settings":
+			{
+				"buffer_size": 248,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "<?php"
 			}
 		}
 	],
@@ -166,12 +211,16 @@
 		"selected_items":
 		[
 			[
-				"package control",
-				"Package Control: Advanced Install Package"
-			],
-			[
 				"remove",
 				"Package Control: Remove Package"
+			],
+			[
+				"isnta\t",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Advanced Install Package"
 			],
 			[
 				"build",
@@ -319,15 +368,43 @@
 	"expanded_folders":
 	[
 		"/home/michaelmcpherson/src/staggeredContact",
-		"/home/michaelmcpherson/src/staggeredContact/uiSite",
-		"/home/michaelmcpherson/src/staggeredContact/uiSite/resources"
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/logs",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources"
 	],
 	"file_history":
 	[
+		"/home/michaelmcpherson/src/newUIframework/uiSite/index.php",
+		"/home/michaelmcpherson/src/roundtable/webmethods/getAvailableUsers.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/postHandler.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/pushHandler.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/loadPost.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/postHandler.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/style.css",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/User/CommandOnSave.sublime-settings",
+		"/home/michaelmcpherson/src/SublimeCommandOnSave/CommandOnSave.py",
+		"/home/michaelmcpherson/src/staggeredContact/.onsave",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/User/Default.sublime-settings",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/OnSave/Default.sublime-settings",
+		"/home/michaelmcpherson/src/gitRecurse/gitPull.config",
+		"/home/michaelmcpherson/src/gitRecurse/confBuilder.sh",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/pierrefrancoisdulac.php",
+		"/home/michaelmcpherson/src/staggeredContact/README.md",
 		"/home/michaelmcpherson/src/staggeredContact/.gitignore",
+		"/home/michaelmcpherson/src/staggeredContact/deployLocal.sh",
+		"/home/michaelmcpherson/src/staggeredContact/general_dev_bastion.sql",
+		"/home/michaelmcpherson/src/staggeredContact/personType.sql",
+		"/home/michaelmcpherson/src/staggeredContact/people.sql",
+		"/home/michaelmcpherson/src/staggeredContact/messageSynopsis.sql",
+		"/home/michaelmcpherson/src/staggeredContact/lastContacted.sql",
+		"/home/michaelmcpherson/src/staggeredContact/EventListing.sql",
+		"/home/michaelmcpherson/src/staggeredContact/contactHistory.sql",
+		"/home/michaelmcpherson/src/staggeredContact/contactChannels.sql",
+		"/home/michaelmcpherson/edge of night",
 		"/home/michaelmcpherson/src/staggeredContact/.gitattributes",
 		"/home/michaelmcpherson/src/phpInsecureREST/jsExamplesForObjectsToCreate.md",
-		"/home/michaelmcpherson/src/staggeredContact/README.md",
 		"/home/michaelmcpherson/raspberry projects",
 		"/home/michaelmcpherson/valandrinasaddress",
 		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/abstractRestConnection.php",
@@ -400,15 +477,12 @@
 		"/home/michaelmcpherson/src/phpInsecureREST/api/couchTesting.php",
 		"/home/michael/src/phpInsecureREST/api/testing.php",
 		"/home/michael/src/phpInsecureREST/api/couchdebug",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/postHandler.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/phprc",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/js/helper.js",
 		"/home/michaelmcpherson/src/clientSideBlogger/README.md",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/SFTPConnector.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/teasant.php",
 		"/var/www/html/blags/resources/postHandler.php",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/loadPost.php",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/postHandler.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/snippets.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/css/style.css",
 		"/var/www/html/blogBase/resources/postHandler.php",
@@ -429,33 +503,11 @@
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/linkLoader.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/config.php",
 		"/home/michaelmcpherson/Documents/passcodes",
-		"/etc/php/7.3/cli/php.ini",
-		"/home/michaelmcpherson/src/clientSideBlogger/.gitignore",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/js/themes/silver/theme.js",
-		"/home/michaelmcpherson/.config/sublime-text-3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
-		"/home/michaelmcpherson/src/newUIframework/uiSite/index.php",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/site/index.php",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/index.php",
-		"/home/michaelmcpherson/src/writtenRecords/DnD/Necromancer Nine/Plot Episode 5",
-		"/home/michaelmcpherson/src/writtenRecords/DnD/Necromancer Nine/Plot Episode 6",
-		"/home/michaelmcpherson/src/writtenRecords/DnD/Necromancer Nine/Plot Episode 4",
-		"/home/michaelmcpherson/src/writtenRecords/DnD/Necromancer Nine/Plot Episode 3",
-		"/home/michaelmcpherson/src/writtenRecords/DnD/Necromancer Nine/plot episode 1",
-		"/home/michaelmcpherson/src/writtenRecords/DnD/Necromancer Nine/Plot Episode 2",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/css/wysiwyg.css",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/css/pure-min.css",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/plot types",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/plot hooks",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/more dnd plots",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/event_villain_scratchList",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/dungeon goals",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/basicGenerator.php",
-		"/home/michaelmcpherson/src/DnDModuleGenerator/05dndPlotList",
-		"/home/michaelmcpherson/Documents/smugdamian"
+		"/etc/php/7.3/cli/php.ini"
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -469,6 +521,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"9",
+			"lastcontacted",
 			"\n[^"
 		],
 		"highlight": true,
@@ -487,92 +541,327 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "README.md",
+					"file": "staggeredContacts/index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2048,
+						"buffer_size": 1354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								226,
-								226
+								1342,
+								1342
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 484.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": ".gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 70,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								70,
-								70
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 528.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "uiSite/resources/defaultConnector.php",
-					"semi_transient": true,
+					"buffer": 1,
+					"file": "staggeredContacts/js/helper.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 236,
+						"buffer_size": 1496,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								448,
+								448
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "staggeredContacts/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "staggeredContacts/resources/loadPeople.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 441,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								325,
+								325
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "staggeredContacts/css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1629,
+						"regions":
+						{
+							"gutter_color_1330":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1334,
+										1366
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1334":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1334,
+										1366
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1380":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1384,
+										1415
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1384":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1384,
+										1415
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_141":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										141,
+										168
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_498":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										498,
+										529
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_57":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#edefd3.png",
+								"regions":
+								[
+									[
+										57,
+										84
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_881":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										881,
+										912
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_977":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										977,
+										1004
+									]
+								],
+								"scope": "gutter_color"
+							}
+						},
+						"selection":
+						[
+							[
+								866,
+								866
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "deployLocal.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 98,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								98,
+								98
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 55.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "staggeredContacts/resources/uiConfig.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								208,
+								208
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -674,6 +963,15 @@
 	"selected_group": 0,
 	"settings":
 	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
 	},
 	"show_minimap": true,
 	"show_open_files": true,

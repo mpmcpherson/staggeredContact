@@ -1,0 +1,34 @@
+VAR: 
+
+ENV:
+	PATH: /bin/bash
+
+LISTENER:  
+	    
+    -	CMD : bash /home/michaelmcpherson/src/staggeredContact/deployLocal.sh
+		CONSOLE : right
+
+#  $ROOT       = .onsave file directory
+#  $FILE       = current file path
+#  $FILENAME   = current file name
+#  $BASENAME   = current file name, not postfix
+#  $DIR        = current file directory
+
+# CONSOLE options
+#  false       = not diaplay
+#  name left   = diaplay at left view
+#  name right  = diaplay at right view
+#  name bottom = diaplay at bottom view
+
+# WATCH options
+# pattern are separated by commas，reserved words has "BUILD","NOBUILD"
+#  - BUILD     = watch (super + b) key binding 
+#  - NOBUILD   = just watch (on save) event
+
+# ENV options
+#  - CWP     = changes the current working directory to the given path.
+#  - PATH
+#  - HOME
+#  ...
+
+

@@ -17,39 +17,32 @@
 	<div class="wrapper ninety" id="container">
 
 		<div class="leftBar ninety" id="leftBar">
-			<div style="font-weight: bold;"><?php echo $leftBar; ?></div>
+			<div class="titleBorder"style="font-weight: bold;"><?php echo $leftBar; ?></div>
 			<br />
 			<div id="array_of_people"></div>
 		</div>
 
+
 		<div class="mainBody ninety" id="body">
 			<div class="header">
-				<h3><?php echo $viewportTitle; ?></h3>
+				<h3 class="titleBorder"><?php echo $viewportTitle; ?></h3>
 			</div> 
-			
+			 
 			<div id="text">Here's some text, and isn't it interesting?</div>
 			<div id="text">Lorem ipsum dolor sit amet. Dulche et decorum est</div>
 			<div id="text">Here's some text, and isn't it interesting?</div>
 			<div> End Text </div>	
 		</div>
 
+		<div class="rightBar ninety" id="leftBar">
+			<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
+			<br />
+			<div id="array_of_people"></div>
+		</div>
+
 	</div>
 </body>	
-</html>
+</html> 
 
 <script type="text/javascript" src="js\helper.js"></script>
-<script type="text/javascript">
-	
-	docReady(function() {
-    
-	});
-
- 
-	/*
-	variable.addEventListener('click', function() {
-	
-	});
-	*/
-
-
-</script>
+<script type="text/javascript" src="js\app.js"></script>
