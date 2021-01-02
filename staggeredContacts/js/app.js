@@ -40,6 +40,8 @@ function loadPeople()
 
 }
 
+//set up event listener on keyup: monitor modal fields to start with
+//after the modal validates, toggleHidden(targetDiv)
 
 docReady(function() {
 
