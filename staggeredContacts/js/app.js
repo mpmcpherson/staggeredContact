@@ -13,9 +13,9 @@ function appendNnodes(target,data)
 
 }
 
-function loadPeople(userId)
+function loadPeople(userId, targetDiv)
 { 
-  let resultDiv = document.getElementById("array_of_people");
+  let resultDiv = document.getElementById(targetDiv);
   userId = {"userId" : userId};
   let data = JSON.stringify(userId);
  
@@ -39,15 +39,95 @@ function loadPeople(userId)
 }
 
   function loadTodaysPeople(userId){
+    let resultDiv = document.getElementById(targetDiv);
+    userId = {"userId" : userId};
+    let data = JSON.stringify(userId);
+
+    postRequest('resources/loadTodaysPeople.php', 
+      function(response){
+        console.log(response);
+        let d = "";
+        try{
+          d = JSON.parse(response);
+          appendNnodes(resultDiv, d);
+        }catch(error){
+          console.log(error);
+        }
+    },
+      function(response){
+        console.log(response);
+        resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+    },
+    data);
 
   }
-  function loadAllEvents(){
+  function loadAllEvents(userId){
+    let resultDiv = document.getElementById(targetDiv);
+    userId = {"userId" : userId};
+    let data = JSON.stringify(userId);
+
+    postRequest('resources/loadAllEvents.php', 
+      function(response){
+        console.log(response);
+        let d = "";
+        try{
+          d = JSON.parse(response);
+          appendNnodes(resultDiv, d);
+        }catch(error){
+          console.log(error);
+        }
+    },
+      function(response){
+        console.log(response);
+        resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+    },
+    data);
 
   }
-  function loadEventsSinceLastContact(){
+  function loadEventsSinceLastContact(userId, personId){
+    let resultDiv = document.getElementById(targetDiv);
+    userId = {"userId" : userId};
+    let data = JSON.stringify(userId);
+   
+    postRequest('resources/loadEventsSinceLastContact.php', 
+      function(response){
+        console.log(response);
+        let d = "";
+        try{
+          d = JSON.parse(response);
+          appendNnodes(resultDiv, d);
+        }catch(error){
+          console.log(error);
+        }
+    },
+      function(response){
+        console.log(response);
+        resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+    },
+    data);
 
   }
   function addPerson(first_name, last_name, userId, intervalAmount, intervalTime, intervalType, personId, channelName, channelValue){
+    let resultDiv = document.getElementById(targetDiv);
+      userId = {"userId" : userId};
+      let data = JSON.stringify(userId);
+     
+      postRequest('resources/addPerson.php', 
+        function(response){
+          console.log(response);
+          let d = "";
+          try{
+            d = JSON.parse(response);
+            appendNnodes(resultDiv, d);
+          }catch(error){
+            console.log(error);
+          }
+      },
+        function(response){
+          console.log(response);
+          resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+      },
+      data);
 
   }
 
