@@ -9,7 +9,7 @@
 	</head>
 	<body onresize="fixHeight()">
 		
-		<div class="oneTenth pageHead titleBorder"><h2><?php echo $header; ?></h2></div>
+		<div class="oneTenth pageHead"><h2><?php echo $header; ?></h2></div>
 		<div class="wrapper ninety" id="container">
 			<div class="leftBar full" id="leftBar">
 				<div class="titleBorder"style="font-weight: bold;">
