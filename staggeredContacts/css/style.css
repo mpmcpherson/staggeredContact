@@ -1,8 +1,8 @@
-html { height: 100%; margin: 0px; padding: 0px; }
+html { height: 100vh; margin: 0px; padding: 0px; }
 body
 {
 	background-color: #edefd3;
-	height: 100%; margin: 0px; padding: 0px;
+	height: 100vh; margin: 0px; padding: 0px;
   	overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 .wrapper
