@@ -17,10 +17,7 @@ function loadPeople()
 { 
   let resultDiv = document.getElementById("array_of_people");
   let data = JSON.stringify({userId : 44});
-
-
-  console.log(data);
-  
+ 
   postRequest('resources/loadPeople.php', 
     function(response){
       console.log(response);
