@@ -1,3 +1,4 @@
+
 <?php
 require 'defaultConnector.php';
 
@@ -8,10 +9,11 @@ $gets = json_decode(file_get_contents('php://input'), true);
 $userId = $gets["userId"];
 
 $qq = "select el.id, el.userId, el.EventListing from EventListing el
+	left join people p on p.possessingUserId = el.userId
 		left join lastContacted lc on lc.originelersonId = el.userId
 		left join userIntervalLink uil on uil.userId = lc.originPersonId
 		left join intervalTypes it on it.id = uil.intervalType
-		where el.possessingUserId = ".$userId."
+		where el.possessingUserId = ".$userId." and p.id"."
 		and CURRENT_DATE() >= DATE_ADD(lc.lastContactedDate, INTERVAL uil.intervalAmount it.intervalType)";
 
 $result = mysqli_query($dbhandle, $qq);
