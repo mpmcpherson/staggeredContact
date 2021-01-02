@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="css\style.css">
 		<link rel="stylesheet" href="css\modal.css">
 	</head>
-	<body>
+	<body onresize="fixHeight()>
 		
 		<div class="oneTenth pageHead"><h2><?php echo $header; ?></h2></div>
 		<div class="wrapper ninety" id="container">
@@ -76,6 +76,11 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+	function fixHeight(){
+		
+	}
+</script>
 <script type="text/javascript" src="js\helper.js"></script>
 <script type="text/javascript" src="js\modal.js"></script>
 <script type="text/javascript" src="js\app.js"></script>

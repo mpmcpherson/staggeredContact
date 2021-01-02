@@ -5,7 +5,7 @@ function appendNnodes(target,data)
   for(let i = 0; i<data.length; i++)
   {
     let nameContainer = document.createElement("div");
-    nameContainer.id = data[i][3];
+    nameContainer.id = data[i][0];
     let nameTextNode = document.createTextNode(data[i][1]+" "+data[i][2]);
     nameContainer.appendChild(nameTextNode);
     target.appendChild(nameContainer);
@@ -147,9 +147,19 @@ function loadPeople(userId, targetDiv)
 //listener for the add button
 
 docReady(function() {
+  let uid = 44;
 
-  loadPeople(44, "array_of_people");
-  loadEventsSinceLastContact(44, personId, "array_of_events");
+  loadPeople(uid, "array_of_people");
+
+  let peopleList = document.getElementById("array_of_people").childNodes();
+
+  for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
+    peopleList[listIndex].addEventListener("click", function(pId){
+      loadEventsSinceLastContact(uid, peopleList[pId].id, "array_of_events");
+    })(listIndex);
+  
+  }
+  
 
   
 });
