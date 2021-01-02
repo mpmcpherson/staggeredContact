@@ -34,16 +34,31 @@ eventSpan.onclick = function(){
 	eventModal.style.display = "none";
 	let textArea = document.getElementById("eventText");
 	let eventSubject = document.getElementById("eventSubject");
+	let charCount = document.getElementById("charCount");
 	textArea.value = "";
 	eventSubject.value = "";
+	charCount.value = 0;
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
 	if (event.target === personModal) {
 		personModal.style.display = "none";
+		let newPerson = document.getElementById("newPerson");
+		let email = document.getElementById("emailId");
+		let freqAmt = document.getElementById("freqNum");
+		let freqSelect = document.getElementById("freqSelect");
+
+		newPerson.value="";
+		email.value="";
+		freqAmt.value="";
+		freqSelect.value=0;
 	}
 	if (event.target === eventModal) {
 		eventModal.style.display = "none";
+		let textArea = document.getElementById("eventText");
+		let eventSubject = document.getElementById("eventSubject");
+		textArea.value = "0";
+		eventSubject.value = "";
 	}
 };
