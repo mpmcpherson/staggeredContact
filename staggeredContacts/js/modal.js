@@ -20,9 +20,22 @@ eventBtn.onclick = function(){
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
 	personModal.style.display = "none";
+	let newPerson = document.getElementById("newPerson");
+	let email = document.getElementById("emailId");
+	let freqAmt = document.getElementById("freqNum");
+	let freqSelect = document.getElementById("freqSelect");
+
+	newPerson.value="";
+	email.value="";
+	freqAmt.value="";
+	freqSelect.value=0;
 };
 eventSpan.onclick = function(){
 	eventModal.style.display = "none";
+	let textArea = document.getElementById("eventText");
+	let eventSubject = document.getElementById("eventSubject");
+	textArea.value = "";
+	eventSubject.value = "";
 };
 
 // When the user clicks anywhere outside of the modal, close it

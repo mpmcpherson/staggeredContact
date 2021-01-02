@@ -52,16 +52,16 @@
 								<td>
 									<label for="newPerson">Keep in touch with: </label>
 								</td><td>
-								<input type="text" name="newPerson">
+								<input id="newPerson" type="text" name="newPerson">
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="frequency" style="display: inline;"> how often? Every:</label>
 							</td><td>
-							<input type="number" name="frequency" style="display: inline;">
-							<select>
-								<option>Select...</option>
+							<input id="freqNum" type="number" name="frequency" style="display: inline;">
+							<select id="freqSelect">
+								<option value="0">Select...</option>
 								<option value="1">days</option>
 								<option value="2">weeks</option>
 								<option value="3">months</option>
@@ -73,7 +73,7 @@
 				<br/>
 				<div style="text-align: center;" class="topAndBottomBorder"><label>let's put down their email. You can add other channels later if you want</label></div>
 				<br/>
-				<input type="email" name="personEmail" placeholder="email...">
+				<input id="emailId" type="email" name="personEmail" placeholder="email...">
 				<button id="add_person_submission" type="submit" style="float: right;" disabled="true">add...</button><br />
 			</form>
 		</div>
@@ -86,15 +86,20 @@
 		<div style="padding-bottom: 15px; width: 100%;">
 			<h3 style="text-align: center;" class="topAndBottomBorder">Add event...</h3>
 			<form onsubmit="resources/submit.php">
-				<br/>
+				<div style="width: 95%">
+					<input id="eventSubject" style="width: 35em; padding-bottom: 3%;" placeholder="short version: five words or less that you'll remember" />
 
-				<textarea style="width: 98%;">
+					<textarea id="eventText" style="width: 44em; margin-top: 5px; margin-bottom: 5px;" placeholder="a slightly longer version of the event --400 characters or less"></textarea>
 					
-				</textarea>
-				
-				<button id="add_person_submission" type="submit" style="float: right; margin-right: 1%;" disabled="true">add...</button>
-				<button style="visibility: hidden;" disabled="true">add...</button>
-				<br />
+					<div style="float: left; display: flex;"><div style="display: flex" id="charCount">0</div><div style="display: flex">/400</div></div>
+
+					<button id="add_person_submission" type="submit" style="float: right; margin-right: -1em;" disabled="true">add...</button>
+
+					<button style="visibility: hidden;" disabled="true">add...</button>
+
+					<br />
+
+				</div>
 			</form>
 		</div>
 	</div>
