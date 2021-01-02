@@ -45,6 +45,9 @@ docReady(function() {
   //loadPeople();
   //loadTodaysPeople
   //loadEvents
+  //load events since last contact
+  //add person
+  //
   /*
     
   */
