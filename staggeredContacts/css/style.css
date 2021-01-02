@@ -22,6 +22,15 @@ body
 	box-shadow: 10px 5px 5px gray;
 	display: flex;
 }
+
+.titleBorder{
+	border-bottom: 2px solid gray;
+}
+.topAndBottomBorder{
+	margin-top: 3px;
+	border-top: 2px solid gray;	
+	border-bottom: 2px solid gray;	
+}
 .leftBar
 {
 	background-color: #e1e4b4;
@@ -51,15 +60,6 @@ body
 	box-shadow: -10px 5px 5px gray;
 }
 
-.titleBorder{
-	border-bottom: 2px solid gray;
-}
-.topAndBottomBorder{
-	margin-top: 3px;
-	border-top: 2px solid gray;	
-	border-bottom: 2px solid gray;	
-}
-
 
 .oneTenth { height: 10%; }
 .oneFifth { height: 20%; }
@@ -69,21 +69,17 @@ body
 .eighty { height: 80%; }
 .ninety { height: 90%; }
 .full { height: 95% }
-
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
