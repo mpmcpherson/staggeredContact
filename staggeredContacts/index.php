@@ -32,7 +32,7 @@
 			<div class="rightBar full" id="leftBar">
 				<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
 				<br />
-				<div id="array_of_people"></div>
+				<div id="array_of_events"></div>
 			</div>
 		</div>
 		<div id="myModal" class="modal">

@@ -105,3 +105,55 @@ function toggleHidden(targetDiv) {
     x.style.display = "none";
   }
 } 
+
+function getCookie(inputString, searchTerm)
+{
+    var v = parseCookie(inputString);
+    var x;
+    for (var i=0;i<v.length;i++)
+    {
+        if(v[i][0].includes(searchTerm))
+        {
+            x=v[i][1];
+            return(x);
+        }
+    }
+    return false;
+}
+function parseCookie(inputString)
+{
+
+
+    let cookieAry = inputString.split(';');
+
+    let KvP = new Array(cookieAry.length);
+
+    for(let i = 0; i<cookieAry.length; i++)
+    {
+        KvP[i]=cookieAry[i].split('=');
+    }
+
+    return KvP;
+}
+
+function keyupListener() {
+    window.onkeyup = function(e) {
+        if ( e.keyCode === 27 ) {
+            //toggleMenuOff();
+            }
+        };
+}
+
+function setCookie(fullCookieString)
+{
+    //console.log(fullCookieString);
+
+    let d = new Date();
+    d.setTime(d.getTime() + (8 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = fullCookieString+ ";" + expires + ";path=/";
+}
+function addCookie(cname, cvalue) {
+    setCookie(cname + "=" + cvalue + ";");
+    //sessionStorage.setItem(cname,cvalue);
+}

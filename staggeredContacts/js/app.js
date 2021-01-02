@@ -38,7 +38,7 @@ function loadPeople(userId, targetDiv)
 
 }
 
-  function loadTodaysPeople(userId){
+  function loadTodaysPeople(userId, targetDiv){
     let resultDiv = document.getElementById(targetDiv);
     userId = {"userId" : userId};
     let data = JSON.stringify(userId);
@@ -61,7 +61,7 @@ function loadPeople(userId, targetDiv)
     data);
 
   }
-  function loadAllEvents(userId){
+  function loadAllEvents(userId, targetDiv){
     let resultDiv = document.getElementById(targetDiv);
     userId = {"userId" : userId};
     let data = JSON.stringify(userId);
@@ -84,7 +84,7 @@ function loadPeople(userId, targetDiv)
     data);
 
   }
-  function loadEventsSinceLastContact(userId, personId){
+  function loadEventsSinceLastContact(userId, personId, targetDiv){
     let resultDiv = document.getElementById(targetDiv);
     userId = {"userId" : userId};
     let data = JSON.stringify(userId);
@@ -107,43 +107,50 @@ function loadPeople(userId, targetDiv)
     data);
 
   }
-  function addPerson(first_name, last_name, userId, intervalAmount, intervalTime, intervalType, personId, channelName, channelValue){
+  function addPerson(first_name, last_name, userId, intervalAmount, intervalTime, intervalType, personId, channelName, channelValue, targetDiv){
     let resultDiv = document.getElementById(targetDiv);
-      userId = {"userId" : userId};
-      let data = JSON.stringify(userId);
-     
-      postRequest('resources/addPerson.php', 
-        function(response){
-          console.log(response);
-          let d = "";
-          try{
-            d = JSON.parse(response);
-            appendNnodes(resultDiv, d);
-          }catch(error){
-            console.log(error);
-          }
-      },
-        function(response){
-          console.log(response);
-          resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
-      },
-      data);
-
+    let values = {
+      "first_name" : first_name, 
+      "last_name": last_name, 
+      "userId" : userId, 
+      "intervalAmount" : intervalAmount, 
+      "intervalTime" : intervalTime, 
+      "intervalType" : intervalType, 
+      "personId" : personId, 
+      "channelName" : channelName, 
+      "channelValue" : channelValue, 
+      "targetDiv" : targetDiv
+    };
+    let data = JSON.stringify(values);
+   
+    postRequest('resources/addPerson.php', 
+      function(response){
+        console.log(response);
+        let d = "";
+        try{
+          d = JSON.parse(response);
+          appendNnodes(resultDiv, d);
+        }catch(error){
+          console.log(error);
+        }
+    },
+      function(response){
+        console.log(response);
+        resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+    },
+    data);
   }
 
 //set up event listener on keyup: monitor modal fields to start with
 //after the modal validates, toggleHidden(targetDiv)
 
+//listener for the add button
+
 docReady(function() {
 
-  //loadPeople();
-  //loadTodaysPeople(){}
-  //loadAllEvents(){}
-  //loadEventsSinceLastContact(){}
-  //addPerson(){}
-  //
-  /*
-    
-  */
+  loadPeople(44, "array_of_people");
+  loadEventsSinceLastContact(44, personId, "array_of_events");
+
   
 });
+
