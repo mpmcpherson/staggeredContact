@@ -20,7 +20,7 @@ Framing this out really quickly, just because I need to get it down.
 > EventListingTable [^2]
 
 - [X] build database tables
-- [ ] reframe UI slightly
+- [X] reframe UI slightly
 - [ ] start cranking out logic
 
 ## this really only works for one user
