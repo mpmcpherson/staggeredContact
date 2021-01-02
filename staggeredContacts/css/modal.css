@@ -21,7 +21,7 @@
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-#myBtn{
+.staggeredButtons{
   
   width: 100%;
   text-align: center;

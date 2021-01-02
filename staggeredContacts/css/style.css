@@ -15,7 +15,8 @@ body
 }
 .header
 {
-
+	border-top: 2px solid gray;	
+	border-bottom: 2px solid gray;	
 }
 .pageHead
 {

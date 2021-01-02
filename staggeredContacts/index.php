@@ -9,18 +9,22 @@
 	</head>
 	<body onresize="fixHeight()">
 		
-		<div class="oneTenth pageHead"><h2><?php echo $header; ?></h2></div>
+		<div class="oneTenth pageHead">
+			<div class="">
+				<h2><?php echo $header; ?></h2>
+			</div>
+		</div>
 		<div class="wrapper ninety" id="container">
 			<div class="leftBar full" id="leftBar">
 				<div class="titleBorder"style="font-weight: bold;">
-					<button id="myBtn">Add person</button>
+					<button id="addPerson" class="staggeredButtons">Add person</button>
 					<br />
 				<?php echo $leftBar; ?></div>
 				<br />
 				<div id="array_of_people"></div>
 			</div>
 			<div class="mainBody full" id="body">
-				<div class="header">
+				<div class="">
 					<h3 class="titleBorder"><?php echo $viewportTitle; ?></h3>
 				</div>
 				
@@ -30,12 +34,13 @@
 				<div> End Text </div>
 			</div>
 			<div class="rightBar full" id="leftBar">
+				<button id="addEvent" class="staggeredButtons">Add Event</button>
 				<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
 				<br />
 				<div id="array_of_events"></div>
 			</div>
 		</div>
-		<div id="myModal" class="modal">
+		<div id="addPersonModal" class="modal">
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="close">&times;</span>
@@ -74,11 +79,30 @@
 		</div>
 	</div>
 </div>
+<div id="addEventModal" class="modal">
+	<!-- Modal content -->
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<div style="padding-bottom: 15px; width: 100%;">
+			<h3 style="text-align: center;" class="topAndBottomBorder">Add event...</h3>
+			<form onsubmit="resources/submit.php">
+				<br/>
+
+				<textarea style="width: 98%;">
+					
+				</textarea>
+				
+				<button id="add_person_submission" type="submit" style="float: right; margin-right: 1%;" disabled="true">add...</button>
+				<button style="visibility: hidden;" disabled="true">add...</button>
+				<br />
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 <script type="text/javascript">
 	function fixHeight(){
-
 	}
 </script>
 <script type="text/javascript" src="js\helper.js"></script>
