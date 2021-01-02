@@ -13,10 +13,11 @@ function appendNnodes(target,data)
 
 }
 
-function loadPeople()
+function loadPeople(userId)
 { 
   let resultDiv = document.getElementById("array_of_people");
-  let data = JSON.stringify({userId : 44});
+  userId = {"userId" : userId};
+  let data = JSON.stringify(userId);
  
   postRequest('resources/loadPeople.php', 
     function(response){
@@ -37,16 +38,29 @@ function loadPeople()
 
 }
 
+  function loadTodaysPeople(userId){
+
+  }
+  function loadAllEvents(){
+
+  }
+  function loadEventsSinceLastContact(){
+
+  }
+  function addPerson(first_name, last_name, userId, intervalAmount, intervalTime, intervalType, personId, channelName, channelValue){
+
+  }
+
 //set up event listener on keyup: monitor modal fields to start with
 //after the modal validates, toggleHidden(targetDiv)
 
 docReady(function() {
 
   //loadPeople();
-  //loadTodaysPeople
-  //loadEvents
-  //load events since last contact
-  //add person
+  //loadTodaysPeople(){}
+  //loadAllEvents(){}
+  //loadEventsSinceLastContact(){}
+  //addPerson(){}
   //
   /*
     
