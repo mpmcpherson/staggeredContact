@@ -19,7 +19,6 @@ eventBtn.onclick = function(){
 };
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-	personModal.style.display = "none";
 	let newPerson = document.getElementById("newPerson");
 	let email = document.getElementById("emailId");
 	let freqAmt = document.getElementById("freqNum");
@@ -29,21 +28,23 @@ span.onclick = function() {
 	email.value="";
 	freqAmt.value="";
 	freqSelect.value=0;
+
+	personModal.style.display = "none";
 };
 eventSpan.onclick = function(){
-	eventModal.style.display = "none";
 	let textArea = document.getElementById("eventText");
 	let eventSubject = document.getElementById("eventSubject");
 	let charCount = document.getElementById("charCount");
 	textArea.value = "";
-	eventSubject.value = "";
-	charCount.value = 0;
+	eventSubject.innerHTML = "";
+	charCount.innerHTML = "0";
+
+	eventModal.style.display = "none";
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
 	if (event.target === personModal) {
-		personModal.style.display = "none";
 		let newPerson = document.getElementById("newPerson");
 		let email = document.getElementById("emailId");
 		let freqAmt = document.getElementById("freqNum");
@@ -53,12 +54,17 @@ window.onclick = function(event) {
 		email.value="";
 		freqAmt.value="";
 		freqSelect.value=0;
+
+		personModal.style.display = "none";
 	}
 	if (event.target === eventModal) {
-		eventModal.style.display = "none";
 		let textArea = document.getElementById("eventText");
 		let eventSubject = document.getElementById("eventSubject");
-		textArea.value = "0";
-		eventSubject.value = "";
+		let charCount = document.getElementById("charCount");
+		textArea.value = "";
+		eventSubject.innerHTML = "";
+		charCount.innerHTML = "0";
+
+		eventModal.style.display = "none";
 	}
 };
