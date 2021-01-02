@@ -6,6 +6,7 @@
 <title><?php echo $title; ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" href="css\style.css">
+<link rel="stylesheet" href="css\modal.css">
 
 </head>
 
@@ -20,6 +21,7 @@
 			<div class="titleBorder"style="font-weight: bold;"><?php echo $leftBar; ?></div>
 			<br />
 			<div id="array_of_people"></div>
+			<button id="myBtn" style="display: flex;">Open Modal</button> 
 		</div>
 
 
@@ -39,10 +41,28 @@
 			<br />
 			<div id="array_of_people"></div>
 		</div>
-
 	</div>
+
+<div id="myModal" class="modal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<div>
+			<form onsubmit="resources/submit.php"> <br />
+				<span><label for="newPerson">Keep in touch with: </label><input type="text" name="newPerson"></span> <br />
+				<span>a datepicker, I guess?</span><br />
+				<button>submit</button><br />
+			</form>
+		</div>
+	</div>
+
+</div>
+
 </body>	
 </html> 
 
 <script type="text/javascript" src="js\helper.js"></script>
+<script type="text/javascript" src="js\modal.js"></script>
 <script type="text/javascript" src="js\app.js"></script>
+

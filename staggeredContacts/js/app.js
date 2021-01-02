@@ -43,9 +43,11 @@ function loadPeople()
 
 docReady(function() {
 
-  loadPeople();
+  //loadPeople();
+  //loadTodaysPeople
+  //loadEvents
   /*
-  
+    
   */
   
 });
