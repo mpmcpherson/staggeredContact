@@ -16,14 +16,14 @@
 
 	<div class="wrapper ninety" id="container">
 
-		<div class="leftBar ninety" id="leftBar">
+		<div class="leftBar full" id="leftBar">
 			<div class="titleBorder"style="font-weight: bold;"><?php echo $leftBar; ?></div>
 			<br />
 			<div id="array_of_people"></div>
 		</div>
 
 
-		<div class="mainBody ninety" id="body">
+		<div class="mainBody full" id="body">
 			<div class="header">
 				<h3 class="titleBorder"><?php echo $viewportTitle; ?></h3>
 			</div> 
@@ -34,7 +34,7 @@
 			<div> End Text </div>	
 		</div>
 
-		<div class="rightBar ninety" id="leftBar">
+		<div class="rightBar full" id="leftBar">
 			<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
 			<br />
 			<div id="array_of_people"></div>

@@ -3,6 +3,7 @@ body
 {
 	background-color: #edefd3;
 	height: 100%; margin: 0px; padding: 0px;
+  	overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .leftBar
@@ -15,6 +16,7 @@ body
 	-ms-flex: 1;              /* IE 10 */
 	flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	box-shadow: 10px 5px 5px gray;
+	overflow-y: scroll;
 }
 
 .wrapper
@@ -61,4 +63,23 @@ body
 .threeQuarters { height: 75%;}
 .eighty { height: 80%; }
 .ninety { height: 90%; }
-.full { height: 100% }
+.full { height: 95% }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
