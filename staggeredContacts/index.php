@@ -40,6 +40,7 @@
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<div>
+					<h3 style="text-align: center;" class="topAndBottomBorder">Add person...</h3>
 					<form onsubmit="resources/submit.php"> <br />
 						<table>
 							<tr>
@@ -51,27 +52,27 @@
 						</tr>
 						<tr>
 							<td>
-								<label for="frequency"> how often? Every:</label>
+								<label for="frequency" style="display: inline;"> how often? Every:</label>
 							</td><td>
-							<input type="numeric" name="frequency">
-							
-						</td><td>
-						<select>
-							<option>Select...</option>
-							<option>day</option>
-							<option>week</option>
-							<option>month</option>
-							<option>year</option>
-						</select>
-					</td>
-				</tr>
-			</table>
-			<br />
-			<span>a datepicker, I guess?</span><br />
-			<button>submit</button><br />
-		</form>
+							<input type="number" name="frequency" style="display: inline;">
+							<select>
+								<option>Select...</option>
+								<option value="1">days</option>
+								<option value="2">weeks</option>
+								<option value="3">months</option>
+								<option value="4">years</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<div style="text-align: center;" class="topAndBottomBorder"><label>let's put down their email. You can add other channels later if you want</label></div>
+				<br/>
+				<input type="email" name="personEmail" placeholder="email...">
+				<button id="add_person_submission" type="submit" style="float: right;" disabled="true">add...</button><br />
+			</form>
+		</div>
 	</div>
-</div>
 </div>
 </body>
 </html>

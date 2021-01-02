@@ -49,6 +49,11 @@ body
 .titleBorder{
 	border-bottom: 2px solid gray;
 }
+.topAndBottomBorder{
+	margin-top: 3px;
+	border-top: 2px solid gray;	
+	border-bottom: 2px solid gray;	
+}
 
 
 .oneTenth { height: 10%; }
