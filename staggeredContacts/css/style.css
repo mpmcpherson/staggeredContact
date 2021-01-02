@@ -29,7 +29,7 @@ body
 	display: flex;
 	flex-flow: column;
 	box-shadow: 10px 5px 5px gray;
-  	min-height: 100%;
+  	min-height: 100vh;
 	overflow-y: scroll;
 }
 .mainBody
@@ -47,7 +47,7 @@ body
 	flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	display: flex;
 	flex-flow: column;
-  	min-height: 100%;
+  	min-height: 100vh;
 	box-shadow: -10px 5px 5px gray;
 }
 
