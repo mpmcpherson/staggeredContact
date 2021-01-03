@@ -43,18 +43,19 @@ eventSpan.onclick = function(){
   eventModal.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target === personModal) {
-    personAddHandler();
-  }
-  if (event.target === eventModal) {
-   eventAddHandler();
-  }
-  if(event.target===addPersonSubmission){
-    addPersonActual();
-  }
-};
+function globalClickListener(){
+  window.onclick = function(event) {
+    if (event.target === personModal) {
+      personAddHandler();
+    }
+    if (event.target === eventModal) {
+     eventAddHandler();
+    }
+    if(event.target===addPersonSubmission){
+      addPersonActual();
+    }
+  };
+}
 function personAddHandler(){
     let newPerson = document.getElementById("newPerson");
     let email = document.getElementById("emailId");
@@ -244,34 +245,10 @@ function keypressListener(){
 
 }
 
-function clickListener(){
-  let addPersonSubmission = document.getElementById("add_person_submission");
-  
-  window.onclick = function(event){
-    if(event.target===addPersonSubmission){
-      
-      let ary = document.getElementById("newPerson").value.split(" ");
-      let count = document.getElementById("newPerson").value.length;
-
-      let firstName = ary[0];
-      let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
-      let userId = 44;
-      let intervalAmount = document.getElementById("freqNum").value;
-      let intervalType = document.getElementById("freqSelect").value;
-      let channelName = "email"; 
-      let channelValue = document.getElementById("emailId").value;
-      
-
-      addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
-    }
-  };
-  
-}
-
 docReady(function() {
   let uid = 44;
-
-  //clickListener();
+  
+  globalClickListener();
   keypressListener();
 
   loadPeople(uid, "array_of_people");
@@ -284,7 +261,4 @@ docReady(function() {
     })(listIndex);
   
   }
-  
-
-  
 });
