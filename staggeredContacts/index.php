@@ -30,6 +30,7 @@
 				<div>
 					<textarea style="display: flex; height: 85vh; width: 100%;"></textarea>
 				</div>
+				<a href="mailto:" style="width: 100%;"><button style="width: 100%;">>send it!<</button></a>
 			</div>
 			<div class="rightBar full" id="leftBar">
 				<button id="addEvent" class="staggeredButtons">Add Event</button>

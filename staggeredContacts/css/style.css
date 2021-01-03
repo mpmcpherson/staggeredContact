@@ -22,6 +22,7 @@ body
 {
 	box-shadow: 10px 5px 5px gray;
 	display: block;
+	height: 6%;
 	
 }
 
@@ -40,7 +41,7 @@ body
 	display: flex;
 	flex-flow: column;
 	box-shadow: 10px 5px 5px gray;
-  	min-height: 100vh;
+  	min-height: 92vh;
 	overflow-y: scroll;
 }
 .mainBody
@@ -58,12 +59,12 @@ body
 	flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	display: flex;
 	flex-flow: column;
-  	min-height: 100vh;
+  	min-height: 92vh;
 	box-shadow: -10px 5px 5px gray;
 }
 
 
-.oneTenth { height: 10%; }
+
 .oneFifth { height: 20%; }
 .oneQuarter { height: 25%; }
 .half { height: 50%; }
