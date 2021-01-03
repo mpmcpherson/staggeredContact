@@ -107,14 +107,13 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
   data);
 
 }
-function addPerson(first_name, last_name, userId, intervalAmount, intervalType, personId, channelName, channelValue){
+function addPerson(first_name, last_name, userId, intervalAmount, intervalType, channelName, channelValue){
   let values = {
     "first_name" : first_name, 
     "last_name": last_name, 
     "userId" : userId, 
     "intervalAmount" : intervalAmount,
     "intervalType" : intervalType, 
-    "personId" : personId, 
     "channelName" : channelName, 
     "channelValue" : channelValue
   };
