@@ -165,6 +165,7 @@ function appendNnodes(target,data)
 function loadPeople(userId, targetDiv)
 { 
   let resultDiv = document.getElementById(targetDiv);
+  resultDiv.innerHTML = "";
   userId = {"userId" : userId};
   let data = JSON.stringify(userId);
  
@@ -214,6 +215,7 @@ function loadAllEvents(userId, targetDiv){
   let resultDiv = document.getElementById(targetDiv);
   userId = {"userId" : userId};
   let data = JSON.stringify(userId);
+  resultDiv.innerHTML="";
 
   postRequest('resources/loadAllEvents.php', 
     function(response){
@@ -237,6 +239,7 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
   let resultDiv = document.getElementById(targetDiv);
   userId = {"userId" : userId};
   let data = JSON.stringify(userId);
+  resultDiv.innerHTML="";
  
   postRequest('resources/loadEventsSinceLastContact.php', 
     function(response){
@@ -275,6 +278,7 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
       try{
         d = JSON.parse(response);
         personGeneralClose(document.getElementById("addPersonModal"));
+        loadPeople(uid, "array_of_people");
         alert(d);
       }catch(error){
         console.log(error);
@@ -306,6 +310,7 @@ docReady(function() {
   keypressListener();
 
   loadPeople(uid, "array_of_people");
+  loadAllEvents(uid, "array_of_events");
 
   let peopleList = document.getElementById("array_of_people").children;
 
