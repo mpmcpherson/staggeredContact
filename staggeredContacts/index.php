@@ -46,7 +46,7 @@
 				<span class="close">&times;</span>
 				<div>
 					<h3 style="text-align: center;" class="topAndBottomBorder">Add person...</h3>
-					<form onsubmit="resources/submit.php"> <br />
+					<div> <br />
 						<table>
 							<tr>
 								<td>
@@ -74,8 +74,8 @@
 				<div style="text-align: center;" class="topAndBottomBorder"><label>let's put down their email. You can add other channels later if you want</label></div>
 				<br/>
 				<input id="emailId" type="email" name="personEmail" placeholder="email...">
-				<button id="add_person_submission" type="submit" style="float: right;" disabled="true">add...</button><br />
-			</form>
+				<button id="add_person_submission" type="submit" style="float: right;" >add...</button><br />
+			</div>
 		</div>
 	</div>
 </div>
@@ -85,7 +85,7 @@
 		<span class="close">&times;</span>
 		<div style="padding-bottom: 15px; width: 100%;">
 			<h3 style="text-align: center;" class="topAndBottomBorder">Add event...</h3>
-			<form onsubmit="resources/submit.php">
+			<div>
 				<div style="width: 95%">
 					<input id="eventSubject" style="width: 35em; padding-bottom: 3%; display: inline-block;" placeholder="short version: five words or less that you'll remember" />
 
@@ -100,7 +100,7 @@
 					<br />
 
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 </div>

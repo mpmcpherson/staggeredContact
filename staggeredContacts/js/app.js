@@ -182,6 +182,7 @@ function clickListener(){
 docReady(function() {
   let uid = 44;
 
+  clickListener();
   keypressListener();
 
   loadPeople(uid, "array_of_people");

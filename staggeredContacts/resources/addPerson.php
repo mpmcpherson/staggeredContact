@@ -27,6 +27,7 @@ $personId = $gets["personId"];
 $channelName = $gets["channelName"];
 $channelValue = $gets["channelValue"];
 
+var_dump($gets);
 
 //person insert
 $qq = "insert into person(first_name, last_name, possessingUserId) values (".$first_name.", ".$last_name.", ".$userId.")";
