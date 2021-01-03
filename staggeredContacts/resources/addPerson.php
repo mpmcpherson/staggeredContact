@@ -36,6 +36,7 @@ $result = mysqli_query($dbhandle, $qq);
 $qq = "insert into unserIntervalLInk(userId, intervalAmount, intervalType) values (".$userId.", ".$intervalAmount.", ".$intervalType.")";
 $result = mysqli_query($dbhandle, $qq);
 
+//going to have to select newest to get personid
 //contact details
 $qq = "insert into contactChannels(personId, channelName, channelValue) values (".$personId.", ".$channelName.", ".$channelValue.")";
 $result = mysqli_query($dbhandle, $qq);

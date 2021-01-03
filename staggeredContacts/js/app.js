@@ -107,19 +107,16 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
   data);
 
 }
-function addPerson(first_name, last_name, userId, intervalAmount, intervalTime, intervalType, personId, channelName, channelValue, targetDiv){
-  let resultDiv = document.getElementById(targetDiv);
+function addPerson(first_name, last_name, userId, intervalAmount, intervalType, personId, channelName, channelValue){
   let values = {
     "first_name" : first_name, 
     "last_name": last_name, 
     "userId" : userId, 
-    "intervalAmount" : intervalAmount, 
-    "intervalTime" : intervalTime, 
+    "intervalAmount" : intervalAmount,
     "intervalType" : intervalType, 
     "personId" : personId, 
     "channelName" : channelName, 
-    "channelValue" : channelValue, 
-    "targetDiv" : targetDiv
+    "channelValue" : channelValue
   };
   let data = JSON.stringify(values);
  
@@ -129,14 +126,14 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalTime, 
       let d = "";
       try{
         d = JSON.parse(response);
-        appendNnodes(resultDiv, d);
+        alert(d);
       }catch(error){
         console.log(error);
       }
   },
     function(response){
       console.log(response);
-      resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+      //resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
 }
@@ -154,6 +151,29 @@ function keypressListener(){
 
 }
 
+function clickListener(){
+  let addPersonSubmission = document.getElementById("add_person_submission");
+  
+  window.onclick = function(event){
+    if(event.target===addPersonSubmission){
+      
+      let ary = document.getElementById("newPerson").value.split(" ");
+      let count = document.getElementById("newPerson").value.length;
+
+      let firstName = ary[0];
+      let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
+      let userId = 44;
+      let intervalAmount = document.getElementById("freqNum").value;
+      let intervalType = document.getElementById("freqSelect").value;
+      let channelName = "email"; 
+      let channelValue = document.getElementById("emailId").value;
+      
+
+      addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
+    }
+  };
+  
+}
 //set up event listener on keyup: monitor modal fields to start with
 //after the modal validates, toggleHidden(targetDiv)
 
@@ -178,4 +198,3 @@ docReady(function() {
 
   
 });
-

@@ -87,9 +87,9 @@
 			<h3 style="text-align: center;" class="topAndBottomBorder">Add event...</h3>
 			<form onsubmit="resources/submit.php">
 				<div style="width: 95%">
-					<input id="eventSubject" style="width: 35em; padding-bottom: 3%;" placeholder="short version: five words or less that you'll remember" />
+					<input id="eventSubject" style="width: 35em; padding-bottom: 3%; display: inline-block;" placeholder="short version: five words or less that you'll remember" />
 
-					<textarea id="eventText" style="width: 44em; margin-top: 5px; margin-bottom: 5px;" placeholder="a slightly longer version of the event --400 characters or less"></textarea>
+					<textarea id="eventText" style="width: 44em; margin-top: 5px; margin-bottom: 5px; display: inline-block;" placeholder="a slightly longer version of the event ~400 characters or less"></textarea>
 					
 					<div style="float: left; display: flex;"><div style="display: flex" id="charCount">0</div><div style="display: flex">/400</div></div>
 
