@@ -1,6 +1,7 @@
 // Get the modal
 var personModal = document.getElementById("addPersonModal");
 var eventModal = document.getElementById("addEventModal");
+let addPersonSubmission = document.getElementById("add_person_submission");
 
 // Get the button that opens the modal
 var btn = document.getElementById("addPerson");
@@ -45,6 +46,16 @@ eventSpan.onclick = function(){
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target === personModal) {
+    personAddHandler();
+  }
+  if (event.target === eventModal) {
+   eventAddHandler();
+  }
+  if(event.target===addPersonSubmission){
+    addPersonActual();
+  }
+};
+function personAddHandler(){
     let newPerson = document.getElementById("newPerson");
     let email = document.getElementById("emailId");
     let freqAmt = document.getElementById("freqNum");
@@ -56,8 +67,8 @@ window.onclick = function(event) {
     freqSelect.value=0;
 
     personModal.style.display = "none";
-  }
-  if (event.target === eventModal) {
+}
+function eventAddHandler(){
     let textArea = document.getElementById("eventText");
     let eventSubject = document.getElementById("eventSubject");
     let charCount = document.getElementById("charCount");
@@ -66,30 +77,22 @@ window.onclick = function(event) {
     charCount.innerHTML = "0";
 
     eventModal.style.display = "none";
-  }
+}
+function addPersonActual(){
+    let ary = document.getElementById("newPerson").value.split(" ");
+    let count = document.getElementById("newPerson").value.length;
 
-  let addPersonSubmission = document.getElementById("add_person_submission");
-  
-  window.onclick = function(event){
-    if(event.target===addPersonSubmission){
-
-      let ary = document.getElementById("newPerson").value.split(" ");
-      let count = document.getElementById("newPerson").value.length;
-
-      let firstName = ary[0];
-      let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
-      let userId = 44;
-      let intervalAmount = document.getElementById("freqNum").value;
-      let intervalType = document.getElementById("freqSelect").value;
-      let channelName = "email"; 
-      let channelValue = document.getElementById("emailId").value;
+    let firstName = ary[0];
+    let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
+    let userId = 44;
+    let intervalAmount = document.getElementById("freqNum").value;
+    let intervalType = document.getElementById("freqSelect").value;
+    let channelName = "email"; 
+    let channelValue = document.getElementById("emailId").value;
 
 
-      addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
-    }
-  };
-};
-
+    addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
+}
 function appendNnodes(target,data)
 {
 
@@ -264,10 +267,6 @@ function clickListener(){
   };
   
 }
-//set up event listener on keyup: monitor modal fields to start with
-//after the modal validates, toggleHidden(targetDiv)
-
-//listener for the add button
 
 docReady(function() {
   let uid = 44;

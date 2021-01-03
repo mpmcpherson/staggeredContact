@@ -27,11 +27,9 @@
 				<div class="">
 					<h3 class="titleBorder"><?php echo $viewportTitle; ?></h3>
 				</div>
-				
-				<div id="text">Here's some text, and isn't it interesting?</div>
-				<div id="text">Lorem ipsum dolor sit amet. Dulche et decorum est</div>
-				<div id="text">Here's some text, and isn't it interesting?</div>
-				<div> End Text </div>
+				<div>
+					<textarea style="display: flex; height: 85vh; width: 100%;"></textarea>
+				</div>
 			</div>
 			<div class="rightBar full" id="leftBar">
 				<button id="addEvent" class="staggeredButtons">Add Event</button>
