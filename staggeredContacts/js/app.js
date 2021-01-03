@@ -1,56 +1,15 @@
-// Get the modal
-//need to pull this nonsense out of global so that it can be 
-//correctly parsed and code paths actually exist. This shit
-//is a briar patch.
-var personModal = document.getElementById("addPersonModal");
-var eventModal = document.getElementById("addEventModal");
-let addPersonSubmission = document.getElementById("add_person_submission");
-let addEventSubmission = document.getElementById("add_event_submission");
+
 
 let uid = 44;
 
-// Get the button that opens the modal
-var btn = document.getElementById("addPerson");
-var eventBtn = document.getElementById("addEvent");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var eventSpan = document.getElementsByClassName("close")[1];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  personModal.style.display = "block";
-};
-eventBtn.onclick = function(){
-  eventModal.style.display = "block";
-};
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  let newPerson = document.getElementById("newPerson");
-  let email = document.getElementById("emailId");
-  let freqAmt = document.getElementById("freqNum");
-  let freqSelect = document.getElementById("freqSelect");
-
-  newPerson.value="";
-  email.value="";
-  freqAmt.value="";
-  freqSelect.value=0;
-
-  personModal.style.display = "none";
-};
-eventSpan.onclick = function(){
-  let textArea = document.getElementById("eventText");
-  let eventSubject = document.getElementById("eventSubject");
-  let charCount = document.getElementById("charCount");
-  textArea.value = "";
-  eventSubject.innerHTML = "";
-  charCount.innerHTML = "0";
-
-  eventModal.style.display = "none";
-};
-
 function globalClickListener(){
+  let personModal = document.getElementById("addPersonModal");
+  let eventModal = document.getElementById("addEventModal");
+  let addPersonSubmission = document.getElementById("add_person_submission");
+  let addEventSubmission = document.getElementById("add_event_submission");
+
   window.onclick = function(event) {
+
     if (event.target === personModal) {
       personAddHandler();
     }
@@ -64,7 +23,59 @@ function globalClickListener(){
       addEventActual();
     }
   };
+
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("addPerson");
+  var eventBtn = document.getElementById("addEvent");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  var eventSpan = document.getElementsByClassName("close")[1];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    personModal.style.display = "block";
+  };
+  eventBtn.onclick = function(){
+    eventModal.style.display = "block";
+  };
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    personGeneralClose(personModal);
+  };
+  eventSpan.onclick = function(){
+    eventGeneralClose(eventModal);
+  };
+
+
 }
+//need to *actually* generalize an object-close method, but this'll do.
+function personGeneralClose(targetObject){
+  let newPerson = document.getElementById("newPerson");
+    let email = document.getElementById("emailId");
+    let freqAmt = document.getElementById("freqNum");
+    let freqSelect = document.getElementById("freqSelect");
+
+    newPerson.value="";
+    email.value="";
+    freqAmt.value="";
+    freqSelect.value=0;
+
+    targetObject.style.display = "none";
+}
+
+function eventGeneralClose(targetObject){
+  let textArea = document.getElementById("eventText");
+    let eventSubject = document.getElementById("eventSubject");
+    let charCount = document.getElementById("charCount");
+    textArea.value = "";
+    eventSubject.innerHTML = "";
+    charCount.innerHTML = "0";
+
+    targetObject.style.display = "none";
+}
+
 function personAddHandler(){
     let newPerson = document.getElementById("newPerson");
     let email = document.getElementById("emailId");
@@ -124,6 +135,7 @@ function addEvent(EventListing, EventTopic) {
       let d = "";
       try{
         d = JSON.parse(response);
+        eventGeneralClose(document.getElementById("addEventModal"));
         alert(d);
       }catch(error){
         console.log(error);
@@ -262,6 +274,7 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
       let d = "";
       try{
         d = JSON.parse(response);
+        personGeneralClose(document.getElementById("addPersonModal"));
         alert(d);
       }catch(error){
         console.log(error);
