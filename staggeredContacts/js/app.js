@@ -219,7 +219,6 @@ function loadAllEvents(userId, targetDiv){
 
   postRequest('resources/loadAllEvents.php', 
     function(response){
-      console.log(response);
       let d = "";
       try{
         d = JSON.parse(response);

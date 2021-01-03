@@ -15,7 +15,7 @@ $result = mysqli_query($dbhandle, $qq);
 $output = array();
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    array_push($output, array($row['id'],$row['userId'], $row['EventListing']));
+    array_push($output, array($row['id'],$row['EventTopic'], $row['EventListing']));
 }
 
 echo json_encode($output);
