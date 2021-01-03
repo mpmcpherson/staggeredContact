@@ -15,9 +15,13 @@ $result = mysqli_query($dbhandle, $qq);
 $output = array();
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    array_push($output, array($row['id'],$row['EventTopic'], $row['EventListing']));
+    array_push($output, array(recoverString($row['id']),recoverString($row['EventTopic'])));
 }
 
 echo json_encode($output);
 
+
+function recoverString(string $string) : string{
+	return htmlspecialchars_decode($string, ENT_QUOTES);
+}
 ?>

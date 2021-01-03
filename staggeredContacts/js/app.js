@@ -155,7 +155,12 @@ function appendNnodes(target,data)
   {
     let nameContainer = document.createElement("div");
     nameContainer.id = data[i][0];
-    let nameTextNode = document.createTextNode(data[i][1]+" "+data[i][2]);
+    let nameTextNode = "";
+    if(typeof data[i][2]!=='undefined'){
+      nameTextNode = document.createTextNode(data[i][1]+" "+data[i][2]);
+    }else{
+      nameTextNode = document.createTextNode(data[i][1]);
+    }
     nameContainer.appendChild(nameTextNode);
     target.appendChild(nameContainer);
   }
