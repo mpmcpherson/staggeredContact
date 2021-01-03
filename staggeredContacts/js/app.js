@@ -1,7 +1,13 @@
 // Get the modal
+//need to pull this nonsense out of global so that it can be 
+//correctly parsed and code paths actually exist. This shit
+//is a briar patch.
 var personModal = document.getElementById("addPersonModal");
 var eventModal = document.getElementById("addEventModal");
 let addPersonSubmission = document.getElementById("add_person_submission");
+let addEventSubmission = document.getElementById("add_event_submission");
+
+let uid = 44;
 
 // Get the button that opens the modal
 var btn = document.getElementById("addPerson");
@@ -54,6 +60,9 @@ function globalClickListener(){
     if(event.target===addPersonSubmission){
       addPersonActual();
     }
+    if(event.target===addEventSubmission){
+      addEventActual();
+    }
   };
 }
 function personAddHandler(){
@@ -85,7 +94,7 @@ function addPersonActual(){
 
     let firstName = ary[0];
     let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
-    let userId = 44;
+    let userId = uid;
     let intervalAmount = document.getElementById("freqNum").value;
     let intervalType = document.getElementById("freqSelect").value;
     let channelName = "email"; 
@@ -94,6 +103,39 @@ function addPersonActual(){
 
     addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
 }
+function addEventActual(){
+  let EventTopic  = document.getElementById("eventSubject").value;
+  let EventListing = document.getElementById("eventText").value;
+  addEvent(EventListing, EventTopic);
+
+}
+
+function addEvent(EventListing, EventTopic) {
+  let values = {
+    "EventTopic" : EventTopic, 
+    "EventListing": EventListing, 
+    "userId" : uid
+  };
+  let data = JSON.stringify(values);
+ 
+  postRequest('resources/addEvent.php', 
+    function(response){
+      console.log(response);
+      let d = "";
+      try{
+        d = JSON.parse(response);
+        alert(d);
+      }catch(error){
+        console.log(error);
+      }
+  },
+    function(response){
+      console.log(response);
+      //resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+  },
+  data);
+}
+
 function appendNnodes(target,data)
 {
 
@@ -227,7 +269,6 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
   },
     function(response){
       console.log(response);
-      //resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
 }
@@ -246,8 +287,8 @@ function keypressListener(){
 }
 
 docReady(function() {
-  let uid = 44;
-  
+
+
   globalClickListener();
   keypressListener();
 
