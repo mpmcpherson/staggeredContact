@@ -67,4 +67,25 @@ window.onclick = function(event) {
 
 		eventModal.style.display = "none";
 	}
+
+	let addPersonSubmission = document.getElementById("add_person_submission");
+  
+	window.onclick = function(event){
+		if(event.target===addPersonSubmission){
+
+			let ary = document.getElementById("newPerson").value.split(" ");
+			let count = document.getElementById("newPerson").value.length;
+
+			let firstName = ary[0];
+			let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
+			let userId = 44;
+			let intervalAmount = document.getElementById("freqNum").value;
+			let intervalType = document.getElementById("freqSelect").value;
+			let channelName = "email"; 
+			let channelValue = document.getElementById("emailId").value;
+
+
+			addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
+		}
+	};
 };
