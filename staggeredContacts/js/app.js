@@ -11,10 +11,10 @@ function globalClickListener(){
   window.onclick = function(event) {
 
     if (event.target === personModal) {
-      personAddHandler();
+      personAddHandler(personModal);
     }
     if (event.target === eventModal) {
-     eventAddHandler();
+     eventAddHandler(eventModal);
     }
     if(event.target===addPersonSubmission){
       addPersonActual();
@@ -67,52 +67,52 @@ function personGeneralClose(targetObject){
 
 function eventGeneralClose(targetObject){
   let textArea = document.getElementById("eventText");
-    let eventSubject = document.getElementById("eventSubject");
-    let charCount = document.getElementById("charCount");
-    textArea.value = "";
-    eventSubject.innerHTML = "";
-    charCount.innerHTML = "0";
+  let eventSubject = document.getElementById("eventSubject");
+  let charCount = document.getElementById("charCount");
+  textArea.value = "";
+  eventSubject.innerHTML = "";
+  charCount.innerHTML = "0";
 
-    targetObject.style.display = "none";
+  targetObject.style.display = "none";
 }
 
-function personAddHandler(){
-    let newPerson = document.getElementById("newPerson");
-    let email = document.getElementById("emailId");
-    let freqAmt = document.getElementById("freqNum");
-    let freqSelect = document.getElementById("freqSelect");
+function personAddHandler(personModal){
+  let newPerson = document.getElementById("newPerson");
+  let email = document.getElementById("emailId");
+  let freqAmt = document.getElementById("freqNum");
+  let freqSelect = document.getElementById("freqSelect");
 
-    newPerson.value="";
-    email.value="";
-    freqAmt.value="";
-    freqSelect.value=0;
+  newPerson.value="";
+  email.value="";
+  freqAmt.value="";
+  freqSelect.value=0;
 
-    personModal.style.display = "none";
+  personModal.style.display = "none";
 }
-function eventAddHandler(){
-    let textArea = document.getElementById("eventText");
-    let eventSubject = document.getElementById("eventSubject");
-    let charCount = document.getElementById("charCount");
-    textArea.value = "";
-    eventSubject.innerHTML = "";
-    charCount.innerHTML = "0";
+function eventAddHandler(eventModal){
+  let textArea = document.getElementById("eventText");
+  let eventSubject = document.getElementById("eventSubject");
+  let charCount = document.getElementById("charCount");
+  textArea.value = "";
+  eventSubject.innerHTML = "";
+  charCount.innerHTML = "0";
 
-    eventModal.style.display = "none";
+  eventModal.style.display = "none";
 }
 function addPersonActual(){
-    let ary = document.getElementById("newPerson").value.split(" ");
-    let count = document.getElementById("newPerson").value.length;
+  let ary = document.getElementById("newPerson").value.split(" ");
+  let count = document.getElementById("newPerson").value.length;
 
-    let firstName = ary[0];
-    let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
-    let userId = uid;
-    let intervalAmount = document.getElementById("freqNum").value;
-    let intervalType = document.getElementById("freqSelect").value;
-    let channelName = "email"; 
-    let channelValue = document.getElementById("emailId").value;
+  let firstName = ary[0];
+  let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
+  let userId = uid;
+  let intervalAmount = document.getElementById("freqNum").value;
+  let intervalType = document.getElementById("freqSelect").value;
+  let channelName = "email"; 
+  let channelValue = document.getElementById("emailId").value;
 
 
-    addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
+  addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);
 }
 function addEventActual(){
   let EventTopic  = document.getElementById("eventSubject").value;

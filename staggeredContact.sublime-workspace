@@ -4,8 +4,76 @@
 		"selected_items":
 		[
 			[
+				"max",
+				"max-height\tproperty"
+			],
+			[
+				"array_",
+				"array_of_events"
+			],
+			[
+				"loadeven",
+				"loadAllEvents"
+			],
+			[
+				"targe",
+				"targetObject"
+			],
+			[
+				"EventL",
+				"EventListing"
+			],
+			[
+				"per",
+				"personid"
+			],
+			[
 				"chan",
-				"$channelValue〔variable〕"
+				"channelValue〔variable〕"
+			],
+			[
+				"cha",
+				"channelName〔variable〕"
+			],
+			[
+				"inter",
+				"intervalType〔variable〕"
+			],
+			[
+				"keyp",
+				"keypressListener"
+			],
+			[
+				"visib",
+				"visibility: 〔property〕"
+			],
+			[
+				"event",
+				"eventBtn"
+			],
+			[
+				"title",
+				"titleBorder"
+			],
+			[
+				"array_of",
+				"array_of_people"
+			],
+			[
+				"tar",
+				"targetDiv〔variable〕"
+			],
+			[
+				"chanee",
+				"channelValue"
+			],
+			[
+				"int",
+				"intervalTime"
+			],
+			[
+				"target",
+				"targetDiv"
 			],
 			[
 				"chann",
@@ -14,10 +82,6 @@
 			[
 				"person",
 				"$personId〔variable〕"
-			],
-			[
-				"inter",
-				"intervalAmount"
 			],
 			[
 				"last",
@@ -163,7 +227,16 @@
 			"file": "staggeredContacts/index.php",
 			"settings":
 			{
-				"buffer_size": 2805,
+				"buffer_size": 4055,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "staggeredContacts/css/style.css",
+			"settings":
+			{
+				"buffer_size": 1976,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -172,17 +245,37 @@
 			"file": "staggeredContacts/js/app.js",
 			"settings":
 			{
-				"buffer_size": 1498,
+				"buffer_size": 9157,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "staggeredContacts/js/helper.js",
+			"file": "staggeredContacts/resources/loadAllEvents.php",
 			"settings":
 			{
-				"buffer_size": 2750,
+				"buffer_size": 564,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "staggeredContacts/resources/loadEventsSinceLastContact.php",
+			"settings":
+			{
+				"buffer_size": 1019,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\nrequire 'defaultConnector.php';\n\n$userId = \"\";\n$EventTopic = \"\";\n$EventListing = \"\";\n\n$gets = json_decode(file_get_contents('php://input'), true);\n\n$userId = $gets[\"userId\"];\n$EventTopic = $gets[\"EventTopic\"];\n$EventListing = $gets[\"EventListing\"];\n\n//var_dump($gets);\n\n$diagnosticOut = \"\";\n\n$qq = \"insert into EventListing(userId, EventTopic, EventListing) values (\".$userId.\", '\".prepString($EventTopic).\"', '\".prepString($EventListing).\"')\";\n\n$result = mysqli_query($dbhandle, $qq);\n$diagnosticOut .= simplog($result, \"event insert successful\");\n\necho json_encode($diagnosticOut);\n\nfunction simplog($result, $call){\n\tif($result){\n\t\treturn $call.\"\\n\";\n\t}else{\n\t\treturn \"Could not insert data : \" . mysqli_error($dbhandle) . \" \" . mysqli_errno($dbhandle);\n\t}\n}\nfunction prepString(string $string) : string{\n\treturn htmlspecialchars(str_replace([\"\\r\\n\", \"\\r\", \"\\n\"], '<br/>', $string), ENT_QUOTES, \"UTF-8\");\n}\n\n?>",
+			"file": "staggeredContacts/resources/addEvent.php",
+			"file_size": 1023,
+			"file_write_time": 132541293288014979,
+			"settings":
+			{
+				"buffer_size": 919,
 				"line_ending": "Unix"
 			}
 		}
@@ -372,18 +465,24 @@
 	],
 	"file_history":
 	[
+		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/abstractRestConnection.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/addEvent.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/addPerson.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js/modal.js",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/defaultConnector.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/style.css",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js/helper.js",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/index.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/modal.css",
+		"/home/michaelmcpherson/src/roundtable/js/app2.js",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadAllEvents.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadEventsSinceLastContact.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadPeople.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadtodayspeople.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/uiConfig.php",
 		"/home/michaelmcpherson/src/staggeredContact/README.md",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/style.css",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js/modal.js",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/modal.css",
 		"/home/michaelmcpherson/.config/sublime-text-3/Packages/HTMLBeautify/HTMLBeautify.sublime-settings",
 		"/home/michaelmcpherson/.config/sublime-text-3/Packages/User/HTMLBeautify.sublime-settings",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js/helper.js",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/leftBarFlexItems.css",
 		"/home/michaelmcpherson/src/staggeredContact/deployLocal.sh",
 		"/home/michaelmcpherson/src/staggeredContact/.jshintrc",
@@ -416,7 +515,6 @@
 		"/home/michaelmcpherson/src/phpInsecureREST/jsExamplesForObjectsToCreate.md",
 		"/home/michaelmcpherson/raspberry projects",
 		"/home/michaelmcpherson/valandrinasaddress",
-		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/abstractRestConnection.php",
 		"/home/michaelmcpherson/src/toolbox/decomp/manualDecomp.sh",
 		"/home/michaelmcpherson/src/toolbox/decomp/wpa_supplicant.conf",
 		"/media/michaelmcpherson/boot/wpa_supplicant.conf",
@@ -494,12 +592,7 @@
 		"/var/www/html/blags/resources/postHandler.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/snippets.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/css/style.css",
-		"/var/www/html/blogBase/resources/postHandler.php",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/config.php",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/css/buttons.css",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/dbConnector.php",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/css/style.css",
-		"/home/michaelmcpherson/Documents/factualpass"
+		"/var/www/html/blogBase/resources/postHandler.php"
 	],
 	"find":
 	{
@@ -517,6 +610,35 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addevent",
+			"event",
+			"what you've",
+			"add_person_submission",
+			"add",
+			"inter",
+			"interval",
+			"--",
+			"my",
+			"mymodal",
+			"#my",
+			"#",
+			">\n",
+			"mybtn",
+			"header",
+			"loadnodes",
+			"}.*;",
+			"}/(.*;",
+			"}\\(.*;",
+			"}(.*;",
+			"}.*;",
+			"}*.;",
+			"} ",
+			"for(let i =",
+			"var i",
+			"tabs",
+			"cookie",
+			"sessionstorage",
+			"session",
 			"start",
 			"myBtn",
 			"9",
@@ -526,7 +648,7 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
 		],
@@ -548,15 +670,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2805,
+						"buffer_size": 4055,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2482,
-								2482
+								393,
+								393
 							]
 						],
 						"settings":
@@ -566,7 +688,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 885.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -574,31 +696,716 @@
 				},
 				{
 					"buffer": 1,
-					"file": "staggeredContacts/js/app.js",
+					"file": "staggeredContacts/css/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1498,
+						"buffer_size": 1976,
 						"regions":
 						{
+							"gutter_color_1098":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1098,
+										1125
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1103":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1098,
+										1125
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1104":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1098,
+										1125
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1121":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1098,
+										1125
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1499":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1512,
+										1544
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1501":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1512,
+										1544
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1512":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1512,
+										1544
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1517":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1512,
+										1544
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1518":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1512,
+										1544
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1535":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1512,
+										1544
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1811":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1811,
+										1833
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1816":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1811,
+										1833
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1824":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1811,
+										1833
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1826":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1811,
+										1833
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1842":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1811,
+										1833
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1843":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1811,
+										1833
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1877":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										1877,
+										1896
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1882":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										1877,
+										1896
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1890":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										1877,
+										1896
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1892":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										1877,
+										1896
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1900":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										1877,
+										1896
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1908":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										1877,
+										1896
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1909":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										1877,
+										1896
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1955":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										1955,
+										1974
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1960":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										1955,
+										1974
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1968":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										1955,
+										1974
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1970":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										1955,
+										1974
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1978":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										1955,
+										1974
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1986":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										1955,
+										1974
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1987":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										1955,
+										1974
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_519":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										519,
+										548
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_549":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										549,
+										581
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_58":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#edefd3.png",
+								"regions":
+								[
+									[
+										58,
+										85
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_596":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										596,
+										627
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_677":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										677,
+										708
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_682":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										677,
+										708
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_700":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										677,
+										708
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_750":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										750,
+										779
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_756":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										750,
+										779
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_767":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										780,
+										812
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_773":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										750,
+										779
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_780":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										780,
+										812
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_785":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										780,
+										812
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_786":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										780,
+										812
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_803":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										780,
+										812
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_826":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										826,
+										853
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_831":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										826,
+										853
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_832":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										826,
+										853
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_849":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										826,
+										853
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_960":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										960,
+										991
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_965":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										960,
+										991
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_966":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										960,
+										991
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_983":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										960,
+										991
+									]
+								],
+								"scope": "gutter_color"
+							}
 						},
 						"selection":
 						[
 							[
-								567,
-								567
+								655,
+								655
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": true
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 100.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -606,32 +1413,122 @@
 				},
 				{
 					"buffer": 2,
-					"file": "staggeredContacts/js/helper.js",
+					"file": "staggeredContacts/js/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2750,
+						"buffer_size": 9157,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1455,
-								1455
+								4692,
+								4692
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
+							"nodePath": "node",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1386.0,
+						"translation.y": 1828.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "staggeredContacts/resources/loadAllEvents.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 564,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								457,
+								457
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "staggeredContacts/resources/loadEventsSinceLastContact.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1019,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1019,
+								1019
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "staggeredContacts/resources/addEvent.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 919,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								916,
+								916
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
