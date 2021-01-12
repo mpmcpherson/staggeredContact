@@ -148,7 +148,7 @@ function addEvent(EventListing, EventTopic) {
   data);
 }
 
-function appendNnodes(target,data)
+function appendNodes(target,data)
 {
 
   for(let i = 0; i<data.length; i++)
@@ -180,7 +180,7 @@ function loadPeople(userId, targetDiv)
       let d = "";
       try{
         d = JSON.parse(response);
-        appendNnodes(resultDiv, d);
+        appendNodes(resultDiv, d);
       }catch(error){
         console.log(error);
       }
@@ -204,7 +204,7 @@ function loadTodaysPeople(userId, targetDiv){
       let d = "";
       try{
         d = JSON.parse(response);
-        appendNnodes(resultDiv, d);
+        appendNodes(resultDiv, d);
       }catch(error){
         console.log(error);
       }
@@ -227,7 +227,7 @@ function loadAllEvents(userId, targetDiv){
       let d = "";
       try{
         d = JSON.parse(response);
-        appendNnodes(resultDiv, d);
+        appendNodes(resultDiv, d);
       }catch(error){
         console.log(error);
       }
@@ -251,7 +251,7 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
       let d = "";
       try{
         d = JSON.parse(response);
-        appendNnodes(resultDiv, d);
+        appendNodes(resultDiv, d);
       }catch(error){
         console.log(error);
       }
