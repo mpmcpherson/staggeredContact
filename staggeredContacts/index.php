@@ -33,7 +33,7 @@
 				<a href="mailto:" style="width: 100%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
 			</div>
 			<div class="rightBar full" id="leftBar">
-				<button id="addEvent" class="staggeredButtons">Add Event</button>
+				<button id="addEvent" class="staggeredButtons" style="background-color: red;">Add Event</button>
 				<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
 				<br />
 				<div id="array_of_events"></div>
