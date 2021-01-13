@@ -17,7 +17,7 @@
 		<div class="wrapper ninety" id="container">
 			<div class="leftBar full" id="leftBar">
 				<div class="titleBorder"style="font-weight: bold;">
-					<button id="addPerson" class="staggeredButtons">Add person</button>
+					<button id="addPerson" class="staggeredButtons" style="background-color: red;">Add person</button>
 					<br />
 				<?php echo $leftBar; ?></div>
 				<br />
@@ -30,7 +30,7 @@
 				<div>
 					<textarea style="display: flex; height: 85vh; width: 100%; background-color: #1D252B; color: white;"></textarea>
 				</div>
-				<a href="mailto:" style="width: 100%;"><button style="width: 100%;">>send it!<</button></a>
+				<a href="mailto:" style="width: 100%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
 			</div>
 			<div class="rightBar full" id="leftBar">
 				<button id="addEvent" class="staggeredButtons">Add Event</button>
