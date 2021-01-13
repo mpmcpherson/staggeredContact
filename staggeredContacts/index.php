@@ -27,6 +27,7 @@
 				<div class="">
 					<h3 class="titleBorder"><?php echo $viewportTitle; ?></h3>
 				</div>
+				<div id="dueToday"></div>
 				<div>
 					<textarea style="display: flex; height: 85vh; width: 100%; background-color: #1D252B; color: white;"></textarea>
 				</div>

@@ -307,8 +307,10 @@ function keypressListener(){
 
 }
 
-docReady(function() {
+function loadAllCurrentContacts(){}
+function markContactTouched(){}
 
+docReady(function() {
 
   globalClickListener();
   keypressListener();
@@ -324,4 +326,7 @@ docReady(function() {
     })(listIndex);
   
   }
+
+
+
 });
