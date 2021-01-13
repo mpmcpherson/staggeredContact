@@ -28,7 +28,7 @@
 					<h3 class="titleBorder"><?php echo $viewportTitle; ?></h3>
 				</div>
 				<div>
-					<textarea style="display: flex; height: 85vh; width: 100%;"></textarea>
+					<textarea style="display: flex; height: 85vh; width: 100%; background-color: gray"></textarea>
 				</div>
 				<a href="mailto:" style="width: 100%;"><button style="width: 100%;">>send it!<</button></a>
 			</div>
