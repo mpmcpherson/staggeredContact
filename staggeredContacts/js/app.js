@@ -131,18 +131,18 @@ function addEvent(EventListing, EventTopic) {
  
   postRequest('resources/addEvent.php', 
     function(response){
-      console.log(response);
+      console.log("addevent response "+response);
       let d = "";
       try{
         d = JSON.parse(response);
         eventGeneralClose(document.getElementById("addEventModal"));
         alert(d);
       }catch(error){
-        console.log(error);
+        console.log("error "+error);
       }
   },
     function(response){
-      console.log(response);
+      console.log("error "+response);
       //resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
@@ -176,17 +176,17 @@ function loadPeople(userId, targetDiv)
  
   postRequest('resources/loadPeople.php', 
     function(response){
-      console.log(response);
+      console.log("load people response "+response);
       let d = "";
       try{
         d = JSON.parse(response);
         appendNodes(resultDiv, d);
       }catch(error){
-        console.log(error);
+        console.log("load people error "+error);
       }
   },
     function(response){
-      console.log(response);
+      console.log("load people error "+response);
       resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
@@ -200,17 +200,17 @@ function loadTodaysPeople(userId, targetDiv){
 
   postRequest('resources/loadtodayspeople.php', 
     function(response){
-      console.log(response);
+      console.log("load today's people response "+response);
       let d = "";
       try{
         d = JSON.parse(response);
         appendNodes(resultDiv, d);
       }catch(error){
-        console.log(error);
+        console.log("load today's people error "+error);
       }
   },
     function(response){
-      console.log(response);
+      console.log("load today's people error "+response);
       resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
@@ -229,11 +229,11 @@ function loadAllEvents(userId, targetDiv){
         d = JSON.parse(response);
         appendNodes(resultDiv, d);
       }catch(error){
-        console.log(error);
+        console.log("load all events error "+error);
       }
   },
     function(response){
-      console.log(response);
+      console.log("load all events error "+response);
       resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
@@ -244,16 +244,17 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
   userId = {"userId" : userId};
   let data = JSON.stringify(userId);
   resultDiv.innerHTML="";
+
  
   postRequest('resources/loadEventsSinceLastContact.php', 
     function(response){
-      console.log(response);
+      console.log("load events since last contact "+response);
       let d = "";
       try{
         d = JSON.parse(response);
         appendNodes(resultDiv, d);
       }catch(error){
-        console.log(error);
+        console.log("load events since last contact error "+error);
       }
   },
     function(response){
@@ -277,7 +278,7 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
  
   postRequest('resources/addPerson.php', 
     function(response){
-      console.log(response);
+      console.log("add person response "+response);
       let d = "";
       try{
         d = JSON.parse(response);
@@ -285,11 +286,11 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
         loadPeople(uid, "array_of_people");
         alert(d);
       }catch(error){
-        console.log(error);
+        console.log("add person error "+error);
       }
   },
     function(response){
-      console.log(response);
+      console.log("add person error "+response);
   },
   data);
 }
@@ -325,11 +326,13 @@ docReady(function() {
 
   //set up the peopleEventListener
   let peopleList = document.getElementById("array_of_people").children;
-  console.log(peopleList);
+  console.log("people list "+peopleList);
 
   for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
     (function(val){
       if(peopleList[val].tagName.toLowerCase()==="div"){
+        let name = document.getElementById(peopleList[val].id);
+        name.style.cursor = "pointer";
         peopleList[val].addEventListener("click", function(){
         loadEventsSinceLastContact(uid, peopleList[val].id, "array_of_events");
         });
