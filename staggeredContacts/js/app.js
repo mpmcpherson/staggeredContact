@@ -198,7 +198,7 @@ function loadTodaysPeople(userId, targetDiv){
   userId = {"userId" : userId};
   let data = JSON.stringify(userId);
 
-  postRequest('resources/loadTodaysPeople.php', 
+  postRequest('resources/loadtodayspeople.php', 
     function(response){
       console.log(response);
       let d = "";
@@ -316,9 +316,15 @@ docReady(function() {
   keypressListener();
 
   loadPeople(uid, "array_of_people");
+  loadTodaysPeople(uid, "array_of_people_today");
+
   loadAllEvents(uid, "array_of_events");
 
+
+
+  //set up the peopleEventListener
   let peopleList = document.getElementById("array_of_people").children;
+  console.log(peopleList);
 
   for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
     peopleList[listIndex].addEventListener("click", function(pId){
@@ -326,6 +332,13 @@ docReady(function() {
     })(listIndex);
   
   }
+
+  //load people you're due to contact
+
+
+  //swap between having all people visible, and the due to contact people visible
+
+  //swap between all events, and events 
 
 
 

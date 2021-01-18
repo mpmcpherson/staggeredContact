@@ -32,7 +32,5 @@ function simplog($result, $call){
 function prepString(string $string) : string{
 	return htmlspecialchars(str_replace(["\r\n", "\r", "\n"], '<br/>', $string), ENT_QUOTES, "UTF-8");
 }
-function recoverString(string $string) : string{
-	return htmlspecialchars_decode($string, ENT_QUOTES);
-}
+
 ?>

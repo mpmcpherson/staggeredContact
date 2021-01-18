@@ -227,7 +227,7 @@
 			"file": "staggeredContacts/index.php",
 			"settings":
 			{
-				"buffer_size": 4055,
+				"buffer_size": 4211,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -236,17 +236,53 @@
 			"file": "staggeredContacts/css/style.css",
 			"settings":
 			{
-				"buffer_size": 1976,
+				"buffer_size": 2200,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "\n\nlet uid = 44;\n\nfunction globalClickListener(){\n  let personModal = document.getElementById(\"addPersonModal\");\n  let eventModal = document.getElementById(\"addEventModal\");\n  let addPersonSubmission = document.getElementById(\"add_person_submission\");\n  let addEventSubmission = document.getElementById(\"add_event_submission\");\n\n  window.onclick = function(event) {\n\n    if (event.target === personModal) {\n      personAddHandler(personModal);\n    }\n    if (event.target === eventModal) {\n     eventAddHandler(eventModal);\n    }\n    if(event.target===addPersonSubmission){\n      addPersonActual();\n    }\n    if(event.target===addEventSubmission){\n      addEventActual();\n    }\n  };\n\n\n  // Get the button that opens the modal\n  var btn = document.getElementById(\"addPerson\");\n  var eventBtn = document.getElementById(\"addEvent\");\n\n  // Get the <span> element that closes the modal\n  var span = document.getElementsByClassName(\"close\")[0];\n  var eventSpan = document.getElementsByClassName(\"close\")[1];\n\n  // When the user clicks on the button, open the modal\n  btn.onclick = function() {\n    personModal.style.display = \"block\";\n  };\n  eventBtn.onclick = function(){\n    eventModal.style.display = \"block\";\n  };\n  // When the user clicks on <span> (x), close the modal\n  span.onclick = function() {\n    personGeneralClose(personModal);\n  };\n  eventSpan.onclick = function(){\n    eventGeneralClose(eventModal);\n  };\n\n\n}\n//need to *actually* generalize an object-close method, but this'll do.\nfunction personGeneralClose(targetObject){\n  let newPerson = document.getElementById(\"newPerson\");\n    let email = document.getElementById(\"emailId\");\n    let freqAmt = document.getElementById(\"freqNum\");\n    let freqSelect = document.getElementById(\"freqSelect\");\n\n    newPerson.value=\"\";\n    email.value=\"\";\n    freqAmt.value=\"\";\n    freqSelect.value=0;\n\n    targetObject.style.display = \"none\";\n}\n\nfunction eventGeneralClose(targetObject){\n  let textArea = document.getElementById(\"eventText\");\n  let eventSubject = document.getElementById(\"eventSubject\");\n  let charCount = document.getElementById(\"charCount\");\n  textArea.value = \"\";\n  eventSubject.innerHTML = \"\";\n  charCount.innerHTML = \"0\";\n\n  targetObject.style.display = \"none\";\n}\n\nfunction personAddHandler(personModal){\n  let newPerson = document.getElementById(\"newPerson\");\n  let email = document.getElementById(\"emailId\");\n  let freqAmt = document.getElementById(\"freqNum\");\n  let freqSelect = document.getElementById(\"freqSelect\");\n\n  newPerson.value=\"\";\n  email.value=\"\";\n  freqAmt.value=\"\";\n  freqSelect.value=0;\n\n  personModal.style.display = \"none\";\n}\nfunction eventAddHandler(eventModal){\n  let textArea = document.getElementById(\"eventText\");\n  let eventSubject = document.getElementById(\"eventSubject\");\n  let charCount = document.getElementById(\"charCount\");\n  textArea.value = \"\";\n  eventSubject.innerHTML = \"\";\n  charCount.innerHTML = \"0\";\n\n  eventModal.style.display = \"none\";\n}\nfunction addPersonActual(){\n  let ary = document.getElementById(\"newPerson\").value.split(\" \");\n  let count = document.getElementById(\"newPerson\").value.length;\n\n  let firstName = ary[0];\n  let lastName = document.getElementById(\"newPerson\").value.substring(firstName.length+1,count);\n  let userId = uid;\n  let intervalAmount = document.getElementById(\"freqNum\").value;\n  let intervalType = document.getElementById(\"freqSelect\").value;\n  let channelName = \"email\"; \n  let channelValue = document.getElementById(\"emailId\").value;\n\n\n  addPerson(firstName,lastName,userId,intervalAmount,intervalType,channelName,channelValue);\n}\nfunction addEventActual(){\n  let EventTopic  = document.getElementById(\"eventSubject\").value;\n  let EventListing = document.getElementById(\"eventText\").value;\n  addEvent(EventListing, EventTopic);\n\n}\n\nfunction addEvent(EventListing, EventTopic) {\n  let values = {\n    \"EventTopic\" : EventTopic, \n    \"EventListing\": EventListing, \n    \"userId\" : uid\n  };\n  let data = JSON.stringify(values);\n \n  postRequest('resources/addEvent.php', \n    function(response){\n      console.log(response);\n      let d = \"\";\n      try{\n        d = JSON.parse(response);\n        eventGeneralClose(document.getElementById(\"addEventModal\"));\n        alert(d);\n      }catch(error){\n        console.log(error);\n      }\n  },\n    function(response){\n      console.log(response);\n      //resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;\n  },\n  data);\n}\n\nfunction appendNodes(target,data)\n{\n\n  for(let i = 0; i<data.length; i++)\n  {\n    let nameContainer = document.createElement(\"div\");\n    nameContainer.id = data[i][0];\n    let nameTextNode = \"\";\n    if(typeof data[i][2]!=='undefined'){\n      nameTextNode = document.createTextNode(data[i][1]+\" \"+data[i][2]);\n    }else{\n      nameTextNode = document.createTextNode(data[i][1]);\n    }\n    nameContainer.appendChild(nameTextNode);\n    target.appendChild(nameContainer);\n  }\n\n}\n\nfunction loadPeople(userId, targetDiv)\n{ \n  let resultDiv = document.getElementById(targetDiv);\n  resultDiv.innerHTML = \"\";\n  userId = {\"userId\" : userId};\n  let data = JSON.stringify(userId);\n \n  postRequest('resources/loadPeople.php', \n    function(response){\n      console.log(response);\n      let d = \"\";\n      try{\n        d = JSON.parse(response);\n        appendNodes(resultDiv, d);\n      }catch(error){\n        console.log(error);\n      }\n  },\n    function(response){\n      console.log(response);\n      resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;\n  },\n  data);\n\n}\n\nfunction loadTodaysPeople(userId, targetDiv){\n  let resultDiv = document.getElementById(targetDiv);\n  userId = {\"userId\" : userId};\n  let data = JSON.stringify(userId);\n\n  postRequest('resources/loadTodaysPeople.php', \n    function(response){\n      console.log(response);\n      let d = \"\";\n      try{\n        d = JSON.parse(response);\n        appendNodes(resultDiv, d);\n      }catch(error){\n        console.log(error);\n      }\n  },\n    function(response){\n      console.log(response);\n      resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;\n  },\n  data);\n\n}\nfunction loadAllEvents(userId, targetDiv){\n  let resultDiv = document.getElementById(targetDiv);\n  userId = {\"userId\" : userId};\n  let data = JSON.stringify(userId);\n  resultDiv.innerHTML=\"\";\n\n  postRequest('resources/loadAllEvents.php', \n    function(response){\n      let d = \"\";\n      try{\n        d = JSON.parse(response);\n        appendNodes(resultDiv, d);\n      }catch(error){\n        console.log(error);\n      }\n  },\n    function(response){\n      console.log(response);\n      resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;\n  },\n  data);\n\n}\nfunction loadEventsSinceLastContact(userId, personId, targetDiv){\n  let resultDiv = document.getElementById(targetDiv);\n  userId = {\"userId\" : userId};\n  let data = JSON.stringify(userId);\n  resultDiv.innerHTML=\"\";\n \n  postRequest('resources/loadEventsSinceLastContact.php', \n    function(response){\n      console.log(response);\n      let d = \"\";\n      try{\n        d = JSON.parse(response);\n        appendNodes(resultDiv, d);\n      }catch(error){\n        console.log(error);\n      }\n  },\n    function(response){\n      console.log(response);\n      resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;\n  },\n  data);\n\n}\nfunction addPerson(first_name, last_name, userId, intervalAmount, intervalType, channelName, channelValue){\n  let values = {\n    \"first_name\" : first_name, \n    \"last_name\": last_name, \n    \"userId\" : userId, \n    \"intervalAmount\" : intervalAmount,\n    \"intervalType\" : intervalType, \n    \"channelName\" : channelName, \n    \"channelValue\" : channelValue\n  };\n  let data = JSON.stringify(values);\n \n  postRequest('resources/addPerson.php', \n    function(response){\n      console.log(response);\n      let d = \"\";\n      try{\n        d = JSON.parse(response);\n        personGeneralClose(document.getElementById(\"addPersonModal\"));\n        loadPeople(uid, \"array_of_people\");\n        alert(d);\n      }catch(error){\n        console.log(error);\n      }\n  },\n    function(response){\n      console.log(response);\n  },\n  data);\n}\n\nfunction keypressListener(){\n  let textArea = document.getElementById(\"eventText\");\n  let eventCount = document.getElementById(\"charCount\");\n  \n  textArea.addEventListener(\"keypress\",function(){\n    if(textArea.value.length+1>400){\n      textArea.value = textArea.value.substring(0, 400);\n    }\n    eventCount.innerHTML = textArea.value.length+1;\n  });\n\n}\n\nfunction loadAllCurrentContacts(){}\nfunction markContactTouched(){}\n\ndocReady(function() {\n\n  globalClickListener();\n  keypressListener();\n\n  loadPeople(uid, \"array_of_people\");\n  loadAllEvents(uid, \"array_of_events\");\n\n  let peopleList = document.getElementById(\"array_of_people\").children;\n\n  for(let listIndex = 0; listIndex < peopleList.length; listIndex++){\n    peopleList[listIndex].addEventListener(\"click\", function(pId){\n      loadEventsSinceLastContact(uid, peopleList[pId].id, \"array_of_events\");\n    })(listIndex);\n  \n  }\n\n\n\n});",
 			"file": "staggeredContacts/js/app.js",
+			"file_size": 9201,
+			"file_write_time": 132549924109936318,
 			"settings":
 			{
-				"buffer_size": 9157,
+				"buffer_size": 9201,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "I LOVE YOU!!\nI love you too Graysen! You make me so happy, my boy!\nI love you tooGraysen! You make me so happy, my boy!",
+			"settings":
+			{
+				"buffer_size": 119,
+				"line_ending": "Unix",
+				"name": "I LOVE YOU!!"
+			}
+		},
+		{
+			"contents": "\nrx config n=0 file=/home/zotacuser/out.csv format=csv",
+			"settings":
+			{
+				"buffer_size": 54,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "businesslending@ucumaine.com",
+			"settings":
+			{
+				"buffer_size": 28,
+				"line_ending": "Unix",
+				"name": "businesslending@ucumaine.com"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -291,6 +327,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"insta\t",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -465,6 +505,8 @@
 	],
 	"file_history":
 	[
+		"/media/michaelmcpherson/CentOS-8-2-2004-aarch64-dvd/boot.catalog",
+		"/home/michaelmcpherson/SOLAR calculations",
 		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/abstractRestConnection.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/addEvent.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/addPerson.php",
@@ -590,13 +632,11 @@
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/SFTPConnector.php",
 		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/teasant.php",
 		"/var/www/html/blags/resources/postHandler.php",
-		"/home/michaelmcpherson/src/clientSideBlogger/snippets.php",
-		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/css/style.css",
-		"/var/www/html/blogBase/resources/postHandler.php"
+		"/home/michaelmcpherson/src/clientSideBlogger/snippets.php"
 	],
 	"find":
 	{
-		"height": 44.0
+		"height": 45.0
 	},
 	"find_in_files":
 	{
@@ -610,6 +650,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"appendNnodes",
 			"addevent",
 			"event",
 			"what you've",
@@ -661,7 +702,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -670,15 +711,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4055,
+						"buffer_size": 4211,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								393,
-								393
+								1802,
+								1802
 							]
 						],
 						"settings":
@@ -688,7 +729,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 276.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -700,31 +741,83 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1976,
+						"buffer_size": 2200,
 						"regions":
 						{
-							"gutter_color_1098":
+							"gutter_color_1024":
 							{
 								"flags": 144,
-								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"icon": "Cache/GutterColor/gray.png",
 								"regions":
 								[
 									[
-										1098,
-										1125
+										1056,
+										1087
 									]
 								],
 								"scope": "gutter_color"
 							},
-							"gutter_color_1103":
+							"gutter_color_1025":
 							{
 								"flags": 144,
-								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"icon": "Cache/GutterColor/gray.png",
 								"regions":
 								[
 									[
-										1098,
-										1125
+										1056,
+										1087
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1026":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1056,
+										1087
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1029":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1056,
+										1087
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1041":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1056,
+										1087
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1056":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1056,
+										1087
 									]
 								],
 								"scope": "gutter_color"
@@ -736,8 +829,8 @@
 								"regions":
 								[
 									[
-										1098,
-										1125
+										1194,
+										1223
 									]
 								],
 								"scope": "gutter_color"
@@ -749,8 +842,229 @@
 								"regions":
 								[
 									[
-										1098,
-										1125
+										1194,
+										1223
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1159":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1194,
+										1225
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1162":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1194,
+										1225
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1163":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1194,
+										1225
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1164":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1194,
+										1225
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1179":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1194,
+										1225
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_119":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										92,
+										119
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1191":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/darkgray.png",
+								"regions":
+								[
+									[
+										1226,
+										1253
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1194":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										1194,
+										1225
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1195":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1226,
+										1253
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1196":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										1226,
+										1253
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1199":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/darkgray.png",
+								"regions":
+								[
+									[
+										1226,
+										1253
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_120":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/white.png",
+								"regions":
+								[
+									[
+										120,
+										134
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1211":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										1226,
+										1253
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1224":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/white.png",
+								"regions":
+								[
+									[
+										1254,
+										1268
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1226":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										1226,
+										1253
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1239":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/white.png",
+								"regions":
+								[
+									[
+										1254,
+										1268
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1254":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/white.png",
+								"regions":
+								[
+									[
+										1254,
+										1268
 									]
 								],
 								"scope": "gutter_color"
@@ -762,8 +1076,8 @@
 								"regions":
 								[
 									[
-										1512,
-										1544
+										1655,
+										1687
 									]
 								],
 								"scope": "gutter_color"
@@ -775,8 +1089,8 @@
 								"regions":
 								[
 									[
-										1512,
-										1544
+										1655,
+										1687
 									]
 								],
 								"scope": "gutter_color"
@@ -788,8 +1102,8 @@
 								"regions":
 								[
 									[
-										1512,
-										1544
+										1655,
+										1687
 									]
 								],
 								"scope": "gutter_color"
@@ -801,8 +1115,8 @@
 								"regions":
 								[
 									[
-										1512,
-										1544
+										1655,
+										1687
 									]
 								],
 								"scope": "gutter_color"
@@ -814,8 +1128,8 @@
 								"regions":
 								[
 									[
-										1512,
-										1544
+										1655,
+										1687
 									]
 								],
 								"scope": "gutter_color"
@@ -827,8 +1141,73 @@
 								"regions":
 								[
 									[
-										1512,
-										1544
+										1655,
+										1687
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1606":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1655,
+										1687
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1609":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1655,
+										1687
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1610":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1655,
+										1687
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1640":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1655,
+										1687
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1655":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										1655,
+										1687
 									]
 								],
 								"scope": "gutter_color"
@@ -840,8 +1219,8 @@
 								"regions":
 								[
 									[
-										1811,
-										1833
+										1954,
+										1978
 									]
 								],
 								"scope": "gutter_color"
@@ -853,8 +1232,8 @@
 								"regions":
 								[
 									[
-										1811,
-										1833
+										1954,
+										1978
 									]
 								],
 								"scope": "gutter_color"
@@ -866,21 +1245,8 @@
 								"regions":
 								[
 									[
-										1811,
-										1833
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1826":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#f1f1f1.png",
-								"regions":
-								[
-									[
-										1811,
-										1833
+										1954,
+										1978
 									]
 								],
 								"scope": "gutter_color"
@@ -892,8 +1258,8 @@
 								"regions":
 								[
 									[
-										1811,
-										1833
+										1954,
+										1978
 									]
 								],
 								"scope": "gutter_color"
@@ -905,34 +1271,8 @@
 								"regions":
 								[
 									[
-										1811,
-										1833
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1877":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#888.png",
-								"regions":
-								[
-									[
-										1877,
-										1896
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1882":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#888.png",
-								"regions":
-								[
-									[
-										1877,
-										1896
+										1954,
+										1978
 									]
 								],
 								"scope": "gutter_color"
@@ -944,8 +1284,8 @@
 								"regions":
 								[
 									[
-										1877,
-										1896
+										2047,
+										2068
 									]
 								],
 								"scope": "gutter_color"
@@ -957,8 +1297,8 @@
 								"regions":
 								[
 									[
-										1877,
-										1896
+										2047,
+										2068
 									]
 								],
 								"scope": "gutter_color"
@@ -970,8 +1310,21 @@
 								"regions":
 								[
 									[
-										1877,
-										1896
+										2047,
+										2068
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1905":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1954,
+										1978
 									]
 								],
 								"scope": "gutter_color"
@@ -979,12 +1332,12 @@
 							"gutter_color_1908":
 							{
 								"flags": 144,
-								"icon": "Cache/GutterColor/#888.png",
+								"icon": "Cache/GutterColor/#f1f1f1.png",
 								"regions":
 								[
 									[
-										1877,
-										1896
+										1954,
+										1978
 									]
 								],
 								"scope": "gutter_color"
@@ -992,12 +1345,77 @@
 							"gutter_color_1909":
 							{
 								"flags": 144,
-								"icon": "Cache/GutterColor/#888.png",
+								"icon": "Cache/GutterColor/#f1f1f1.png",
 								"regions":
 								[
 									[
-										1877,
-										1896
+										1954,
+										1980
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1913":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1954,
+										1978
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1932":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1981,
+										2003
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1936":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										1981,
+										2003
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1939":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1954,
+										1980
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1954":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#f1f1f1.png",
+								"regions":
+								[
+									[
+										1954,
+										1980
 									]
 								],
 								"scope": "gutter_color"
@@ -1009,8 +1427,8 @@
 								"regions":
 								[
 									[
-										1955,
-										1974
+										2152,
+										2173
 									]
 								],
 								"scope": "gutter_color"
@@ -1022,8 +1440,21 @@
 								"regions":
 								[
 									[
-										1955,
-										1974
+										2152,
+										2173
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1966":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										1981,
+										2003
 									]
 								],
 								"scope": "gutter_color"
@@ -1035,8 +1466,8 @@
 								"regions":
 								[
 									[
-										1955,
-										1974
+										2152,
+										2173
 									]
 								],
 								"scope": "gutter_color"
@@ -1048,8 +1479,34 @@
 								"regions":
 								[
 									[
-										1955,
-										1974
+										2152,
+										2173
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1971":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										2047,
+										2068
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1975":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										2047,
+										2068
 									]
 								],
 								"scope": "gutter_color"
@@ -1061,8 +1518,34 @@
 								"regions":
 								[
 									[
-										1955,
-										1974
+										2152,
+										2173
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1979":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										2047,
+										2068
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1981":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										1981,
+										2003
 									]
 								],
 								"scope": "gutter_color"
@@ -1074,8 +1557,8 @@
 								"regions":
 								[
 									[
-										1955,
-										1974
+										2152,
+										2173
 									]
 								],
 								"scope": "gutter_color"
@@ -1087,8 +1570,242 @@
 								"regions":
 								[
 									[
-										1955,
-										1974
+										2152,
+										2173
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2002":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										2047,
+										2070
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2022":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										2071,
+										2093
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2026":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										2071,
+										2093
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2032":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										2047,
+										2070
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2047":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#888.png",
+								"regions":
+								[
+									[
+										2047,
+										2070
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2052":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2152,
+										2173
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2053":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2152,
+										2173
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2056":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										2071,
+										2093
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2057":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2152,
+										2173
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2071":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										2071,
+										2093
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2100":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2152,
+										2175
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2107":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2152,
+										2175
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2120":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2176,
+										2198
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2131":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										2176,
+										2198
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2137":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2152,
+										2175
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2152":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#555.png",
+								"regions":
+								[
+									[
+										2152,
+										2175
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2161":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										2176,
+										2198
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_2176":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										2176,
+										2198
 									]
 								],
 								"scope": "gutter_color"
@@ -1100,8 +1817,21 @@
 								"regions":
 								[
 									[
-										519,
-										548
+										568,
+										597
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_547":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										568,
+										597
 									]
 								],
 								"scope": "gutter_color"
@@ -1113,21 +1843,112 @@
 								"regions":
 								[
 									[
-										549,
-										581
+										598,
+										630
 									]
 								],
 								"scope": "gutter_color"
 							},
-							"gutter_color_58":
+							"gutter_color_550":
 							{
 								"flags": 144,
-								"icon": "Cache/GutterColor/#edefd3.png",
+								"icon": "Cache/GutterColor/gray.png",
 								"regions":
 								[
 									[
-										58,
-										85
+										568,
+										597
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_553":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										568,
+										597
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_555":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										568,
+										597
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_568":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										568,
+										597
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_577":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										598,
+										630
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_580":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										598,
+										630
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_583":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										598,
+										630
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_585":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										598,
+										630
 									]
 								],
 								"scope": "gutter_color"
@@ -1139,21 +1960,99 @@
 								"regions":
 								[
 									[
-										596,
-										627
+										645,
+										676
 									]
 								],
 								"scope": "gutter_color"
 							},
-							"gutter_color_677":
+							"gutter_color_598":
 							{
 								"flags": 144,
 								"icon": "Cache/GutterColor/gray.png",
 								"regions":
 								[
 									[
-										677,
-										708
+										598,
+										630
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_60":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#edefd3.png",
+								"regions":
+								[
+									[
+										60,
+										91
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_624":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										645,
+										676
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_627":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										645,
+										676
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_630":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										645,
+										676
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_632":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										645,
+										676
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_645":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										645,
+										676
 									]
 								],
 								"scope": "gutter_color"
@@ -1165,8 +2064,8 @@
 								"regions":
 								[
 									[
-										677,
-										708
+										726,
+										757
 									]
 								],
 								"scope": "gutter_color"
@@ -1178,8 +2077,60 @@
 								"regions":
 								[
 									[
-										677,
-										708
+										726,
+										757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_705":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										726,
+										757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_708":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										726,
+										757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_713":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										726,
+										757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_726":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										726,
+										757
 									]
 								],
 								"scope": "gutter_color"
@@ -1191,8 +2142,8 @@
 								"regions":
 								[
 									[
-										750,
-										779
+										799,
+										828
 									]
 								],
 								"scope": "gutter_color"
@@ -1204,8 +2155,8 @@
 								"regions":
 								[
 									[
-										750,
-										779
+										799,
+										828
 									]
 								],
 								"scope": "gutter_color"
@@ -1217,8 +2168,8 @@
 								"regions":
 								[
 									[
-										780,
-										812
+										829,
+										861
 									]
 								],
 								"scope": "gutter_color"
@@ -1230,8 +2181,21 @@
 								"regions":
 								[
 									[
-										750,
-										779
+										799,
+										828
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_778":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										799,
+										828
 									]
 								],
 								"scope": "gutter_color"
@@ -1243,8 +2207,21 @@
 								"regions":
 								[
 									[
-										780,
-										812
+										829,
+										861
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_784":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										799,
+										828
 									]
 								],
 								"scope": "gutter_color"
@@ -1256,8 +2233,8 @@
 								"regions":
 								[
 									[
-										780,
-										812
+										829,
+										861
 									]
 								],
 								"scope": "gutter_color"
@@ -1269,8 +2246,21 @@
 								"regions":
 								[
 									[
-										780,
-										812
+										799,
+										828
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_799":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										799,
+										828
 									]
 								],
 								"scope": "gutter_color"
@@ -1282,8 +2272,60 @@
 								"regions":
 								[
 									[
-										780,
-										812
+										829,
+										861
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_808":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										829,
+										861
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_811":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										829,
+										861
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_814":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										829,
+										861
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_816":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										829,
+										861
 									]
 								],
 								"scope": "gutter_color"
@@ -1295,8 +2337,21 @@
 								"regions":
 								[
 									[
-										826,
-										853
+										949,
+										949
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_829":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/gray.png",
+								"regions":
+								[
+									[
+										829,
+										861
 									]
 								],
 								"scope": "gutter_color"
@@ -1308,8 +2363,8 @@
 								"regions":
 								[
 									[
-										826,
-										853
+										949,
+										949
 									]
 								],
 								"scope": "gutter_color"
@@ -1321,21 +2376,164 @@
 								"regions":
 								[
 									[
-										826,
-										853
+										949,
+										949
 									]
 								],
 								"scope": "gutter_color"
 							},
-							"gutter_color_849":
+							"gutter_color_854":
 							{
 								"flags": 144,
 								"icon": "Cache/GutterColor/#e1e4b4.png",
 								"regions":
 								[
 									[
-										826,
-										853
+										875,
+										906
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_857":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										875,
+										906
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_860":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										875,
+										906
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_875":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#e1e4b4.png",
+								"regions":
+								[
+									[
+										875,
+										906
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_886":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/darkgray.png",
+								"regions":
+								[
+									[
+										907,
+										934
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_889":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/darkgray.png",
+								"regions":
+								[
+									[
+										907,
+										934
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_892":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										907,
+										934
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_894":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/darkgray.png",
+								"regions":
+								[
+									[
+										907,
+										934
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_907":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										907,
+										934
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_92":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#1D252B.png",
+								"regions":
+								[
+									[
+										92,
+										119
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_920":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/white.png",
+								"regions":
+								[
+									[
+										935,
+										949
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_935":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/white.png",
+								"regions":
+								[
+									[
+										935,
+										949
 									]
 								],
 								"scope": "gutter_color"
@@ -1347,8 +2545,8 @@
 								"regions":
 								[
 									[
-										960,
-										991
+										1056,
+										1087
 									]
 								],
 								"scope": "gutter_color"
@@ -1360,8 +2558,8 @@
 								"regions":
 								[
 									[
-										960,
-										991
+										1056,
+										1087
 									]
 								],
 								"scope": "gutter_color"
@@ -1373,8 +2571,8 @@
 								"regions":
 								[
 									[
-										960,
-										991
+										1056,
+										1087
 									]
 								],
 								"scope": "gutter_color"
@@ -1386,8 +2584,8 @@
 								"regions":
 								[
 									[
-										960,
-										991
+										1056,
+										1087
 									]
 								],
 								"scope": "gutter_color"
@@ -1396,8 +2594,8 @@
 						"selection":
 						[
 							[
-								655,
-								655
+								234,
+								234
 							]
 						],
 						"settings":
@@ -1408,7 +2606,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1417,15 +2615,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9157,
+						"buffer_size": 9201,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4692,
-								4692
+								9201,
+								9201
 							]
 						],
 						"settings":
@@ -1438,14 +2636,129 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1828.0,
+						"translation.y": 7130.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 119,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								119,
+								119
+							]
+						],
+						"settings":
+						{
+							"auto_name": "I LOVE YOU!!",
+							"default_dir": "/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 54,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"default_dir": "/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28,
+								28
+							]
+						],
+						"settings":
+						{
+							"auto_name": "businesslending@ucumaine.com",
+							"default_dir": "/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "staggeredContacts/resources/loadAllEvents.php",
 					"semi_transient": false,
 					"settings":
@@ -1470,11 +2783,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
 					"file": "staggeredContacts/resources/loadEventsSinceLastContact.php",
 					"semi_transient": false,
 					"settings":
@@ -1486,8 +2799,8 @@
 						"selection":
 						[
 							[
-								1019,
-								1019
+								188,
+								188
 							]
 						],
 						"settings":
@@ -1499,11 +2812,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 9,
 					"file": "staggeredContacts/resources/addEvent.php",
 					"semi_transient": false,
 					"settings":
@@ -1528,7 +2841,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -1536,7 +2849,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 45.0
 	},
 	"input":
 	{
@@ -1597,7 +2910,7 @@
 	"project": "staggeredContact.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":

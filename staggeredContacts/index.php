@@ -22,6 +22,7 @@
 				<?php echo $leftBar; ?></div>
 				<br />
 				<div id="array_of_people"></div>
+				<div id="array_of_people_today"></div>
 			</div>
 			<div class="mainBody full" id="body">
 				<div class="">
