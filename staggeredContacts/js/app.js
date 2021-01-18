@@ -316,6 +316,7 @@ docReady(function() {
   keypressListener();
 
   loadPeople(uid, "array_of_people");
+
   loadTodaysPeople(uid, "array_of_people_today");
 
   loadAllEvents(uid, "array_of_events");
@@ -327,14 +328,14 @@ docReady(function() {
   console.log(peopleList);
 
   for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
-    peopleList[listIndex].addEventListener("click", function(pId){
-      loadEventsSinceLastContact(uid, peopleList[pId].id, "array_of_events");
+    (function(val){
+      if(peopleList[val].tagName.toLowerCase()==="div"){
+        peopleList[val].addEventListener("click", function(){
+        loadEventsSinceLastContact(uid, peopleList[val].id, "array_of_events");
+        });
+      }
     })(listIndex);
-  
   }
-
-  //load people you're due to contact
-
 
   //swap between having all people visible, and the due to contact people visible
 
