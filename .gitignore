@@ -2,3 +2,4 @@
 
 defaultConnector.php 
 deployLocal.sh
+/vendor/
