@@ -340,6 +340,32 @@ function loadUI(){
   //swap between all events, and events 
 }
 
+function login(){
+  let success = false;
+  postRequest("resources/login.php",function(response){
+    try{
+      let result = JSON.parse(response);
+      success = result[0];
+      window.localStorage.setItem("userId",result[1]);
+      window.localStorage.setItem("sessionToken",result[2]);
+
+    }catch(e){
+      console.log(e);
+    }
+  },function(response){
+    try{
+      let error = JSON.parse(response);
+    }catch(e){
+      console.log(e);
+    }
+  });
+  return success;
+}
+
+function signup(){
+  //this is gonna be a little involved
+}
+
 function loginOrRegister(){
   //hide wrapper and its contents; 
   //show login modal; 
@@ -348,15 +374,27 @@ function loginOrRegister(){
   container.style.display = "none";
   loginSignup.style.display = "flex";
 
-  let success = true;
-  if(success){
-    //load userId; 
-    //load SessionAuth token
-    //hide login modal
-    loadUI();
-  }else{
-    //just reload the page; fuck your login attempt
-  }
+  let login_btn = document.getElementById("login_btn");
+  let signup_btn = document.getElementById("signup_btn");
+  
+  login_btn.addEventListener("click",function(){
+    let success = login();
+    if(success){
+      loadUI();
+      container.style.display = "flex";
+      loginSignup.style.display = "none";
+    }else{
+      //just reload the page; fuck your login attempt
+    }
+  });
+
+  signup_btn.addEventListener("click",function(){
+    signup();
+    
+  });
+
+
+  
 }
 
 

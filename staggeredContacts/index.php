@@ -118,7 +118,7 @@
 							
 							<button id="log_in" type="submit" style="float: right; margin-right: -1em;">log in...</button>
 
-							<button style="float: left; margin-left: 1em;" >sign up...</button>
+							<button id="sign_up" style="float: left; margin-left: 1em;" >sign up...</button>
 
 							<br />
 
