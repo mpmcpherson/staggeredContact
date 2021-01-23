@@ -148,8 +148,7 @@ function addEvent(EventListing, EventTopic) {
   data);
 }
 
-function appendNodes(target,data)
-{
+function appendNodes(target,data){
 
   for(let i = 0; i<data.length; i++)
   {
@@ -167,8 +166,7 @@ function appendNodes(target,data)
 
 }
 
-function loadPeople(userId, targetDiv)
-{ 
+function loadPeople(userId, targetDiv){ 
   let resultDiv = document.getElementById(targetDiv);
   resultDiv.innerHTML = "";
   userId = {"userId" : userId};
@@ -311,10 +309,7 @@ function keypressListener(){
 function loadAllCurrentContacts(){}
 function markContactTouched(){}
 
-docReady(function() {
-
-  globalClickListener();
-  keypressListener();
+function loadUI(){
 
   loadPeople(uid, "array_of_people");
 
@@ -343,7 +338,32 @@ docReady(function() {
   //swap between having all people visible, and the due to contact people visible
 
   //swap between all events, and events 
+}
+
+function loginOrRegister(){
+  //hide wrapper and its contents; 
+  //show login modal; 
+  let loginSignup = document.getElementById("login_signup");
+  let container = document.getElementById("container");
+  container.style.display = "none";
+  loginSignup.style.display = "flex";
+
+  let success = true;
+  if(success){
+    //load userId; 
+    //load SessionAuth token
+    //hide login modal
+    loadUI();
+  }else{
+    //just reload the page; fuck your login attempt
+  }
+}
 
 
+docReady(function() {
+  globalClickListener();
+  keypressListener();
+
+  loginOrRegister();
 
 });

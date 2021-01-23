@@ -106,7 +106,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="wrapper ninety modal" id="login_signup">
+		<div class="wrapper ninety modal" id="login_signup" style="display: none;">
 			<div class="modal-content">
 				<div style="padding-bottom: 15px; width: 100%;">
 					<h3 style="text-align: center;" class="topAndBottomBorder">Log In or Sign Up...</h3>
@@ -114,7 +114,7 @@
 						<div style="width: 95%">
 							<input id="username" style="width: 100%; padding-bottom: 3%; display: inline-block;" type="text" />
 
-							<input id="userPass" style="width: 103%; margin-top: 5px; margin-bottom: 5px; display: inline-block;" type="password" />
+							<input id="userPass" style="width: 100%; margin-top: 5px; margin-bottom: 5px; display: inline-block;" type="password" />
 							
 							<button id="log_in" type="submit" style="float: right; margin-right: -1em;">log in...</button>
 
