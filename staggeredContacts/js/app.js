@@ -364,6 +364,9 @@ function login(){
 
 function signup(){
   //this is gonna be a little involved
+  //and I'm going to need to use the google recaptcha project to 
+  //display the recaptcha panel when the user clicks the 
+  //btn for signing up
 }
 
 function loginOrRegister(){
@@ -390,7 +393,8 @@ function loginOrRegister(){
 
   signup_btn.addEventListener("click",function(){
     signup();
-    
+    //I should probably set this up to dynamically handle whatever the fuck gets pulled back from the signup process
+
   });
 
 
