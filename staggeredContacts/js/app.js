@@ -358,6 +358,10 @@ function login(){
     }catch(e){
       console.log(e);
     }
+  },
+  {/*data because duh*/
+    userName : document.getElementById("username"),
+    userPass : document.getElementById("userPass")
   });
   return success;
 }
@@ -409,3 +413,8 @@ docReady(function() {
   loginOrRegister();
 
 });
+
+//192.168.1.127
+
+//192.168.1.124
+
