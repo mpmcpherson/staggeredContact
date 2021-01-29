@@ -116,9 +116,9 @@
 
 							<input id="userPass" style="width: 100%; margin-top: 5px; margin-bottom: 5px; display: inline-block;" type="password" />
 							
-							<button id="log_in" type="submit" style="float: right; margin-right: -1em;">log in...</button>
+							<button id="login_btn" type="submit" style="float: right; margin-right: -1em;">log in...</button>
 
-							<button id="sign_up" style="float: left; margin-left: 1em;" >sign up...</button>
+							<button id="signup_btn" style="float: left; margin-left: 1em;" >sign up...</button>
 
 							<br />
 

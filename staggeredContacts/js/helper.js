@@ -77,7 +77,7 @@ function postRequest(url, success, error, data){
             }
         }
     }
-    console.log(url);
+    //console.log(url);
 	xhr.open("POST", url, true);
 	//xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');

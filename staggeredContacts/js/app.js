@@ -303,7 +303,6 @@ function keypressListener(){
     }
     eventCount.innerHTML = textArea.value.length+1;
   });
-
 }
 
 function loadAllCurrentContacts(){}
@@ -342,8 +341,9 @@ function loadUI(){
 
 function login(){
   let success = false;
-  postRequest("resources/login.php",function(response){
+  postRequest('resources/login.php',function(response){
     try{
+      console.log(response);
       let result = JSON.parse(response);
       success = result[0];
       window.localStorage.setItem("userId",result[1]);
@@ -354,6 +354,7 @@ function login(){
     }
   },function(response){
     try{
+      console.log(response);
       let error = JSON.parse(response);
     }catch(e){
       console.log(e);
@@ -381,10 +382,10 @@ function loginOrRegister(){
   container.style.display = "none";
   loginSignup.style.display = "flex";
 
-  let login_btn = document.getElementById("login_btn");
-  let signup_btn = document.getElementById("signup_btn");
+  let loginBtn = document.getElementById("login_btn");
+  let signupBtn = document.getElementById("signup_btn");
   
-  login_btn.addEventListener("click",function(){
+  loginBtn.addEventListener("click",function(){
     let success = login();
     if(success){
       loadUI();
