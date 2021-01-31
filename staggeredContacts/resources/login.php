@@ -14,15 +14,20 @@ $result = mysqli_query($dbhandle,"SELECT pw_hash, user_id from users where usern
 
 $outHash = 'firstassign';
 $userid = '';
-$res = array();
+$resPass = array();
+$userIdArr = array();
+
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    array_push($res, [$outHash = $row['pw_hash'],$userid = $row['user_id']]);
+    array_push($resPass, $outHash = $row['pw_hash']);
+    array_push($userIdArr, $userid = $row['user_id']);
 }
-$outHash = $res[0][0];
+$outHash = $resPass[0];
+$userid = $userIdArr[0];
+
 $hashing = password_hash($userPass, PASSWORD_DEFAULT);
 echo json_encode($hashing,$hashing);
 
-if ($hashing == $outHash) {
+if (strcmp($hashing,$outHash)==0) {
     $rnd=rand();
     $_SESSION['valid'] = 1;
     $_SESSION['userid'] = $userid;
