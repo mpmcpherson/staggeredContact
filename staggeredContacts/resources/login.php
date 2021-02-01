@@ -8,11 +8,14 @@ $userPass = "";
 $gets = json_decode(file_get_contents('php://input'), true);
 
 $userName = $gets["userName"];
+//$userName = $_POST["userName"];
 $userPass = $gets["userPass"];
+//$userPass = $_POST["userPass"];
+
+
 
 $result = mysqli_query($dbhandle,"SELECT pw_hash, user_id from general_dev_bastion.users where username like '$userName'");
 
-$outHash = 'firstassign';
 $userid = '';
 $resPass = array();
 $userIdArr = array();
@@ -37,5 +40,5 @@ if (password_verify($userPass, $resPass[0])) {
     
     echo json_encode([true,$userid,$sessionID]);
 } else { 
-    echo json_encode([$hashing, $resPass[0], null]);
+    echo json_encode([false, $userName, $userPass]);
 }

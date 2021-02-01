@@ -340,31 +340,30 @@ function loadUI(){
 }
 
 function login(){
-  let success = false;
+
+  let data = JSON.stringify({ 
+    "userName" : document.getElementById("username").value,
+    "userPass" : document.getElementById("userPass").value
+  });
   postRequest('resources/login.php',function(response){
     try{
-      console.log(response);
       let result = JSON.parse(response);
-      success = result[0];
       window.localStorage.setItem("userId",result[1]);
       window.localStorage.setItem("sessionToken",result[2]);
-
+      return true;
     }catch(e){
       console.log(e);
     }
   },function(response){
     try{
       console.log(response);
-      let error = JSON.parse(response);
     }catch(e){
       console.log(e);
     }
   },
-  {/*data because duh*/
-    userName : document.getElementById("username"),
-    userPass : document.getElementById("userPass")
-  });
-  return success;
+  data
+  );
+  return false;
 }
 
 function signup(){
@@ -387,6 +386,7 @@ function loginOrRegister(){
   
   loginBtn.addEventListener("click",function(){
     let success = login();
+    console.log("loginOrRegister "+success);
     if(success){
       loadUI();
       container.style.display = "flex";
