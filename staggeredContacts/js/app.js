@@ -348,8 +348,14 @@ function login(){
   postRequest('resources/login.php',function(response){
     try{
       let result = JSON.parse(response);
+      let loginSignup = document.getElementById("login_signup");
+      let container = document.getElementById("container");
       window.localStorage.setItem("userId",result[1]);
       window.localStorage.setItem("sessionToken",result[2]);
+      loadUI();
+
+      container.style.display = "flex";
+      loginSignup.style.display = "none";
       return true;
     }catch(e){
       console.log(e);
@@ -385,15 +391,7 @@ function loginOrRegister(){
   let signupBtn = document.getElementById("signup_btn");
   
   loginBtn.addEventListener("click",function(){
-    let success = login();
-    console.log("loginOrRegister "+success);
-    if(success){
-      loadUI();
-      container.style.display = "flex";
-      loginSignup.style.display = "none";
-    }else{
-      //just reload the page; fuck your login attempt
-    }
+    login();
   });
 
   signup_btn.addEventListener("click",function(){
