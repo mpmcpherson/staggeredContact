@@ -398,10 +398,7 @@ function loginOrRegister(){
     signup();
     //I should probably set this up to dynamically handle whatever the fuck gets pulled back from the signup process
 
-  });
-
-
-  
+  });  
 }
 
 
