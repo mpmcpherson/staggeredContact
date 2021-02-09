@@ -377,6 +377,9 @@ function signup(){
   //and I'm going to need to use the google recaptcha project to 
   //display the recaptcha panel when the user clicks the 
   //btn for signing up
+  postRequest('resources/createuser.php', function(response){
+
+  });
 }
 
 function loginOrRegister(){
