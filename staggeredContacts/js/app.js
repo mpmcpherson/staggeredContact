@@ -372,14 +372,32 @@ function login(){
   return false;
 }
 
-function signup(){
+function register(){
   //this is gonna be a little involved
   //and I'm going to need to use the google recaptcha project to 
   //display the recaptcha panel when the user clicks the 
   //btn for signing up
-  postRequest('resources/createuser.php', function(response){
 
+  let data = JSON.stringify({ 
+    "userName" : document.getElementById("username").value,
+    "userPass" : document.getElementById("userPass").value
   });
+  postRequest('resources/createuser.php',function(response){
+    try{
+      window.location.reload(false); 
+    }catch(e){
+      console.log(e);
+    }
+  },function(response){
+    try{
+      console.log(response);
+      alert("there was an issue creating your account: ".response);
+    }catch(e){
+      console.log(e);
+    }
+  },
+  data
+  );
 }
 
 function loginOrRegister(){
@@ -398,7 +416,7 @@ function loginOrRegister(){
   });
 
   signup_btn.addEventListener("click",function(){
-    signup();
+    register();
     //I should probably set this up to dynamically handle whatever the fuck gets pulled back from the signup process
 
   });  
