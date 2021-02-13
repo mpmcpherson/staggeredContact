@@ -106,6 +106,15 @@ function toggleHidden(targetDiv) {
   }
 } 
 
+function toggleHiddenFlex(targetDiv) {
+  var x = document.getElementById(targetDiv);
+  if (x.style.display === "none") {
+    x.style.display = "flex";
+  } else {
+    x.style.display = "none";
+  }
+} 
+
 function getCookie(inputString, searchTerm)
 {
     var v = parseCookie(inputString);

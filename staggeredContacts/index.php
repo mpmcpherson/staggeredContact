@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<?php require 'resources/uiConfig.php';?>
@@ -26,8 +27,12 @@
 				<div id="array_of_people_today"></div>
 			</div>
 			<div class="mainBody full" id="body">
-				<div class="">
-					<h3 class="titleBorder"><?php echo $viewportTitle; ?></h3>
+				<div class=""> 
+					<table style="width: 100%;"> <tr>
+						<td><div id="showHidePeople" class="button">show/hide people</div></td>
+						<td><h3 class=""><?php echo $viewportTitle; ?></h3></td>
+						<td><div id="showHideEvents" class="button">show/hide events</div></td>
+					</tr></table>
 				</div>
 				<div id="dueToday"></div>
 				<div>
@@ -35,7 +40,7 @@
 				</div>
 				<a href="mailto:" style="width: 100%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
 			</div>
-			<div class="rightBar full" id="leftBar">
+			<div class="rightBar full" id="rightBar">
 				<button id="addEvent" class="staggeredButtons" style="background-color: red;">Add Event</button>
 				<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
 				<br />

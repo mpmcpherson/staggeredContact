@@ -305,6 +305,38 @@ function loadAllCurrentContacts(){}
 function markContactTouched(){}
 
 function loadUI(){
+  let showHidePeopleButton = document.getElementById("showHidePeople");
+  let showHideEventsButton = document.getElementById("showHideEvents");
+  let mainDiv = document.getElementById("body");
+
+  showHidePeopleButton.addEventListener("click", function(){
+    toggleHiddenFlex("leftBar");
+    if(mainDiv.className==="mainBody full"){ //if nothing is hidden
+      mainDiv.className = "mainBodyLeftHidden full";
+    }else if(mainDiv.className==="mainBodyLeftHidden full"){//if the left bar is hidden
+      mainDiv.className = "mainBody full";
+    }else if(mainDiv.className==="mainBodyRightHidden full"){//if the right bar is hidden
+      mainDiv.className = "mainBodyAllHidden full";
+    }else if (mainDiv.className==="mainBodyAllHidden full"){//if everything is hidden
+      mainDiv.className = "mainBodyRightHidden full";
+    }
+
+  });
+
+  showHideEventsButton.addEventListener("click", function(){
+    toggleHiddenFlex("rightBar");
+    if(mainDiv.className==="mainBody full"){ //if nothing is hidden
+      mainDiv.className = "mainBodyRightHidden full";
+    }else if(mainDiv.className==="mainBodyRightHidden full"){//if the left bar is hidden
+      mainDiv.className = "mainBody full";
+    }else if(mainDiv.className==="mainBodyLeftHidden full"){//if the right bar is hidden
+      mainDiv.className = "mainBodyAllHidden full";
+    }else if (mainDiv.className==="mainBodyAllHidden full"){//if everything is hidden
+      mainDiv.className = "mainBodyLeftHidden full";
+    }
+  });
+
+
   let uid = getCookie(document.cookie, "userid");
 
   loadPeople(uid, "array_of_people");
