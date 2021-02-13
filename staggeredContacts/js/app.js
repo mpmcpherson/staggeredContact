@@ -1,7 +1,3 @@
-
-
-let uid = 44;
-
 function globalClickListener(){
   let personModal = document.getElementById("addPersonModal");
   let eventModal = document.getElementById("addEventModal");
@@ -105,7 +101,7 @@ function addPersonActual(){
 
   let firstName = ary[0];
   let lastName = document.getElementById("newPerson").value.substring(firstName.length+1,count);
-  let userId = uid;
+  let userId = getCookie(document.cookie, "userid");
   let intervalAmount = document.getElementById("freqNum").value;
   let intervalType = document.getElementById("freqSelect").value;
   let channelName = "email"; 
@@ -125,7 +121,7 @@ function addEvent(EventListing, EventTopic) {
   let values = {
     "EventTopic" : EventTopic, 
     "EventListing": EventListing, 
-    "userId" : uid
+    "userId" : getCookie(document.cookie, "userid")
   };
   let data = JSON.stringify(values);
  
@@ -281,7 +277,7 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
       try{
         d = JSON.parse(response);
         personGeneralClose(document.getElementById("addPersonModal"));
-        loadPeople(uid, "array_of_people");
+        loadPeople(getCookie(document.cookie, "userid"), "array_of_people");
         alert(d);
       }catch(error){
         console.log("add person error "+error);
@@ -309,6 +305,7 @@ function loadAllCurrentContacts(){}
 function markContactTouched(){}
 
 function loadUI(){
+  let uid = getCookie(document.cookie, "userid");
 
   loadPeople(uid, "array_of_people");
 
@@ -384,7 +381,7 @@ function register(){
   });
   postRequest('resources/createuser.php',function(response){
     try{
-      window.location.reload(false); 
+      //window.location.reload(false); 
     }catch(e){
       console.log(e);
     }
