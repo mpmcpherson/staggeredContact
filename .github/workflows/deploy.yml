@@ -1,0 +1,17 @@
+on: push
+name: DeployWebsiteOnPush
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get_latest_code
+      uses: actions/checkout@v2.3.2
+    
+    - name: Sync_files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: 69.163.197.191
+        username: dh_urwmjh
+        password: ${{ secrets.FTPASS }}
+        server-dir: beta.staggeredcontacts.com
