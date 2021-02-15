@@ -14,5 +14,5 @@ jobs:
         server: 69.163.197.191
         username: dh_urwmjh
         password: ${{ secrets.FTPASS }}
-        server-dir: beta.staggeredcontacts.com
+        server-dir: beta.staggeredcontacts.com/
         local-dir: ./staggeredContacts/
