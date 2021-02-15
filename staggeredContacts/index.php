@@ -36,8 +36,7 @@
 				</div>
 				<div id="dueToday"></div>
 				<div>
-					<!--<textarea style="display: flex; height: 85vh; width: 100%; background-color: #1D252B; color: white;"></textarea>-->
-					<textarea style="display: flex; height: 85vh; width: 100%; background-color: red; color: white;"></textarea>
+					<textarea style="display: flex; height: 85vh; width: 100%; background-color: #1D252B; color: white;"></textarea>
 				</div>
 				<a href="mailto:" style="width: 100%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
 			</div>
