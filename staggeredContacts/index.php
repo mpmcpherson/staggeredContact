@@ -139,5 +139,5 @@
 	}
 </script>
 <script type="text/javascript" src="js\helper.js"></script>
-<script type="text/javascript" src="js\modal.js"></script>
+
 <script type="text/javascript" src="js\app.js"></script>

@@ -1,5 +1,5 @@
 <?php
-include('defaultConnector.php');
+require 'defaultConnector.php';
 
 $password = "";
 $user_name = "";
