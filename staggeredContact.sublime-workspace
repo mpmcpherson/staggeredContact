@@ -276,55 +276,55 @@
 	"buffers":
 	[
 		{
-			"file": "staggeredContacts/js/app.js",
-			"settings":
-			{
-				"buffer_size": 13911,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "staggeredContacts/css/style.css",
-			"settings":
-			{
-				"buffer_size": 2375,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "staggeredContacts/resources/createuser.php",
 			"settings":
 			{
-				"buffer_size": 777,
+				"buffer_size": 776,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "staggeredContacts/index.php",
+			"contents": "\n<?php\nrequire 'defaultConnector.php';\n\n$userId = \"\";\n\n$gets = json_decode(file_get_contents('php://input'), true);\n\n$userId = $gets[\"userId\"];\n\n$qq = \"select * from EventListing el where el.userId = \".$userId;\n\n$result = mysqli_query($dbhandle, $qq);\n\n\n$output = array();\n\nwhile ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {\n    array_push($output, array(recoverString($row['id']),recoverString($row['EventTopic'])));\n}\n\necho json_encode($output);\n\n\nfunction recoverString(string $string) : string{\n\treturn htmlspecialchars_decode($string, ENT_QUOTES);\n}\n?>",
+			"file": "staggeredContacts/resources/loadAllEvents.php",
+			"file_size": 564,
+			"file_write_time": 132588688854348038,
 			"settings":
 			{
-				"buffer_size": 5324,
-				"encoding": "UTF-8",
+				"buffer_size": 565,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "staggeredContacts/resources/uiConfig.php",
+			"file": "staggeredContacts/resources/loadPeople.php",
 			"settings":
 			{
-				"buffer_size": 248,
-				"encoding": "UTF-8",
+				"buffer_size": 478,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/michaelmcpherson/keys",
+			"file": "staggeredContacts/resources/login.php",
 			"settings":
 			{
-				"buffer_size": 228,
+				"buffer_size": 1256,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "staggeredContacts/resources/addPerson.php",
+			"settings":
+			{
+				"buffer_size": 2010,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "staggeredContacts/resources/defaultConnector.php",
+			"settings":
+			{
+				"buffer_size": 235,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -509,15 +509,17 @@
 	},
 	"expanded_folders":
 	[
-		"/home/michaelmcpherson/src/staggeredContact",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/logs",
-		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources"
+		"/home/michael/src/staggeredContact",
+		"/home/michael/src/staggeredContact/staggeredContacts",
+		"/home/michael/src/staggeredContact/staggeredContacts/resources"
 	],
 	"file_history":
 	[
+		"/home/michael/src/staggeredContact/staggeredContacts/index.php",
+		"/home/michael/src/staggeredContact/staggeredContacts/css/style.css",
+		"/home/michael/src/staggeredContact/staggeredContacts/js/app.js",
+		"/home/michael/src/staggeredContact/staggeredContacts/resources/uiConfig.php",
+		"/home/michaelmcpherson/keys",
 		"/home/michaelmcpherson/Documents/BusinessDocs/recurring_pairing_meeting.ics",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js/helper.js",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/createNewUser.php",
@@ -545,7 +547,6 @@
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/pierrefrancoisdulac.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/index.php",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/logout.php",
-		"/home/michaelmcpherson/keys",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/wpa_supplicant.conf",
 		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/style.css",
 		"/home/michaelmcpherson/src/gitRecurse/gitScan.sh",
@@ -641,15 +642,11 @@
 		"/home/michaelmcpherson/src/phpInsecureREST/api/objects/dndPlot.php",
 		"/home/michaelmcpherson/src/phpInsecureREST/api/config/secretConfig.php",
 		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/CouchDBResponse.php",
-		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/CouchDBConnection.php",
-		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/CouchDBRequest.php",
-		"/home/michaelmcpherson/src/phpInsecureREST/api/testharness.php",
-		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/genericException.php",
-		"/home/michaelmcpherson/src/phpInsecureREST/tests/Unit/shared/abstractRestConnectionTest.php.bak"
+		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/CouchDBConnection.php"
 	],
 	"find":
 	{
-		"height": 45.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
@@ -753,572 +750,62 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "staggeredContacts/js/app.js",
+					"file": "staggeredContacts/resources/createuser.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13911,
+						"buffer_size": 776,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9750,
-								9750
+								37,
+								37
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"nodePath": "node",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": true
+							"function_name_status_row": 1,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 6528.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "staggeredContacts/css/style.css",
+					"file": "staggeredContacts/resources/loadAllEvents.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2375,
+						"buffer_size": 565,
 						"regions":
 						{
-							"gutter_color_1056":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										1056,
-										1087
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1194":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#e1e4b4.png",
-								"regions":
-								[
-									[
-										1369,
-										1400
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_120":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/white.png",
-								"regions":
-								[
-									[
-										120,
-										134
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1226":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										1401,
-										1428
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1293":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										1401,
-										1428
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1321":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/white.png",
-								"regions":
-								[
-									[
-										1429,
-										1443
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1369":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#e1e4b4.png",
-								"regions":
-								[
-									[
-										1369,
-										1400
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1401":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										1401,
-										1428
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1429":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/white.png",
-								"regions":
-								[
-									[
-										1429,
-										1443
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1655":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										1830,
-										1862
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1722":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										1830,
-										1862
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1830":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										1830,
-										1862
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_1954":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#f1f1f1.png",
-								"regions":
-								[
-									[
-										2129,
-										2155
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2021":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#f1f1f1.png",
-								"regions":
-								[
-									[
-										2129,
-										2155
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2047":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#888.png",
-								"regions":
-								[
-									[
-										2222,
-										2245
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2048":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										2156,
-										2178
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2114":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#888.png",
-								"regions":
-								[
-									[
-										2222,
-										2245
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2129":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#f1f1f1.png",
-								"regions":
-								[
-									[
-										2129,
-										2155
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2138":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										2246,
-										2268
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2152":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#555.png",
-								"regions":
-								[
-									[
-										2327,
-										2350
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2156":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										2156,
-										2178
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2176":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										2351,
-										2373
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2219":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#555.png",
-								"regions":
-								[
-									[
-										2327,
-										2350
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2222":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#888.png",
-								"regions":
-								[
-									[
-										2222,
-										2245
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2243":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										2351,
-										2373
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2246":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										2246,
-										2268
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2327":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#555.png",
-								"regions":
-								[
-									[
-										2327,
-										2350
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_2351":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										2351,
-										2373
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_568":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										568,
-										597
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_598":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										598,
-										630
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_60":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#edefd3.png",
-								"regions":
-								[
-									[
-										60,
-										91
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_645":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										645,
-										676
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_726":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										726,
-										757
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_799":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										799,
-										828
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_829":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/gray.png",
-								"regions":
-								[
-									[
-										829,
-										861
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_875":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#e1e4b4.png",
-								"regions":
-								[
-									[
-										875,
-										906
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_907":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										907,
-										934
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_92":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/#1D252B.png",
-								"regions":
-								[
-									[
-										92,
-										119
-									]
-								],
-								"scope": "gutter_color"
-							},
-							"gutter_color_935":
-							{
-								"flags": 144,
-								"icon": "Cache/GutterColor/white.png",
-								"regions":
-								[
-									[
-										935,
-										949
-									]
-								],
-								"scope": "gutter_color"
-							}
 						},
 						"selection":
 						[
 							[
-								1156,
-								1156
+								1,
+								1
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"function_name_status_row": 1,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 828.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -1326,24 +813,56 @@
 				},
 				{
 					"buffer": 2,
-					"file": "staggeredContacts/resources/createuser.php",
+					"file": "staggeredContacts/resources/loadPeople.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 777,
+						"buffer_size": 478,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								72,
-								72
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"function_name_status_row": 0,
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "staggeredContacts/resources/login.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1256,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 0,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1353,55 +872,55 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "staggeredContacts/index.php",
+					"buffer": 4,
+					"file": "staggeredContacts/resources/addPerson.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5324,
+						"buffer_size": 2010,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1757,
-								1757
+								381,
+								381
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
+							"function_name_status_row": 21,
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 621.0,
+						"translation.y": 285.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "staggeredContacts/resources/uiConfig.php",
+					"buffer": 5,
+					"file": "staggeredContacts/resources/defaultConnector.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 248,
+						"buffer_size": 235,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								141,
-								141
+								139,
+								139
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
+							"function_name_status_row": 6,
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
@@ -1409,34 +928,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/michaelmcpherson/keys",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 228,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								64,
-								64
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
