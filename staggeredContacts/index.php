@@ -36,9 +36,9 @@
 				</div>
 				<div id="dueToday"></div>
 				<div>
-					<textarea style="display: flex; height: 85vh; width: 100%; background-color: #1D252B; color: white;"></textarea>
+					<textarea id="mainTextArea" onfocusout="updateMailto()" style="display: flex; height: 85vh; width: 100%; background-color: #1D252B; color: white;"></textarea>
 				</div>
-				<a href="mailto:" style="width: 100%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
+				<a href="mailto:" id="sendIt" style="width: 100%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
 			</div>
 			<div class="rightBar full" id="rightBar">
 				<button id="addEvent" class="staggeredButtons" style="background-color: red;">Add Event</button>

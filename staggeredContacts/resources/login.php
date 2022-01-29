@@ -32,10 +32,38 @@ if (password_verify($userPass, $resPass[0])) {
     $_SESSION['valid'] = 1;
     $_SESSION['userid'] = $userid;
     $_SESSION['username'] = $userName;
-    setcookie('userid', $userid, time()+60*60*1, "/");
-    setcookie('sessionID', "invalidSessionUnset", time()-(60*60*8), "/");
-    setcookie('sessionID', $rnd, time()+60*60*1, "/");
+
+
+
+    setcookie('userid', $userid,  [
+    'expires' => time()+60*60*1,
+    'path' => '/',
+    'domain' => 'beta.staggeredcontacts.com',
+    'secure' => true,
+    'httponly' => false,
+    'samesite' => 'None',
+    ]);
+
+    setcookie('sessionID', "invalidSessionUnset",  [
+    'expires' => time()+60*60*1,
+    'path' => '/',
+    'domain' => 'beta.staggeredcontacts.com',
+    'secure' => true,
+    'httponly' => false,
+    'samesite' => 'None',
+    ]);
+    
+    setcookie('sessionID', $rnd,  [
+    'expires' => time()+60*60*1,
+    'path' => '/',
+    'domain' => 'beta.staggeredcontacts.com',
+    'secure' => true,
+    'httponly' => false,
+    'samesite' => 'None',
+    ]);
+    
     $newQ = "UPDATE general_dev_bastion.users SET sessionID = ".$rnd." WHERE user_id = '".$_SESSION['userid']."'";
+
     $result = mysqli_query($dbhandle, $newQ);
     
     echo json_encode([true,$userid,$sessionID]);

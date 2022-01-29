@@ -301,6 +301,13 @@ function keypressListener(){
   });
 }
 
+function updateMailto(){
+  let mainTextArea = document.getElementById("mainTextArea");
+  let mailToButton = document.getElementById("sendIt");
+
+  mailToButton.href="mailto:?subject=updates&body="+mainTextArea.value;
+}
+
 function loadAllCurrentContacts(){}
 function markContactTouched(){}
 
@@ -456,8 +463,15 @@ docReady(function() {
   globalClickListener();
   keypressListener();
 
-  loginOrRegister();
 
+  
+  let user = getCookie(document.cookie, "userid");
+  
+  if(user==''){
+    loginOrRegister();
+  }else{
+    loadUI();
+  }
 });
 
 //192.168.1.127
