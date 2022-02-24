@@ -3,6 +3,7 @@ function globalClickListener(){
   let eventModal = document.getElementById("addEventModal");
   let addPersonSubmission = document.getElementById("add_person_submission");
   let addEventSubmission = document.getElementById("add_event_submission");
+  let addActiveEventsToEmailTemplate = document.getElementById("loadEventsHere");
 
   window.onclick = function(event) {
 
@@ -17,6 +18,9 @@ function globalClickListener(){
     }
     if(event.target===addEventSubmission){
       addEventActual();
+    }
+    if(event.target===addActiveEventsToEmailTemplate){
+      loadActiveEventsToEmailTemplate();
     }
   };
 
@@ -308,6 +312,17 @@ function updateMailto(){
   mailToButton.href="mailto:?subject=updates&body="+mainTextArea.value;
 }
 
+function loadActiveEventsToEmailTemplate(){
+  let mainTextArea = document.getElementById("mainTextArea");
+  let rightBar = document.getElementById("array_of_events");
+  let children = rightBar.children;
+  let data = [];
+  for(const c of children){
+    data.push(c.id);
+  }
+  
+}
+
 function loadAllCurrentContacts(){}
 function markContactTouched(){}
 
@@ -351,6 +366,7 @@ function loadUI(){
   loadTodaysPeople(uid, "array_of_people_today");
 
   loadAllEvents(uid, "array_of_events");
+
 
 
 

@@ -32,7 +32,11 @@
 						<td><div id="showHidePeople" class="button">show/hide people</div></td>
 						<td><h3 class=""><?php echo $viewportTitle; ?></h3></td>
 						<td><div id="showHideEvents" class="button">show/hide events</div></td>
-					</tr></table>
+					</tr>
+					<tr>
+						<td style="margin-left: 45%;"><div id="loadEventsHere" class="button">Load All Events</div></td>
+					</tr>
+				</table>
 				</div>
 				<div id="dueToday"></div>
 				<div>
