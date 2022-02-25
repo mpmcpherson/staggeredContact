@@ -318,9 +318,10 @@ function loadActiveEventsToEmailTemplate(){
   let children = rightBar.children;
   let data = [];
   for(const c of children){
-    data.push(c.id);
+    mainTextArea.value += c.innerHTML+"\n";
+    //mainTextArea.value += "<p>"+c.innerHTML+"</p>";
   }
-  
+  updateMailto();
 }
 
 function loadAllCurrentContacts(){}
