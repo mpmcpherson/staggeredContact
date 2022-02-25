@@ -21,7 +21,13 @@ Framing this out really quickly, just because I need to get it down.
 
 - [X] build database tables
 - [X] reframe UI slightly
-- [ ] start cranking out logic
+- [X] start cranking out logic
+- [ ] make selecting a person to mail things to populate their email when you hit send
+- [ ] highlight the person you've selected
+- [ ] make the events a multiselect, so you can pick them easily
+- [ ] sort your events in reverse order
+- [ ] fix the UI to not suck
+- [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a person journal? 
 
 ## this really only works for one user
 
