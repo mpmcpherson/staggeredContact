@@ -17,6 +17,7 @@
 		</div>
 
 		<div class="wrapper ninety" id="container">
+
 			<div class="leftBar full" id="leftBar">
 				<div class="titleBorder"style="font-weight: bold;">
 					<button id="addPerson" class="staggeredButtons" style="background-color: red;">Add person</button>
@@ -26,6 +27,7 @@
 				<div id="array_of_people"></div>
 				<div id="array_of_people_today"></div>
 			</div>
+			
 			<div class="mainBody full" id="body">
 				<div class=""> 
 					<table style="width: 100%;"> <tr>
@@ -44,8 +46,10 @@
 				</div>
 				<a href="mailto:" id="sendIt" style="width: 100%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
 			</div>
+			
 			<div class="rightBar full" id="rightBar">
 				<button id="addEvent" class="staggeredButtons" style="background-color: red;">Add Event</button>
+				<button id="addChecked" class="staggeredButtons" style="background-color: blue;">Add Checked Events</button>
 				<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
 				<br />
 				<div id="array_of_events"></div>

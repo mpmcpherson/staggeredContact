@@ -23,9 +23,10 @@ Framing this out really quickly, just because I need to get it down.
 - [X] reframe UI slightly
 - [X] start cranking out logic
 - [ ] make selecting a person to mail things to populate their email when you hit send
-- [ ] highlight the person you've selected
-- [ ] make the events a multiselect, so you can pick them easily
-- [ ] sort your events in reverse order
+- [X] highlight the person you've selected (okay, it's only sorta done. Suck it up.)
+- [X] make the events a multiselect, so you can pick them easily
+- [X] sort your events in reverse order
+- [X] Make the events pane reload after adding an event.
 - [ ] fix the UI to not suck
 - [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a person journal? 
 

@@ -4,6 +4,7 @@ function globalClickListener(){
   let addPersonSubmission = document.getElementById("add_person_submission");
   let addEventSubmission = document.getElementById("add_event_submission");
   let addActiveEventsToEmailTemplate = document.getElementById("loadEventsHere");
+  let addCheckedEventsToEmailTemplate = document.getElementById("addChecked");
 
   window.onclick = function(event) {
 
@@ -21,6 +22,9 @@ function globalClickListener(){
     }
     if(event.target===addActiveEventsToEmailTemplate){
       loadActiveEventsToEmailTemplate();
+    }
+    if(event.target===addCheckedEventsToEmailTemplate){
+      loadCheckedEvents();
     }
   };
 
@@ -131,12 +135,13 @@ function addEvent(EventListing, EventTopic) {
  
   postRequest('resources/addEvent.php', 
     function(response){
-      console.log("addevent response "+response);
+      //console.log("addevent response "+response);
       let d = "";
       try{
         d = JSON.parse(response);
         eventGeneralClose(document.getElementById("addEventModal"));
-        alert(d);
+        loadAllEvents(getCookie(document.cookie, "userid"), "array_of_events");
+        //alert(d);
       }catch(error){
         console.log("error "+error);
       }
@@ -315,7 +320,7 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
         d = JSON.parse(response);
         personGeneralClose(document.getElementById("addPersonModal"));
         loadPeople(getCookie(document.cookie, "userid"), "array_of_people");
-        alert(d);
+        //alert(d);
       }catch(error){
         console.log("add person error "+error);
       }
@@ -351,10 +356,24 @@ function loadActiveEventsToEmailTemplate(){
   let children = rightBar.children;
   let data = [];
   for(const c of children){
-    mainTextArea.value += c.innerHTML+"\n";
+    mainTextArea.value += c.children[0].value+"\n";
     //mainTextArea.value += "<p>"+c.innerHTML+"</p>";
   }
   updateMailto();
+}
+
+function loadCheckedEvents(){
+  let mainTextArea = document.getElementById("mainTextArea");
+  let rightBar = document.getElementById("array_of_events");
+  let children = rightBar.children;
+  let data = [];
+  for(const c of children){
+    if(c.children[0].checked){
+      mainTextArea.value += c.children[0].value+"\n";
+      //mainTextArea.value += "<p>"+c.innerHTML+"</p>";
+    }
+  }
+  updateMailto(); 
 }
 
 function loadAllCurrentContacts(){}

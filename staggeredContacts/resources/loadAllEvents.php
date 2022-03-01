@@ -8,7 +8,7 @@ $gets = json_decode(file_get_contents('php://input'), true);
 
 $userId = $gets["userId"];
 
-$qq = "select * from EventListing el where el.userId = ".$userId;
+$qq = "select * from EventListing el where el.userId = ".$userId." order by id desc";
 
 $result = mysqli_query($dbhandle, $qq);
 
