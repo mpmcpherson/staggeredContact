@@ -166,6 +166,40 @@ function appendNodes(target,data){
 
 }
 
+function appendCheckboxedNodes(target, data){
+
+  for(let i = 0; i<data.length; i++)
+  {
+    let nameContainer = document.createElement("div");
+    nameContainer.id = data[i][0];
+    let nameTextNode = "";
+
+
+    let label = document.createElement("label");
+    label.for = data[i][0];
+    label.className="label";
+    let checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    checkBox.id = data[i][0];
+
+
+    if(typeof data[i][2]!=='undefined'){
+      nameTextNode = document.createTextNode(data[i][1]+" "+data[i][2]);
+      checkBox.value = document.createTextNode(data[i][1]+" "+data[i][2]);
+    }else{
+      nameTextNode = document.createTextNode(data[i][1]);
+      checkBox.value = document.createTextNode(data[i][1]);
+    }
+
+    label.appendChild(checkBox);
+    label.appendChild(nameTextNode);
+    //nameContainer.appendChild(nameTextNode);
+
+    target.appendChild(label);
+  }
+
+}
+
 function loadPeople(userId, targetDiv){ 
   let resultDiv = document.getElementById(targetDiv);
   resultDiv.innerHTML = "";
@@ -225,7 +259,7 @@ function loadAllEvents(userId, targetDiv){
       let d = "";
       try{
         d = JSON.parse(response);
-        appendNodes(resultDiv, d);
+        appendCheckboxedNodes(resultDiv, d);
       }catch(error){
         console.log("load all events error "+error);
       }
