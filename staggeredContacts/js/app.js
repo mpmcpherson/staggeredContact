@@ -166,7 +166,7 @@ function appendNodes(target,data){
 
 }
 
-function appendCheckboxedNodes(target, data){
+function appendCheckboxedNodes(target, data, prependString){
 
   for(let i = 0; i<data.length; i++)
   {
@@ -180,20 +180,19 @@ function appendCheckboxedNodes(target, data){
     label.className="label";
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
-    checkBox.id = data[i][0];
+    checkBox.id = prependString+data[i][0];
 
 
     if(typeof data[i][2]!=='undefined'){
       nameTextNode = document.createTextNode(data[i][1]+" "+data[i][2]);
-      checkBox.value = document.createTextNode(data[i][1]+" "+data[i][2]);
+      checkBox.value = data[i][1]+" "+data[i][2];
     }else{
       nameTextNode = document.createTextNode(data[i][1]);
-      checkBox.value = document.createTextNode(data[i][1]);
+      checkBox.value = data[i][1];
     }
 
     label.appendChild(checkBox);
     label.appendChild(nameTextNode);
-    //nameContainer.appendChild(nameTextNode);
 
     target.appendChild(label);
   }
@@ -212,7 +211,7 @@ function loadPeople(userId, targetDiv){
       let d = "";
       try{
         d = JSON.parse(response);
-        appendNodes(resultDiv, d);
+        appendCheckboxedNodes(resultDiv, d, "ppl");
       }catch(error){
         console.log("load people error "+error);
       }
@@ -259,7 +258,7 @@ function loadAllEvents(userId, targetDiv){
       let d = "";
       try{
         d = JSON.parse(response);
-        appendCheckboxedNodes(resultDiv, d);
+        appendCheckboxedNodes(resultDiv, d, "events");
       }catch(error){
         console.log("load all events error "+error);
       }
@@ -529,3 +528,7 @@ docReady(function() {
 
 //192.168.1.124
 
+/*
+this should get me all the IDs with a certain prefix
+document.querySelectorAll('[id^="[MY PREFIX HERE]"]').id;
+*/
