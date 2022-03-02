@@ -541,7 +541,7 @@ function loginOrRegister(){
     console.log("loginpasswordbox listener added");
     if(e.keyCode==13){
       let loginBtn = document.getElementById("login_btn");
-      loginBtn.buttonclick();
+      loginBtn.click();
     }
   });
 }
