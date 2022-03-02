@@ -516,7 +516,8 @@ function register(){
 function loginOrRegister(){
   //hide wrapper and its contents; 
   //show login modal; 
-  console.log("hit loginOrRegister");
+  alert("hit loginOrRegister");
+
   let loginPasswordBox = document.getElementById("userPass");
   let loginSignup = document.getElementById("login_signup");
   let container = document.getElementById("container");
