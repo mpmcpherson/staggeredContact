@@ -335,7 +335,6 @@ function keypressListener(){
   let textArea = document.getElementById("eventText");
   let eventCount = document.getElementById("charCount");
   let personEmail = document.getElementById("emailId");
-  let loginPasswordBox = document.getElementById("userPass");
 
   textArea.addEventListener("keypress",function(){
     if(textArea.value.length+1>400){
@@ -349,13 +348,6 @@ function keypressListener(){
     }
     else{
       person.className="validEmail";
-    }
-  });
-  loginPasswordBox.addEventListener("keypress", function(e){
-    console.log("loginpasswordbox listener added");
-    if(e.keyCode==13){
-      let loginBtn = document.getElementById("login_btn");
-      loginBtn.buttonclick();
     }
   });
 }
@@ -524,6 +516,8 @@ function register(){
 function loginOrRegister(){
   //hide wrapper and its contents; 
   //show login modal; 
+
+  let loginPasswordBox = document.getElementById("userPass");
   let loginSignup = document.getElementById("login_signup");
   let container = document.getElementById("container");
   container.style.display = "none";
@@ -538,9 +532,15 @@ function loginOrRegister(){
 
   signup_btn.addEventListener("click",function(){
     register();
-    //I should probably set this up to dynamically handle whatever the fuck gets pulled back from the signup process
+  });
 
-  });  
+  loginPasswordBox.addEventListener("keypress", function(e){
+    console.log("loginpasswordbox listener added");
+    if(e.keyCode==13){
+      let loginBtn = document.getElementById("login_btn");
+      loginBtn.buttonclick();
+    }
+  });
 }
 
 
