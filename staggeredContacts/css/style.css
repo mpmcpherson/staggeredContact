@@ -120,3 +120,12 @@ body
 .center-text{
 	text-align: center;
 }
+.invalidEmail{
+	border-color: red;
+	border-width:  5px;
+	background-origin: solid;
+}
+.validEmail{
+	border: none;
+
+}

@@ -166,3 +166,7 @@ function addCookie(cname, cvalue) {
     setCookie(cname + "=" + cvalue + ";");
     //sessionStorage.setItem(cname,cvalue);
 }
+function validEmail(e) {
+    var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+    return String(e).search (filter) != -1;
+}

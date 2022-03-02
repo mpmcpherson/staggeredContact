@@ -334,12 +334,21 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
 function keypressListener(){
   let textArea = document.getElementById("eventText");
   let eventCount = document.getElementById("charCount");
-  
+  let personEmail = document.getElementById("emailId");
+
   textArea.addEventListener("keypress",function(){
     if(textArea.value.length+1>400){
       textArea.value = textArea.value.substring(0, 400);
     }
     eventCount.innerHTML = textArea.value.length+1;
+  });
+  personEmail.addEventListener("keypress",function(){
+    if(validEmail(personEmail.value)==false){
+      personEmail.className = "invalidEmail";
+    }
+    else{
+      person.className="validEmail";
+    }
   });
 }
 
@@ -476,7 +485,6 @@ function login(){
   );
   return false;
 }
-
 function register(){
   //this is gonna be a little involved
   //and I'm going to need to use the google recaptcha project to 
@@ -489,7 +497,7 @@ function register(){
   });
   postRequest('resources/createuser.php',function(response){
     try{
-      //window.location.reload(false); 
+       login();
     }catch(e){
       console.log(e);
     }
