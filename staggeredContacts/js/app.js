@@ -335,6 +335,7 @@ function keypressListener(){
   let textArea = document.getElementById("eventText");
   let eventCount = document.getElementById("charCount");
   let personEmail = document.getElementById("emailId");
+  let loginPasswordBox = document.getElementById("userPass");
 
   textArea.addEventListener("keypress",function(){
     if(textArea.value.length+1>400){
@@ -348,6 +349,12 @@ function keypressListener(){
     }
     else{
       person.className="validEmail";
+    }
+  });
+  loginPasswordBox.addEventListener("keypress", function(e){
+    if(e.keyCode==13){
+      let loginBtn = document.getElementById("login_btn");
+      loginBtn.buttonclick();
     }
   });
 }
