@@ -534,6 +534,8 @@ function loginOrRegister(){
     register();
   });
 
+  console.log("loginOrRegister function; about to add eventlistener to loginpasswordbox");
+  
   loginPasswordBox.addEventListener("keypress", function(e){
     console.log("loginpasswordbox listener added");
     if(e.keyCode==13){
