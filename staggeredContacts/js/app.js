@@ -516,7 +516,6 @@ function register(){
 function loginOrRegister(){
   //hide wrapper and its contents; 
   //show login modal; 
-  alert("hit loginOrRegister");
 
   let loginPasswordBox = document.getElementById("userPass");
   let loginSignup = document.getElementById("login_signup");
@@ -535,10 +534,7 @@ function loginOrRegister(){
     register();
   });
 
-  console.log("loginOrRegister function; about to add eventlistener to loginpasswordbox");
-
   loginPasswordBox.addEventListener("keypress", function(e){
-    console.log("loginpasswordbox listener added");
     if(e.keyCode==13){
       let loginBtn = document.getElementById("login_btn");
       loginBtn.click();
