@@ -559,6 +559,8 @@ function logOutActual(){
     }
   },function(response){
     try{
+      localStorage.clear();
+      location.reload(true);
       console.log(response);
     }catch(e){
       console.log(e);

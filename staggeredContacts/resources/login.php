@@ -20,6 +20,8 @@ $userid = '';
 $resPass = array();
 $userIdArr = array();
 
+session_start();
+
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     array_push($resPass, $row['pw_hash']);
     array_push($userIdArr, $row['user_id']);
