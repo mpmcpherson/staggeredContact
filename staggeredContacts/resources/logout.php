@@ -3,18 +3,20 @@
 include('defaultConnector.php');
 
 $newQ = "UPDATE general_dev_bastion.users SET sessionID = '4' WHERE user_id = '".$_SESSION['userid']."'";
-// 1. Find the session
-    session_start();
+$result = mysqli_query($dbhandle, $newQ);
 
-    // 2. Unset all the session variables
-    $_SESSION = array();
+unset($_COOKIE['PHPSESSID']);
 
-    // 3. Destroy the session cookie
-    if(isset($_COOKIE[session_name()])) {
-        setcookie(session_name(), '', time()-42000, '/');
-    }
 
-    // 4. Destroy the session
-    session_destroy();
+$_SESSION['valid'] = 0;
+$_SESSION['userid'] = NULL;
+$_SESSION['username'] = NULL;
+setcookie('userid', NULL, time() + 60 * 60 * 1, "/");
+setcookie('sessionID', "invalidSessionUnset", time() - (60 * 60 * 8), "/");
+setcookie('sessionID', $rnd, time() + 60 * 60 * 1, "/");
+
+
+
+session_destroy();
 
 ?>
