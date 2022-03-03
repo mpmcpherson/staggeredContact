@@ -5,6 +5,7 @@ function globalClickListener(){
   let addEventSubmission = document.getElementById("add_event_submission");
   let addActiveEventsToEmailTemplate = document.getElementById("loadEventsHere");
   let addCheckedEventsToEmailTemplate = document.getElementById("addChecked");
+  let logout = document.getElementById("logOut");
 
   window.onclick = function(event) {
 
@@ -25,6 +26,9 @@ function globalClickListener(){
     }
     if(event.target===addCheckedEventsToEmailTemplate){
       loadCheckedEvents();
+    }
+    if(event.target===logout){
+      logOutActual();
     }
   };
 
@@ -344,10 +348,12 @@ function keypressListener(){
   });
   personEmail.addEventListener("keypress",function(){
     if(validEmail(personEmail.value)==false){
+      console.log("invalid email");
       personEmail.className = "invalidEmail";
     }
     else{
-      person.className="validEmail";
+      console.log("valid email");
+      personEmail.className = "validEmail";
     }
   });
 }
@@ -538,6 +544,24 @@ function loginOrRegister(){
     if(e.keyCode==13){
       let loginBtn = document.getElementById("login_btn");
       loginBtn.click();
+    }
+  });
+}
+
+
+function logOutActual(){
+  postRequest('resources/logout.php',function(response){
+    try{
+      localStorage.clear();
+      location.reload(true);
+    }catch(e){
+      console.log(e);
+    }
+  },function(response){
+    try{
+      console.log(response);
+    }catch(e){
+      console.log(e);
     }
   });
 }

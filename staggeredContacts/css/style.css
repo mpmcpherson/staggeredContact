@@ -127,5 +127,7 @@ body
 }
 .validEmail{
 	border: none;
-
+}
+.button{
+	cursor: pointer;
 }

@@ -12,7 +12,7 @@
 		
 		<div class="oneTenth pageHead">
 			<div class="">
-				<h2><?php echo $header; ?></h2>
+				<h2 style="display: inline;"><?php echo $header; ?></h2><div id="logOut" class="button" style="float:right; padding: 5px; background-color: skyblue; display: inline-block;">logout</div>
 			</div>
 		</div>
 
@@ -125,9 +125,9 @@
 					<h3 style="text-align: center;" class="topAndBottomBorder">Log In or Sign Up...</h3>
 					<div>
 						<div style="width: 95%">
-							<input id="username" style="width: 100%; padding-bottom: 3%; display: inline-block;" type="text" />
+							<input id="username" style="width: 100%; padding-bottom: 3%; display: inline-block;" type="text" placeholder="email address"/>
 
-							<input id="userPass" style="width: 100%; margin-top: 5px; margin-bottom: 5px; display: inline-block;" type="password" />
+							<input id="userPass" style="width: 100%; margin-top: 5px; margin-bottom: 5px; display: inline-block;" type="password" placeholder="password..."/>
 							
 							<button id="login_btn" type="submit" style="float: right; margin-right: -1em;">log in...</button>
 
@@ -135,6 +135,13 @@
 
 							<br />
 
+							<!--
+								<form action="?" method="POST">
+								      <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+								      <br/>
+								      <input type="submit" value="Submit">
+							    </form>
+							-->
 						</div>
 					</div>
 				</div>
@@ -149,3 +156,5 @@
 <script type="text/javascript" src="js\helper.js"></script>
 
 <script type="text/javascript" src="js\app.js"></script>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
