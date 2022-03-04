@@ -140,13 +140,12 @@ function addEvent(EventListing, EventTopic) {
  
   postRequest('resources/addEvent.php', 
     function(response){
-      //console.log("addevent response "+response);
+
       let d = "";
       try{
         d = JSON.parse(response);
         eventGeneralClose(document.getElementById("addEventModal"));
-        loadAllEvents(getCookie(document.cookie, "userid"), "array_of_events");
-        //alert(d);
+        loadAllEvents(getCookie(document.cookie, "userid"), "array_of_events");      
       }catch(error){
         console.log("error "+error);
       }
