@@ -133,7 +133,8 @@ function addEvent(EventListing, EventTopic) {
   let values = {
     "EventTopic" : EventTopic, 
     "EventListing": EventListing, 
-    "userId" : getCookie(document.cookie, "userid")
+    "userId" : getCookie(document.cookie, "userid"),
+    "sessionID": window.localStorage.getItem("sessionToken")
   };
   let data = JSON.stringify(values);
  
@@ -211,7 +212,10 @@ function appendCheckboxedNodes(target, data, prependString){
 function loadPeople(userId, targetDiv){ 
   let resultDiv = document.getElementById(targetDiv);
   resultDiv.innerHTML = "";
-  userId = {"userId" : userId};
+  userId = {
+    "userId" : userId,
+    "sessionID": window.localStorage.getItem("sessionToken")
+  };
   let data = JSON.stringify(userId);
  
   postRequest('resources/loadPeople.php', 
@@ -235,7 +239,10 @@ function loadPeople(userId, targetDiv){
 
 function loadTodaysPeople(userId, targetDiv){
   let resultDiv = document.getElementById(targetDiv);
-  userId = {"userId" : userId};
+  userId = {
+    "userId" : userId,
+    "sessionID": window.localStorage.getItem("sessionToken")
+  };
   let data = JSON.stringify(userId);
 
   postRequest('resources/loadtodayspeople.php', 
@@ -258,7 +265,10 @@ function loadTodaysPeople(userId, targetDiv){
 }
 function loadAllEvents(userId, targetDiv){
   let resultDiv = document.getElementById(targetDiv);
-  userId = {"userId" : userId};
+  userId = {
+    "userId" : userId,
+    "sessionID": window.localStorage.getItem("sessionToken")
+  };
   let data = JSON.stringify(userId);
   resultDiv.innerHTML="";
 
@@ -312,7 +322,8 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
     "intervalAmount" : intervalAmount,
     "intervalType" : intervalType, 
     "channelName" : channelName, 
-    "channelValue" : channelValue
+    "channelValue" : channelValue,
+    "sessionID": window.localStorage.getItem("sessionToken")
   };
   let data = JSON.stringify(values);
  
@@ -553,6 +564,7 @@ function logOutActual(){
   postRequest('resources/logout.php',function(response){
     try{
       localStorage.clear();
+      clearAllCookies();
       location.reload(true);
     }catch(e){
       console.log(e);
@@ -576,8 +588,8 @@ docReady(function() {
 
   
   let user = getCookie(document.cookie, "userid");
-  
-  if(user==''){
+  let sessionID = window.localStorage.getItem("sessionToken");
+  if(user==''||sessionID==''|| !sessionID){
     loginOrRegister();
   }else{
     loadUI();

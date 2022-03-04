@@ -31,6 +31,7 @@ $userid = $userIdArr[0];
 
 if (password_verify($userPass, $resPass[0])) {
     $rnd=rand();
+    $sessionID = $rnd;
     $_SESSION['valid'] = 1;
     $_SESSION['userid'] = $userid;
     $_SESSION['username'] = $userName;
@@ -64,7 +65,7 @@ if (password_verify($userPass, $resPass[0])) {
     'samesite' => 'None',
     ]);
     
-    $newQ = "UPDATE general_dev_bastion.users SET sessionID = ".$rnd." WHERE user_id = '".$_SESSION['userid']."'";
+    $newQ = "UPDATE general_dev_bastion.users SET sessionID = ".$sessionID." WHERE user_id = '".$_SESSION['userid']."'";
 
     $result = mysqli_query($dbhandle, $newQ);
     
