@@ -436,7 +436,7 @@ function loadUI(){
     }
   });
 
-  let screenWidth = window.screen.availWidth;
+  let screenWidth = window.innerWidth;
 
   if(screenWidth<1600){
   //I should really do this with an @media query a la https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
