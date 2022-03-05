@@ -12,7 +12,7 @@
 		
 		<div class="oneTenth pageHead">
 			<div class="">
-				<h2 style="display: inline;"><?php echo $header; ?></h2><div id="logOut" class="button" style="float:right; padding: 5px; background-color: skyblue; display: inline-block;">logout</div>
+				<h2 class="headerText"><?php echo $header; ?></h2><div id="logOut" class="button logOutButton" >logout</div>
 			</div>
 		</div>
 
@@ -124,14 +124,14 @@
 				<div style="padding-bottom: 15px; width: 100%;">
 					<h3 style="text-align: center;" class="topAndBottomBorder">Log In or Sign Up...</h3>
 					<div>
-						<div style="width: 95%">
-							<input id="username" style="width: 100%; padding-bottom: 3%; display: inline-block;" type="text" placeholder="email address"/>
+						<div class="loginBoxHolder">
+							<input id="username" class="login_uname" type="text" placeholder="email address"/>
 
-							<input id="userPass" style="width: 100%; margin-top: 5px; margin-bottom: 5px; display: inline-block;" type="password" placeholder="password..."/>
+							<input id="userPass" class="login_pw" type="password" placeholder="password..."/>
 							
-							<button id="login_btn" type="submit" style="float: right; margin-right: -1em;">log in...</button>
+							<button id="login_btn" class="loginBtnClass" type="submit">log in...</button>
 
-							<button id="signup_btn" style="float: left; margin-left: 1em;" >sign up...</button>
+							<button id="signup_btn" class="signUpBtnClass" style=>sign up...</button>
 
 							<br />
 
