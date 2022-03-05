@@ -28,7 +28,7 @@
 				<div id="array_of_people_today"></div>
 			</div>
 			
-			<div class="mainBody full" id="body">
+			<div id="body" class="mainBody full">
 				<div class=""> 
 					<table style="width: 100%;"> <tr>
 						<td><div id="showHidePeople" class="button">show/hide people</div></td>
