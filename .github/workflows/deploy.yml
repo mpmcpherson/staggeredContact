@@ -1,5 +1,5 @@
 on: push
-name: DeployWebsiteOnPush
+name: DeployProdSiteOnPush
 jobs:
   web-deploy:
     name: ProdDeploy
@@ -17,6 +17,9 @@ jobs:
         password: ${{ secrets.FTPASS }}
         server-dir: staggeredcontacts.com/
         local-dir: ./staggeredContacts/
+on: push
+name: DeployBetaSiteOnPush
+jobs:
   web-deploy:
     name: BetaDeploy
     runs-on: ubuntu-latest
@@ -33,6 +36,8 @@ jobs:
         password: ${{ secrets.FTPASS }}
         server-dir: beta.staggeredcontacts.com/
         local-dir: ./staggeredContacts/
+on: push
+name" DeployDevSiteOnPush
   web-deploy:
     name: DevDeploy
     runs-on: ubuntu-latest
