@@ -4,7 +4,6 @@ jobs:
   web-deploy:
     name: ProdDeploy
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
     steps:
     - name: Get_latest_code
       uses: actions/checkout@v2.3.2
@@ -15,31 +14,10 @@ jobs:
         server: 69.163.197.191
         username: micmcp3
         password: ${{ secrets.FTPASS }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         server-dir: staggeredcontacts.com/
-        local-dir: ./staggeredContacts/
-    if: ${{ github.ref == 'refs/heads/beta' }}
-    steps:
-    - name: Get_latest_code
-      uses: actions/checkout@v2.3.2
-    
-    - name: Sync_files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: 69.163.197.191
-        username: micmcp3
-        password: ${{ secrets.FTPASS }}
+        if: ${{ github.ref == 'refs/heads/beta' }}
         server-dir: beta.staggeredcontacts.com/
-        local-dir: ./staggeredContacts/
-    if: ${{ github.ref == 'refs/heads/dev' }}
-    steps:
-    - name: Get_latest_code
-      uses: actions/checkout@v2.3.2
-    
-    - name: Sync_files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: 69.163.197.191
-        username: micmcp3
-        password: ${{ secrets.FTPASS }}
-        server-dir: dev.staggeredcontacts.com/
+        if: ${{ github.ref == 'refs/heads/dev' }}
+        server-dir: dev.staggeredcontacts.com/  
         local-dir: ./staggeredContacts/
