@@ -17,9 +17,6 @@ jobs:
         password: ${{ secrets.FTPASS }}
         server-dir: staggeredcontacts.com/
         local-dir: ./staggeredContacts/
-on: push
-name: DeployBetaSiteOnPush
-jobs:
   web-deploy:
     if: ${{ github.ref == 'refs/heads/beta' }}
     name: BetaDeploy
@@ -36,9 +33,6 @@ jobs:
         password: ${{ secrets.FTPASS }}
         server-dir: beta.staggeredcontacts.com/
         local-dir: ./staggeredContacts/
-on: push
-name: DeployDevSiteOnPush
-jobs:
   web-deploy:
     if: ${{ github.ref == 'refs/heads/dev' }}
     name: DevDeploy
