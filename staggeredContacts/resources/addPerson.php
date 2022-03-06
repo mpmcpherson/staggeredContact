@@ -63,6 +63,7 @@ if(!empty($userId)) {
 		$result = mysqli_query($dbhandle, $qq);
 		$diagnosticOut .= simplog($result, "peopleId select successful");
 
+		$personId = -1;
 		if($result){
 			$output = array();
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -70,10 +71,15 @@ if(!empty($userId)) {
 			}
 			$personId = $output[0][0];
 		}
+		if($personId == -1){
+			throw new Exception("didn't get a valid personId after insert");
+		}
 
 
+		$qq = "insert into contactHistory(targetPersonId, originPersonId) values (".$personId.",".$$userId.")";
+		$result = mysqli_query($dbhandle, $qq);
+		$diagnosticOut .= simplog($result, "successfully set last contact as now");
 
-		//going to have to select newest to get personid
 		//contact details
 		$qq = "insert into contactChannels(personId, channelName, channelValue) values (".$personId.", '".$channelName."', '".$channelValue."')";
 		$result = mysqli_query($dbhandle, $qq);

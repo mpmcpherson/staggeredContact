@@ -27,11 +27,22 @@ Framing this out really quickly, just because I need to get it down.
 - [X] make the events a multiselect, so you can pick them easily
 - [X] sort your events in reverse order
 - [X] Make the events pane reload after adding an event.
-- [ ] fix the UI to not suck
-- [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a person journal? 
 - [X] unbreak the userauth so that someone purporting to be a user can't just...get everything
 - [ ] work out the logic for 'last contacted'
 - [ ] UI to load only elements since you last contacted a selected person (who is selected in the Contacts pane)
+- [ ] consider creating implementing the tagging feature that the DB supports
+- [ ] nag-mail to user when someone is due for a contact.
+- [ ] UI to actually *send* the email you're working on (two steps for that, a button and a "confirm" with a countdown timer because otherwise it's way too easy to send accidentally
+- [ ] rytr integration for the lulz?
+- [ ] light mode, dark mode, switch selector
+- [ ] paypal begging button
+- [ ] subscription feature which hides the paypal nag button
+- [ ] unsubscribe feature? (or does the paypal subscription take are of that?)
+- [ ] new page for "journaling" sort of like tumblr or LJ back in the day?
+- [ ] work out logic for 'last contacted'
+- [ ] UI to load only elements since you last contacted a selected person (who is selected in the contacts pane
+- [ ] fix the UI to not suck
+- [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a person journal? 
 
 ## this really only works for one user
 
