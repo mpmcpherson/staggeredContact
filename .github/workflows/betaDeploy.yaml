@@ -1,9 +1,9 @@
 on: push
-name: DeployProdSiteOnPush
+name: DeployBetaSiteOnPush
 jobs:
   web-deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
-    name: ProdDeploy
+    if: ${{ github.ref == 'refs/heads/beta' }}
+    name: BetaDeploy
     runs-on: ubuntu-latest
     steps:
     - name: Get_latest_code
@@ -15,5 +15,5 @@ jobs:
         server: 69.163.197.191
         username: micmcp3
         password: ${{ secrets.FTPASS }}
-        server-dir: staggeredcontacts.com/
+        server-dir: beta.staggeredcontacts.com/
         local-dir: ./staggeredContacts/
