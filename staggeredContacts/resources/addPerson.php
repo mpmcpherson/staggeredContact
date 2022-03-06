@@ -76,7 +76,7 @@ if(!empty($userId)) {
 		}
 
 
-		$qq = "insert into contactHistory(targetPersonId, originPersonId) values (".$personId.",".$$userId.")";
+		$qq = "insert into contactHistory(targetpersonid, originpersonid) values ('".$personId."', '".$userId."')";
 		$result = mysqli_query($dbhandle, $qq);
 		$diagnosticOut .= simplog($result, "successfully set last contact as now");
 
