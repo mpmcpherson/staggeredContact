@@ -17,35 +17,3 @@ jobs:
         password: ${{ secrets.FTPASS }}
         server-dir: staggeredcontacts.com/
         local-dir: ./staggeredContacts/
-  web-deploy:
-    if: ${{ github.ref == 'refs/heads/beta' }}
-    name: BetaDeploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: Get_latest_code
-      uses: actions/checkout@v2.3.2
-    
-    - name: Sync_files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: 69.163.197.191
-        username: micmcp3
-        password: ${{ secrets.FTPASS }}
-        server-dir: beta.staggeredcontacts.com/
-        local-dir: ./staggeredContacts/
-  web-deploy:
-    if: ${{ github.ref == 'refs/heads/dev' }}
-    name: DevDeploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: Get_latest_code
-      uses: actions/checkout@v2.3.2
-    
-    - name: Sync_files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: 69.163.197.191
-        username: micmcp3
-        password: ${{ secrets.FTPASS }}
-        server-dir: dev.staggeredcontacts.com/
-        local-dir: ./staggeredContacts/
