@@ -31,7 +31,15 @@ if(!empty($userId)) {
 
 
     if ($alt[0] >= 1) {
+    	//fuck I need last contacted date here because otherwise I don't get a 'top' thing without a subselect
+    	$newQ = "select el.id from EventListing el ".
+    	"left join people on p on p.possessingUserId = el.userId ".
+		"where el.possessingUserId = ".$userId." and p.Id = ".$personId." and TIMESTAMP() >= ".
+		"(select contactDate from contactHistory ".
+		"where contactHistory.targetPersonId = ".$personId." ".
+		"order by contactHistory.id desc limit 1)";
 
+		/*
 		$qq = "select el.id, el.userId, el.EventListing from EventListing el
 			left join people p on p.possessingUserId = el.userId
 				left join lastContacted lc on lc.originelersonId = el.userId
@@ -41,12 +49,13 @@ if(!empty($userId)) {
 				and CURRENT_DATE() >= DATE_ADD(lc.lastContactedDate, INTERVAL uil.intervalAmount it.intervalType)";
 
 		$result = mysqli_query($dbhandle, $qq);
-
-
+		*/
+		$result = mysqli_query($dbhandle, $newQ);
+		
 		$output = array();
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-		    array_push($output, array(recoverString($row['id']),recoverString($row['EventTopic'])));
+		    array_push($output, array(recoverString($row['id'])));
 		}
 
 		echo json_encode($output);

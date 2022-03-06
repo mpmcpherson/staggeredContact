@@ -202,7 +202,6 @@ function appendCheckboxedNodes(target, data, prependString){
 
     label.appendChild(checkBox);
     label.appendChild(nameTextNode);
-
     target.appendChild(label);
   }
 
@@ -224,6 +223,7 @@ function loadPeople(userId, targetDiv){
       try{
         d = JSON.parse(response);
         appendCheckboxedNodes(resultDiv, d, "ppl");
+
       }catch(error){
         console.log("load people error "+error);
       }
@@ -472,6 +472,7 @@ function loadUI(){
       }
     })(listIndex);
   }
+  console.log(peopleList);
 
   //swap between having all people visible, and the due to contact people visible
 
