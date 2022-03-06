@@ -29,6 +29,9 @@ Framing this out really quickly, just because I need to get it down.
 - [X] Make the events pane reload after adding an event.
 - [ ] fix the UI to not suck
 - [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a person journal? 
+- [X] unbreak the userauth so that someone purporting to be a user can't just...get everything
+- [ ] work out the logic for 'last contacted'
+- [ ] UI to load only elements since you last contacted a selected person (who is selected in the Contacts pane)
 
 ## this really only works for one user
 
