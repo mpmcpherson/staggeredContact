@@ -38,6 +38,7 @@ jobs:
         local-dir: ./staggeredContacts/
 on: push
 name: DeployDevSiteOnPush
+jobs:
   web-deploy:
     name: DevDeploy
     runs-on: ubuntu-latest
