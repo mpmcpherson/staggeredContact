@@ -350,11 +350,14 @@ function selectEventsSinceLastContact(personId){
       try{
         d = JSON.parse(response);
 
-        d.forEach(function(value){
-          console.log(value[0]);
+        d.forEach(function(value, event){
+          //console.log(value[0]);
+          event.stopPropagation();
+          event.preventDefault();
+          event.stopImmediatePropagation();
           let labelTarget = document.getElementById("eventslbl"+value[0]);
-          
-          labelTarget.click();});
+          labelTarget.click();
+        });
         
       }catch(error){
         console.log("load events since last contact error "+error);
