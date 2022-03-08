@@ -313,6 +313,11 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
   data);
 
 }
+
+function selectEventsSinceLastContact(personId){
+  //todo: write function
+}
+
 function addPerson(first_name, last_name, userId, intervalAmount, intervalType, channelName, channelValue){
   let values = {
     "first_name" : first_name, 
@@ -454,8 +459,8 @@ function loadUI(){
 
   //set up the peopleEventListener
   let peopleList = document.getElementById("array_of_people").children;
-  
-  
+  console.log(peopleList);
+
   for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
     (function(val){
       if(peopleList[val].tagName.toLowerCase()==="div"){
