@@ -185,7 +185,7 @@ function appendCheckboxedNodes(target, data, prependString){
 
     let label = document.createElement("label");
     label.for = data[i][0];
-    label.id = prependString."lbl".data[i][0];
+    label.id = prependString+"lbl"+data[i][0];
     label.className="label";
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
