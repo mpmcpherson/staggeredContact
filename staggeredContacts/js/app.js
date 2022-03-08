@@ -352,7 +352,7 @@ function selectEventsSinceLastContact(personId){
         console.log(response);
         for(resultItem in d){
           let labelTarget = document.getElementById("eventslbl"+resultItem[0]);
-          console.log("eventslbl"+resultItem);
+          console.log("eventslbl"+resultItem[0]);
           eventslbl10
           eventslbl0
           labelTarget.click();
