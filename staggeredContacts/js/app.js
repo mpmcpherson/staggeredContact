@@ -333,6 +333,30 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
 
 function selectEventsSinceLastContact(personId){
   console.log("select events since user last contacted "+personId);
+
+
+  userId = {"userId" : userId};
+  let data = JSON.stringify(userId);
+ 
+  postRequest('resources/loadEventsSinceLastContact.php', 
+    function(response){
+      console.log("load events since last contact successful");
+      let d = "";
+      try{
+        d = JSON.parse(response);
+        for(resultItem in d){
+          let labelTarget = document.getElementById("eventslbl"+resultItem);
+          labelTarget.click();
+        }
+      }catch(error){
+        console.log("load events since last contact error "+error);
+      }
+  },
+    function(response){
+      console.log(response);
+      resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+  },
+  data);
 }
 
 function addPerson(first_name, last_name, userId, intervalAmount, intervalType, channelName, channelValue){
