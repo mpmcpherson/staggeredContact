@@ -460,10 +460,16 @@ function loadUI(){
   //set up the peopleEventListener
   let peopleList = document.getElementById("array_of_people").children;
   
+  const nodeItems = Array.from(peopleList);
+
+  for (const c of nodeItems) {
+    console.log(c);
+  }
+
+    /*
 
   for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
     console.log(peopleList[listIndex].children[0]);
-    /*
     (function(val){
       if(peopleList[val].tagName.toLowerCase()==="div"){
         let name = document.getElementById(peopleList[val].id);
@@ -473,9 +479,10 @@ function loadUI(){
         });
       }
     })(listIndex);
-  */
+  
   }
-  console.log(peopleList);
+  */
+  //console.log(peopleList);
 
   //swap between having all people visible, and the due to contact people visible
 
