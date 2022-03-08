@@ -244,7 +244,7 @@ function setPeopleEventListeners(){
   const nodeItems = Array.from(peopleList);
 
   for (const c of nodeItems) {
-    console.log(c);
+    console.log(c.children[0]);
   }
 
     /*
