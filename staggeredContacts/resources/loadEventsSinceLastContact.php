@@ -54,9 +54,10 @@ if(!empty($userId)) {
 		}
 
 		echo json_encode($output);
-		function recoverString(string $string) : string{
-			return htmlspecialchars_decode($string, ENT_QUOTES);
-		}
+
 	}
+}
+function recoverString(string $string) : string{
+	return htmlspecialchars_decode($string, ENT_QUOTES);
 }
 ?>
