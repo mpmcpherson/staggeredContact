@@ -194,7 +194,7 @@ function appendCheckboxedNodes(target, data, prependString){
 
     if(typeof data[i][2]!=='undefined'){
       nameTextNode = document.createTextNode(data[i][1]+" "+data[i][2]);
-      checkBox.value = data[i][1]+" "+data[i][2];
+      checkBox.value = data[i][0];
     }else{
       nameTextNode = document.createTextNode(data[i][1]);
       checkBox.value = data[i][1];
@@ -459,9 +459,11 @@ function loadUI(){
 
   //set up the peopleEventListener
   let peopleList = document.getElementById("array_of_people").children;
-  console.log(peopleList);
+  
 
   for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
+    console.log(peopleList[listIndex].children[0]);
+    /*
     (function(val){
       if(peopleList[val].tagName.toLowerCase()==="div"){
         let name = document.getElementById(peopleList[val].id);
@@ -471,6 +473,7 @@ function loadUI(){
         });
       }
     })(listIndex);
+  */
   }
   console.log(peopleList);
 
