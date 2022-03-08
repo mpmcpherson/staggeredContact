@@ -152,8 +152,7 @@ function addEvent(EventListing, EventTopic) {
   },
     function(response){
       console.log("error "+response);
-      //resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
-  },
+        },
   data);
 }
 
@@ -186,6 +185,7 @@ function appendCheckboxedNodes(target, data, prependString){
 
     let label = document.createElement("label");
     label.for = data[i][0];
+    label.id = prependString."lbl".data[i][0];
     label.className="label";
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
@@ -218,7 +218,7 @@ function loadPeople(userId, targetDiv){
  
   postRequest('resources/loadPeople.php', 
     function(response){
-      console.log("load people response "+response);
+      console.log("load people successful");
       let d = "";
       try{
         d = JSON.parse(response);
@@ -246,7 +246,7 @@ function loadTodaysPeople(userId, targetDiv){
 
   postRequest('resources/loadtodayspeople.php', 
     function(response){
-      console.log("load today's people response "+response);
+      console.log("load today's people successful");
       let d = "";
       try{
         d = JSON.parse(response);
@@ -297,7 +297,7 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
  
   postRequest('resources/loadEventsSinceLastContact.php', 
     function(response){
-      console.log("load events since last contact "+response);
+      console.log("load events since last contact successful");
       let d = "";
       try{
         d = JSON.parse(response);
@@ -328,14 +328,13 @@ function addPerson(first_name, last_name, userId, intervalAmount, intervalType, 
  
   postRequest('resources/addPerson.php', 
     function(response){
-      console.log("add person response "+response);
+      console.log("add person response successful");
       let d = "";
       try{
         d = JSON.parse(response);
         personGeneralClose(document.getElementById("addPersonModal"));
         loadPeople(getCookie(document.cookie, "userid"), "array_of_people");
-        //alert(d);
-      }catch(error){
+              }catch(error){
         console.log("add person error "+error);
       }
   },
@@ -358,12 +357,10 @@ function keypressListener(){
   });
   personEmail.addEventListener("keypress",function(){
     if(validEmail(personEmail.value)==false){
-      console.log("invalid email");
-      personEmail.className = "invalidEmail";
+            personEmail.className = "invalidEmail";
     }
     else{
-      console.log("valid email");
-      personEmail.className = "validEmail";
+            personEmail.className = "validEmail";
     }
   });
 }
@@ -382,8 +379,7 @@ function loadActiveEventsToEmailTemplate(){
   let data = [];
   for(const c of children){
     mainTextArea.value += c.children[0].value+"\n";
-    //mainTextArea.value += "<p>"+c.innerHTML+"</p>";
-  }
+      }
   updateMailto();
 }
 
@@ -395,8 +391,7 @@ function loadCheckedEvents(){
   for(const c of children){
     if(c.children[0].checked){
       mainTextArea.value += c.children[0].value+"\n";
-      //mainTextArea.value += "<p>"+c.innerHTML+"</p>";
-    }
+          }
   }
   updateMailto(); 
 }
@@ -459,8 +454,8 @@ function loadUI(){
 
   //set up the peopleEventListener
   let peopleList = document.getElementById("array_of_people").children;
-  console.log("people list "+peopleList);
-
+  
+  
   for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
     (function(val){
       if(peopleList[val].tagName.toLowerCase()==="div"){
