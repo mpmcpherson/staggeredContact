@@ -247,7 +247,7 @@ function setPeopleEventListeners(){
     console.log(c.children[0].value);
     (function(val){
       val.addEventListener("click",function(){
-        selectEventsSinceLastContact(c.value);
+        selectEventsSinceLastContact(c.children[0].value);
       })
     })(c);
   }
