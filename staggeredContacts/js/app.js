@@ -352,8 +352,7 @@ function selectEventsSinceLastContact(personId){
 
         d.forEach(function(value, event){
           //console.log(value[0]);
-          event.stopPropagation();
-          event.preventDefault();
+
           event.stopImmediatePropagation();
           let labelTarget = document.getElementById("eventslbl"+value[0]);
           labelTarget.click();
