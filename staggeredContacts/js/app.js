@@ -349,10 +349,9 @@ function selectEventsSinceLastContact(personId){
       let d = "";
       try{
         d = JSON.parse(response);
-        ary = Array.from(d);
-        console.log(ary);
+
         d.forEach(function(value){
-          console.log(value);
+          console.log(value[0]);
           let labelTarget = document.getElementById("eventslbl"+value[0]);
           
           labelTarget.click();});
