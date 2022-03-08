@@ -245,26 +245,12 @@ function setPeopleEventListeners(){
 
   for (const c of nodeItems) {
     console.log(c.children[0].value);
-  }
-
-    /*
-
-  for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
-    console.log(peopleList[listIndex].children[0]);
     (function(val){
-      if(peopleList[val].tagName.toLowerCase()==="div"){
-        let name = document.getElementById(peopleList[val].id);
-        name.style.cursor = "pointer";
-        peopleList[val].addEventListener("click", function(){
-        loadEventsSinceLastContact(uid, peopleList[val].id, "array_of_events");
-        });
-      }
-    })(listIndex);
-  
+      val.addEventListener("click",function(){
+        selectEventsSinceLastContact(c.value);
+      })
+    })(c);
   }
-  */
-  //console.log(peopleList);
-
 }
 
 function loadTodaysPeople(userId, targetDiv){
@@ -346,7 +332,7 @@ function loadEventsSinceLastContact(userId, personId, targetDiv){
 }
 
 function selectEventsSinceLastContact(personId){
-  //todo: write function
+  console.log("select events since user last contacted "+personId);
 }
 
 function addPerson(first_name, last_name, userId, intervalAmount, intervalType, channelName, channelValue){
