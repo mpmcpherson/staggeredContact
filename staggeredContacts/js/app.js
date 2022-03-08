@@ -335,7 +335,11 @@ function selectEventsSinceLastContact(personId){
   console.log("select events since user last contacted "+personId);
 
 
-  userId = {"userId" : userId};
+  userId = {
+    "userId" : getCookie(document.cookie, "userid"),
+    "sessionID": window.localStorage.getItem("sessionToken"),
+    "personId": personId
+    };
   let data = JSON.stringify(userId);
  
   postRequest('resources/loadEventsSinceLastContact.php', 
