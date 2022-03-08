@@ -223,7 +223,7 @@ function loadPeople(userId, targetDiv){
       try{
         d = JSON.parse(response);
         appendCheckboxedNodes(resultDiv, d, "ppl");
-
+        setPeopleEventListeners();
       }catch(error){
         console.log("load people error "+error);
       }
@@ -233,6 +233,37 @@ function loadPeople(userId, targetDiv){
       resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
+
+}
+
+function setPeopleEventListeners(){
+
+  //set up the peopleEventListener
+  let peopleList = document.getElementById("array_of_people").children;
+  
+  const nodeItems = Array.from(peopleList);
+
+  for (const c of nodeItems) {
+    console.log(c);
+  }
+
+    /*
+
+  for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
+    console.log(peopleList[listIndex].children[0]);
+    (function(val){
+      if(peopleList[val].tagName.toLowerCase()==="div"){
+        let name = document.getElementById(peopleList[val].id);
+        name.style.cursor = "pointer";
+        peopleList[val].addEventListener("click", function(){
+        loadEventsSinceLastContact(uid, peopleList[val].id, "array_of_events");
+        });
+      }
+    })(listIndex);
+  
+  }
+  */
+  //console.log(peopleList);
 
 }
 
@@ -456,33 +487,6 @@ function loadUI(){
 
 
 
-
-  //set up the peopleEventListener
-  let peopleList = document.getElementById("array_of_people").children;
-  
-  const nodeItems = Array.from(peopleList);
-
-  for (const c of nodeItems) {
-    console.log(c);
-  }
-
-    /*
-
-  for(let listIndex = 0; listIndex < peopleList.length; listIndex++){
-    console.log(peopleList[listIndex].children[0]);
-    (function(val){
-      if(peopleList[val].tagName.toLowerCase()==="div"){
-        let name = document.getElementById(peopleList[val].id);
-        name.style.cursor = "pointer";
-        peopleList[val].addEventListener("click", function(){
-        loadEventsSinceLastContact(uid, peopleList[val].id, "array_of_events");
-        });
-      }
-    })(listIndex);
-  
-  }
-  */
-  //console.log(peopleList);
 
   //swap between having all people visible, and the due to contact people visible
 
