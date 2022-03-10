@@ -353,9 +353,10 @@ function selectEventsSinceLastContact(personId){
         d.forEach(function(value, event){
           //console.log(value[0]);
 
-          event.stopImmediatePropagation();
-          let labelTarget = document.getElementById("eventslbl"+value[0]);
-          labelTarget.click();
+          
+          (function(value){
+            let labelTarget = document.getElementById("eventslbl"+value[0]);
+            labelTarget.click();});
         });
         
       }catch(error){
