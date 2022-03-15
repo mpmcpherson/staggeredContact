@@ -244,13 +244,12 @@ function setPeopleEventListeners(){
 	const nodeItems = Array.from(peopleList);
 
 	for (const c of nodeItems) {
+			console.log("binding function");		
 		
-		(function(val){
-			console.log("binding function");
-			val.addEventListener("click",function(){
-				selectEventsSinceLastContact(c.children[0].value);
-			})
-		})(c);
+
+			c.addEventListener("click",function(){
+				selectEventsSinceLastContact(c.children[0].value);	
+		}
 	}
 }
 
