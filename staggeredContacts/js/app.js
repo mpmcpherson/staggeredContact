@@ -249,7 +249,7 @@ function setPeopleEventListeners(){
 
 			c.addEventListener("click",function(){
 				selectEventsSinceLastContact(c.children[0].value);	
-		}
+		});
 	}
 }
 
