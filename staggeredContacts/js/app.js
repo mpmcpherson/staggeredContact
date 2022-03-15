@@ -244,8 +244,7 @@ function setPeopleEventListeners(){
 	const nodeItems = Array.from(peopleList);
 
 	for (let c of nodeItems) {
-			console.log("binding function");		
-			console.log("binding "+c.children[0].value);
+			console.log("binding "+c.children[0]);
 				
 
 			c.addEventListener("click",function(event){
