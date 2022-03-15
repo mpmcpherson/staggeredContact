@@ -340,30 +340,28 @@ function selectEventsSinceLastContact(personId){
     "userId" : getCookie(document.cookie, "userid"),
     "sessionID": window.localStorage.getItem("sessionToken"),
     "personId": personId
-    };
+  };
   let data = JSON.stringify(userId);
- 
+
   postRequest('resources/loadEventsSinceLastContact.php', 
-    function(response){
-      console.log("load events since last contact successful");
-      let d = "";
-      try{
-        d = JSON.parse(response);
+  function(response){
+    console.log("load events since last contact successful");
+    let d = "";
+    try{
+      d = JSON.parse(response);
 
-        d.forEach(function(value, event){
-          //console.log(value[0]);
-
-      
-          let labelTarget = document.getElementById("eventslbl"+value[0]);
-          labelTarget.checked=true;
-        }
-      }catch(error){
-        console.log("load events since last contact error "+error);
-      }
+      d.forEach(function(value, event){
+      //console.log(value[0]);
+      let labelTarget = document.getElementById("eventslbl"+value[0]);
+      labelTarget.checked=true;
+    }
+    }catch(error){
+    console.log("load events since last contact error "+error);
+    }
   },
-    function(response){
-      console.log(response);
-      resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+  function(response){
+    console.log(response);
+    resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
   },
   data);
 }
