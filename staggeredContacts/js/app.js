@@ -243,12 +243,13 @@ function setPeopleEventListeners(){
 	
 	const nodeItems = Array.from(peopleList);
 
-	for (const c of nodeItems) {
+	for (let c of nodeItems) {
 			console.log("binding function");		
 		
 
 			c.addEventListener("click",function(event){
 				event.stopPropagation()
+				console.log("binding "+c.children[0].value);
 				selectEventsSinceLastContact(c.children[0].value);	
 		});
 	}
