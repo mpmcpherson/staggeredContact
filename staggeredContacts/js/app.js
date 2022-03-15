@@ -245,11 +245,11 @@ function setPeopleEventListeners(){
 
 	for (let c of nodeItems) {
 			console.log("binding function");		
-		
+			console.log("binding "+c.children[0].value);
+				
 
 			c.addEventListener("click",function(event){
 				event.stopPropagation()
-				console.log("binding "+c.children[0].value);
 				selectEventsSinceLastContact(c.children[0].value);	
 		});
 	}
