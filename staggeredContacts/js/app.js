@@ -244,12 +244,12 @@ function setPeopleEventListeners(){
 	let nodeItems = Array.from(peopleList);
 
 	for (let i = 0; i<nodeItems.length; i++) {
-			console.log("binding "+nodeItems.children); 
+			console.log("binding "+nodeItems[i].children); 
 				
 
-			c.addEventListener("click",function(event){
+			nodeItems[i].addEventListener("click",function(event){
 				event.stopPropagation()
-				selectEventsSinceLastContact(nodeItems.children[0].value);	
+				selectEventsSinceLastContact(nodeItems[i].children[0].value);	
 		});
 	}
 }
