@@ -241,7 +241,7 @@ function setPeopleEventListeners(){
 	//set up the peopleEventListener
 	let peopleList = document.getElementById("array_of_people").children;
 	
-	const nodeItems = Array.from(peopleList);
+	let nodeItems = Array.from(peopleList);
 
 	for (let c of nodeItems) {
 			console.log("binding "+c.children); 
