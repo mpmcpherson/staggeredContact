@@ -351,12 +351,12 @@ function selectEventsSinceLastContact(personId){
       d = JSON.parse(response);
 
       d.forEach(function(value, event){
-      //console.log(value[0]);
-      let labelTarget = document.getElementById("eventslbl"+value[0]);
-      labelTarget.checked=true;
-    }
+        //console.log(value[0]);
+        let labelTarget = document.getElementById("eventslbl"+value[0]);
+        labelTarget.checked=true;
+      });
     }catch(error){
-    console.log("load events since last contact error "+error);
+      console.log("load events since last contact error "+error);
     }
   },
   function(response){
