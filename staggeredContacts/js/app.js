@@ -243,13 +243,13 @@ function setPeopleEventListeners(){
 	
 	let nodeItems = Array.from(peopleList);
 
-	for (let c of nodeItems) {
-			console.log("binding "+c.children); 
+	for (let i = 0; i<nodeItems.length; i++) {
+			console.log("binding "+nodeItems.children); 
 				
 
 			c.addEventListener("click",function(event){
 				event.stopPropagation()
-				selectEventsSinceLastContact(c.children[0].value);	
+				selectEventsSinceLastContact(nodeItems.children[0].value);	
 		});
 	}
 }
