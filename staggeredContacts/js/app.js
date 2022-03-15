@@ -354,9 +354,9 @@ function selectEventsSinceLastContact(personId){
           //console.log(value[0]);
 
       
-        let labelTarget = document.getElementById("eventslbl"+value[0]);
-        labelTarget.checked=true;
-        
+          let labelTarget = document.getElementById("eventslbl"+value[0]);
+          labelTarget.checked=true;
+        }
       }catch(error){
         console.log("load events since last contact error "+error);
       }
