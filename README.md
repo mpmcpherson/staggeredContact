@@ -43,6 +43,7 @@ Framing this out really quickly, just because I need to get it down.
 - [ ] UI to load only elements since you last contacted a selected person (who is selected in the contacts pane
 - [ ] fix the UI to not suck
 - [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a person journal? 
+- [ ] UI to manually reset dates for events, so that you can get those right as you're going along? Autoselected first so that you don't have to fuck with it if you dont' want to
 
 ## this really only works for one user
 

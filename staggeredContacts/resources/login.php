@@ -41,7 +41,7 @@ if (password_verify($userPass, $resPass[0])) {
     setcookie('userid', $userid,  [
     'expires' => time()+60*60*1,
     'path' => '/',
-    'domain' => 'beta.staggeredcontacts.com',
+    'domain' => $_SERVER['HTTP_HOST'],
     'secure' => true,
     'httponly' => false,
     'samesite' => 'None',
@@ -50,7 +50,7 @@ if (password_verify($userPass, $resPass[0])) {
     setcookie('sessionID', "invalidSessionUnset",  [
     'expires' => time()+60*60*1,
     'path' => '/',
-    'domain' => 'beta.staggeredcontacts.com',
+    'domain' => $_SERVER['HTTP_HOST'],
     'secure' => true,
     'httponly' => false,
     'samesite' => 'None',
@@ -59,7 +59,7 @@ if (password_verify($userPass, $resPass[0])) {
     setcookie('sessionID', $rnd,  [
     'expires' => time()+60*60*1,
     'path' => '/',
-    'domain' => 'beta.staggeredcontacts.com',
+    'domain' => $_SERVER['HTTP_HOST'],
     'secure' => true,
     'httponly' => false,
     'samesite' => 'None',
