@@ -247,7 +247,7 @@ function setPeopleEventListeners(){
 			console.log("binding "+nodeItems[i].children); 
 				
 
-			nodeItems[i].addEventListener("click",function(event){
+			nodeItems[i].children[0].addEventListener("click",function(event){
 				event.stopPropagation()
 				selectEventsSinceLastContact(nodeItems[i].children[0].value);	
 		});
