@@ -32,7 +32,7 @@ if(!empty($userId)) {
 
     if ($alt[0] >= 1) {
     	
-    	$newQ = "select el.id from EventListing el left join people p on p.possessingUserId = el.userId where el.userId = ".$userId." and p.Id = ".$personId." and TIMESTAMP(NOW()) >= (select contactDate from contactHistory where contactHistory.targetPersonId = ".$personId." order by contactHistory.id desc limit 1)";
+    	$newQ = "select el.id from EventListing el left join people p on p.possessingUserId = el.userId where el.userId = ".$userId." and p.Id = ".$personId." and EventListing.dateCreated >= (select contactDate from contactHistory where contactHistory.targetPersonId = ".$personId." order by contactHistory.id desc limit 1)";
 		$result = mysqli_query($dbhandle, $newQ);
 		
 		$output = array();
