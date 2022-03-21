@@ -52,7 +52,6 @@ body {
 #mainTextArea {
     display: flex;
     flex-flow: column;
-    min-height: 92vh;
     width: 100%;
     background-color: #edefd3;
     overflow-y: scroll;
@@ -247,7 +246,7 @@ body {
     #mainTextArea {
         display: flex;
         flex-flow: column;
-        min-height: 92vh;
+        height: 100%;
         width: 100%;
         background-color: #1D252B;
         overflow-y: scroll;

@@ -41,9 +41,9 @@
 				</table>
 				</div>
 				<div id="dueToday"></div>
-				<div>
-					<textarea id="mainTextArea" onfocusout="updateMailto()"></textarea>
-				</div>
+				
+				<textarea id="mainTextArea" onfocusout="updateMailto()"></textarea>
+				
 				<a href="mailto:" id="sendIt" style="width: 80%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
 				<div>settings</div>
 			</div>
