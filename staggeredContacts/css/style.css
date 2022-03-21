@@ -26,7 +26,6 @@ body
 	height: 6%;
 	
 }
-
 .titleBorder{
 	border-bottom: 2px solid gray;
 }
@@ -35,6 +34,13 @@ body
 	border-top: 2px solid gray;	
 	border-bottom: 2px solid gray;	
 }
+#mainTextArea{
+	display: flex; 
+	height: 85vh; 
+	width: 100%; 
+	background-color: #edefd3; 
+}
+
 .leftBar
 {
 	background-color: #e1e4b4;
@@ -175,6 +181,13 @@ body
 
 	.titleBorder{
 		border-bottom: 2px solid gray;
+	}
+	#mainTextArea{
+		display: flex; 
+		height: 85vh; 
+		width: 100%; 
+		background-color: #1D252B; 
+		color: white;
 	}
 	.leftBar
 	{
