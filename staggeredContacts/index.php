@@ -19,8 +19,8 @@
 		<div class="wrapper ninety" id="container">
 
 			<div class="leftBar full" id="leftBar">
-				<div class="titleBorder"style="font-weight: bold;">
-					<button id="addPerson" class="staggeredButtons" style="background-color: red;">Add person</button>
+				<div class="titleBorder">
+					<button id="addPerson" class="staggeredButtons">Add person</button>
 					<br />
 				<?php echo $leftBar; ?></div>
 				<br />
@@ -30,13 +30,13 @@
 			
 			<div id="body" class="mainBody full">
 				<div class=""> 
-					<table style="width: 100%;"> <tr>
+					<table class="mainBodyHeaderTable"> <tr>
 						<td><div id="showHidePeople" class="button">show/hide people</div></td>
 						<td><h3 class=""><?php echo $viewportTitle; ?></h3></td>
 						<td><div id="showHideEvents" class="button">show/hide events</div></td>
 					</tr>
 					<tr>
-						<td style="margin-left: 45%;"><div id="loadEventsHere" class="button">Load All Events</div></td>
+						<td class="loadEventsTD"><div id="loadEventsHere" class="button">Load All Events</div></td>
 					</tr>
 				</table>
 				</div>
@@ -44,14 +44,14 @@
 				
 				<textarea id="mainTextArea" onfocusout="updateMailto()"></textarea>
 				
-				<a href="mailto:" id="sendIt" style="width: 80%;"><button style="width: 100%; background-color: red;">>send it!<</button></a>
+				<a href="mailto:" id="sendIt"><button class="staggeredButtons">>send it!<</button></a>
 				<div>settings</div>
 			</div>
 			
 			<div class="rightBar full" id="rightBar">
-				<button id="addEvent" class="staggeredButtons" style="background-color: red;">Add Event</button>
-				<button id="addChecked" class="staggeredButtons" style="background-color: blue;">Add Checked Events</button>
-				<div class="titleBorder" style="font-weight: bold;"><?php echo $rightBar; ?></div>
+				<button id="addEvent" class="staggeredButtons">Add Event</button>
+				<button id="addChecked" class="staggeredButtons blueButtons">Add Checked Events</button>
+				<div class="titleBorder" ><?php echo $rightBar; ?></div>
 				<br />
 				<div id="array_of_events"></div>
 			</div>
@@ -61,7 +61,7 @@
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<div>
-					<h3 style="text-align: center;" class="topAndBottomBorder">Add person...</h3>
+					<h3 class="topAndBottomBorder">Add person...</h3>
 					<div> <br />
 						<table>
 							<tr>
@@ -73,9 +73,9 @@
 						</tr>
 						<tr>
 							<td>
-								<label for="frequency" style="display: inline;"> how often? Every:</label>
+								<label for="frequency" class="addPersonModalFreq"> how often? Every:</label>
 							</td><td>
-							<input id="freqNum" type="number" name="frequency" style="display: inline;">
+							<input id="freqNum" type="number" name="frequency" class="addPersonModalFreq">
 							<select id="freqSelect">
 								<option value="0">Select...</option>
 								<option value="1">days</option>
@@ -87,10 +87,10 @@
 					</tr>
 				</table>
 				<br/>
-				<div style="text-align: center;" class="topAndBottomBorder"><label>let's put down their email. You can add other channels later if you want</label></div>
+				<div class="topAndBottomBorder"><label>let's put down their email. You can add other channels later if you want</label></div>
 				<br/>
 				<input id="emailId" type="email" name="personEmail" placeholder="email...">
-				<button id="add_person_submission" type="submit" style="float: right;" >add...</button><br />
+				<button id="add_person_submission" type="submit" >add...</button><br />
 			</div>
 				</div>
 			</div>
@@ -99,17 +99,20 @@
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<div style="padding-bottom: 15px; width: 100%;">
-					<h3 style="text-align: center;" class="topAndBottomBorder">Add event...</h3>
+				<div id="addEventElementsContainer">
+					<h3 class="topAndBottomBorder">Add event...</h3>
 					<div>
-						<div style="width: 95%">
-							<input id="eventSubject" style="width: 100%; padding-bottom: 3%; display: inline-block;" placeholder="short version: five words or less that you'll remember" />
+						<div class="addEventSubContainer1">
+							<input id="eventSubject" placeholder="short version: five words or less that you'll remember" />
 
-							<textarea id="eventText" style="width: 103%; margin-top: 5px; margin-bottom: 5px; display: inline-block;" placeholder="a slightly longer version of the event ~400 characters or less"></textarea>
+							<textarea id="eventText" placeholder="a slightly longer version of the event ~400 characters or less"></textarea>
 							
-							<div style="float: left; display: flex;"><div style="display: flex" id="charCount">0</div><div style="display: flex">/400</div></div>
+							<div id="charCountHolder">
+								<div id="charCount">0</div>
+								<div>/400</div>
+							</div>
 
-							<button id="add_event_submission" type="submit" style="float: right; margin-right: -1em;">add...</button>
+							<button id="add_event_submission" type="submit">add...</button>
 
 							<button style="visibility: hidden;" disabled="true">add...</button>
 
@@ -122,8 +125,8 @@
 		</div>
 		<div class="wrapper ninety modal" id="login_signup" style="display: none;">
 			<div class="modal-content">
-				<div style="padding-bottom: 15px; width: 100%;">
-					<h3 style="text-align: center;" class="topAndBottomBorder">Log In or Sign Up...</h3>
+				<div class="addElementsContainer">
+					<h3 class="topAndBottomBorder">Log In or Sign Up...</h3>
 					<div>
 						<div class="loginBoxHolder">
 							<input id="username" class="login_uname" type="text" placeholder="email address"/>
