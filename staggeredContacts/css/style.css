@@ -11,8 +11,8 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-		display: flex;
-		flex-flow:  column;
+    display: flex;
+    flex-flow: column;
 }
 
 .wrapper {
@@ -57,7 +57,7 @@ text-align: center;
 
 #mainTextArea {
     background-color: #edefd3;
-    width:  98%;
+    width: 98%;
     display: flex;
     overflow-y: scroll;
     flex-grow: 1;
@@ -203,17 +203,19 @@ text-align: center;
     text-align: center;
 }
 
-#logOut{
-	display: inline-flex;
-	align-self: auto;
+#logOut {
+    display: inline-flex;
+    align-self: auto;
 }
 
 #sendIt {
     width: 99.7%;
 }
-#sendButton{
-	width:  99%;
+
+#sendButton {
+    width: 99%;
 }
+
 .staggeredButtons {
     background-color: red;
     width: 100%;
@@ -248,16 +250,16 @@ text-align: center;
     }
 
     #mainTextArea {
-    		background-color: #1D252B;
+        background-color: #1D252B;
         color: white;
-        width:  98%;
+        width: 98%;
         display: flex;
         overflow-y: scroll;
         flex-grow: 1;
     }
 
     .mainBody {
-    		display: flex;
+        display: flex;
         padding-left: 13px;
         min-height: 92vh;
         flex-grow: 5;
@@ -271,6 +273,7 @@ text-align: center;
     .loadEventsTD {
         margin-left: 45%;
     }
+
     .leftBar {
         background-color: #1D252B;
         color: white;

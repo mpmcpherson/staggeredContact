@@ -11,9 +11,10 @@
 	<body onresize="fixHeight()">
 		
 		<div class="oneTenth pageHead">
-			<div class="">
-				<h2 class="headerText"><?php echo $header; ?></h2><div id="logOut" class="button logOutButton" >logout</div>
-			</div>
+			
+			<h2 class="headerText"><?php echo $header; ?></h2>
+			<div id="logOut" class="button logOutButton" >logout</div>
+			
 		</div>
 
 		<div class="wrapper ninety" id="container">
