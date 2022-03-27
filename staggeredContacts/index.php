@@ -44,7 +44,7 @@
 				
 				<textarea id="mainTextArea" onfocusout="updateMailto()"></textarea>
 				
-				<a href="mailto:" id="sendIt"><button class="staggeredButtons">>send it!<</button></a>
+				<a href="mailto:" id="sendIt"><button id="sendButton" class="staggeredButtons">>send it!<</button></a>
 				<div>settings</div>
 			</div>
 			
@@ -56,7 +56,7 @@
 				<div id="array_of_events"></div>
 			</div>
 		</div>
-		
+
 		<div id="addPersonModal" class="modal">
 			<!-- Modal content -->
 			<div class="modal-content">
