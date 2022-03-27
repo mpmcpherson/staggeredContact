@@ -106,8 +106,8 @@ text-align: center;
 }
 
 .label {
-    width: 100%;
-    display: inline-block;
+    /* width: 100%; */
+    display: flex;
 }
 
 .oneFifth {
