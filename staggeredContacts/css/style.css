@@ -25,6 +25,7 @@ body {
     /* NEW - Chrome */
     display: flex;
     flex-flow: row;
+    align-items: stretch;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
