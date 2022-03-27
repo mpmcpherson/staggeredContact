@@ -11,7 +11,8 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    /* Hide horizontal scrollbar */
+		display: flex;
+		flex-flow:  column;
 }
 
 .wrapper {
@@ -36,7 +37,8 @@ body {
 
 .pageHead {
     box-shadow: 10px 5px 5px gray;
-    display: block;
+    display: flex;
+    flex-flow: row;
     height: 6%;
 
 }
@@ -90,7 +92,11 @@ text-align: center;
 }
 
 .headerText {
-    display: inline;
+    display: inline-flex;
+}
+
+#logOut{
+	display: inline-flex;
 }
 
 .label {
