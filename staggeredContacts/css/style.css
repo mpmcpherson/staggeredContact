@@ -259,10 +259,9 @@ text-align: center;
     }
 
     #mainTextArea {
-        display: flex;
-        flex-flow: column;
-        height: 100%;
-        width: 100%;
+		    display: flex;
+		    flex-flow: column;
+    		/*width: 100%;*/
         background-color: #1D252B;
         overflow-y: scroll;
     }
