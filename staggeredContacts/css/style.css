@@ -221,7 +221,7 @@ text-align: center;
     width: 80%;
 }
 #sendButton{
-	width:  98%;
+	width:  99%;
 }
 .staggeredButtons {
     background-color: red;
@@ -234,6 +234,11 @@ text-align: center;
     background-color: blue !important;
 }
 
+.textAreaHolder{
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+}
 @media (prefers-color-scheme: dark) {
     html {
         height: 100vh;
