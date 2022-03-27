@@ -56,5 +56,4 @@ function prepString(string $string) : string{
 	return htmlspecialchars(str_replace(["\r\n", "\r", "\n"], '<br/>', $string), ENT_QUOTES, "UTF-8");
 }
 
-
 ?>
