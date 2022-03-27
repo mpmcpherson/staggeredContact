@@ -7,9 +7,6 @@ function globalClickListener(){
 	let addCheckedEventsToEmailTemplate = document.getElementById("addChecked");
 	let logout = document.getElementById("logOut");
 
-	window.onresize(function(){
-		//setTextBoxHeight();
-	});
 
 	window.onclick = function(event) {
 
@@ -628,23 +625,9 @@ function logOutActual(){
 	});
 }
 
-function setTextBoxHeight(){
-	let textAreaHeaderBox = document.getElementById("headerHolder");
-	let dueToday = document.getElementById("dueToday");
-	let sendIt = document.getElementById("sendIt");
-	let textArea = document.getElementById("mainTextArea");
-	let mainBody = document.getElementById("body");
-
-	let maxHeight = mainBody.height;
-	let nonTextHeight = textAreaHeaderBox.height+dueToday.height+sendIt.height;
-	textArea.height=maxHeight - nonTextHeight;
-}
-
 docReady(function() {
 	globalClickListener();
 	keypressListener();
-
-	//setTextBoxHeight();
 	
 	let user = getCookie(document.cookie, "userid");
 	let sessionID = window.localStorage.getItem("sessionToken");
