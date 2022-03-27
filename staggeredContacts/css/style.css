@@ -257,7 +257,7 @@ text-align: center;
     #mainTextArea {
         display: flex;
         flex-flow: column;
-        align-items:  stretch;
+        height:  fit-content;
         background-color: #1D252B;
         overflow-y: scroll;
     }
