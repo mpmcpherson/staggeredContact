@@ -196,6 +196,7 @@ text-align: center;
     padding: .3em;
     background-color: skyblue;
     display: inline-block;
+    text-align: center;
 }
 
 #sendIt {
