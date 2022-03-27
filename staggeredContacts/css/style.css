@@ -63,7 +63,7 @@ text-align: center;
 
 .leftBar {
     background-color: #e1e4b4;
-    width: 15%;
+    /*width: 15%;*/
     display: flex;
     flex-flow: column;
     box-shadow: 10px 5px 5px gray;
