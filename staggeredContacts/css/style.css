@@ -57,7 +57,7 @@ text-align: center;
     background-color: #edefd3;
     display: flex;
     flex-flow: column;
-    /*width: 100%;*/
+    width: 100%;
     overflow-y: scroll;
 }
 
@@ -261,7 +261,7 @@ text-align: center;
     #mainTextArea {
         display: flex;
         flex-flow: column;
-        /*width: 100%;*/
+        width: 100%;
         background-color: #1D252B;
         overflow-y: scroll;
     }
