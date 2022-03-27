@@ -282,23 +282,27 @@ text-align: center;
     }
 
     .mainBodyLeftHidden {
-        /*width: 60%;*/
+    		display: flex;
         padding-left: 13px;
         min-height: 92vh;
         flex-grow: 5;
+        flex-direction: column;
     }
 
     .mainBodyRightHidden {
-        /*width: 90%;*/
+    		display: flex;
         padding-left: 13px;
         min-height: 92vh;
         flex-grow: 5;
+        flex-direction: column;
     }
 
     .mainBodyAllHidden {
+    		display: flex;
         padding-left: 13px;
         min-height: 92vh;
         flex-grow: 5;
+        flex-direction: column;
     }
 
     .leftBar {
