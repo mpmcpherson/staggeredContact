@@ -84,7 +84,7 @@ text-align: center;
 }
 
 .mainBody {
-    /*width: 45%;*/
+    display: flex;
     padding-left: 13px;
     min-height: 92vh;
     flex-grow: 5;
@@ -206,8 +206,8 @@ text-align: center;
 #logOut {
     display: inline-flex;
     margin-left: auto;
-    margin-top:  auto;
-    margin-bottom:  auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #sendIt {
