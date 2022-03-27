@@ -79,21 +79,24 @@ text-align: center;
 }
 
 .mainBody {
-    width: 45%;
+    /*width: 45%;*/
     padding-left: 13px;
     min-height: 92vh;
+    flex-grow: 5;
 }
 
 .mainBodyLeftHidden {
-    width: 60%;
+    /*width: 60%;*/
     padding-left: 13px;
     min-height: 92vh;
+    flex-grow: 5;
 }
 
 .mainBodyRightHidden {
-    width: 90%;
+    /*width: 90%;*/
     padding-left: 13px;
     min-height: 92vh;
+    flex-grow: 5;
 }
 
 .mainBodyAllHidden {
