@@ -56,7 +56,7 @@ text-align: center;
 #mainTextArea {
     display: flex;
     flex-flow: column;
-    width: 100%;
+    /*width: 100%;*/
     background-color: #edefd3;
     overflow-y: scroll;
 }
