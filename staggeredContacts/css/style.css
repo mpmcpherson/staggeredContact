@@ -249,9 +249,6 @@ text-align: center;
         border-bottom: 2px solid gray;
     }
 
-    .pageHead {
-        box-shadow: 10px 5px 5px gray;
-    }
 
     .titleBorder {
         border-bottom: 2px solid gray;
@@ -261,7 +258,7 @@ text-align: center;
     #mainTextArea {
         display: flex;
         flex-flow: column;
-        width: 100%;
+        flex-align:  stretch;
         background-color: #1D252B;
         overflow-y: scroll;
     }
