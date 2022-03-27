@@ -84,6 +84,7 @@ text-align: center;
     padding-left: 13px;
     min-height: 92vh;
     flex-grow: 5;
+    flex-direction: column;
 }
 
 .mainBodyLeftHidden {
