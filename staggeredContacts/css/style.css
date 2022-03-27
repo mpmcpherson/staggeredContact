@@ -77,7 +77,7 @@ text-align: center;
     display: flex;
     flex-flow: column;
     min-height: 92vh;
-    flex-basis: 40%;
+    flex-basis: 35%;
     box-shadow: -10px 5px 5px gray;
 }
 
