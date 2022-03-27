@@ -257,9 +257,8 @@ text-align: center;
     #mainTextArea {
         display: flex;
         flex-flow: column;
-        height:  fit-content;
-        width:  fit-content;
         background-color: #1D252B;
+        color: white;
         overflow-y: scroll;
     }
 
