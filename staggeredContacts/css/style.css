@@ -54,6 +54,7 @@ text-align: center;
 }
 
 #mainTextArea {
+		display: flex;
     background-color: #edefd3;
     overflow-y: scroll;
     flex-grow: 1;
@@ -253,7 +254,7 @@ text-align: center;
     }
 
     #mainTextArea {
-        /*display: flex;*/
+        display: flex;
         background-color: #1D252B;
         color: white;
         overflow-y: scroll;
