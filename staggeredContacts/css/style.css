@@ -97,6 +97,7 @@ text-align: center;
 
 #logOut{
 	display: inline-flex;
+	align-self: auto;
 }
 
 .label {
