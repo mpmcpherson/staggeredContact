@@ -87,25 +87,6 @@ text-align: center;
     flex-direction: column;
 }
 
-.mainBodyLeftHidden {
-    /*width: 60%;*/
-    padding-left: 13px;
-    min-height: 92vh;
-    flex-grow: 5;
-}
-
-.mainBodyRightHidden {
-    /*width: 90%;*/
-    padding-left: 13px;
-    min-height: 92vh;
-    flex-grow: 5;
-}
-
-.mainBodyAllHidden {
-    width: 100%;
-    padding-left: 13px;
-}
-
 .headerText {
     display: inline;
 }
@@ -280,31 +261,6 @@ text-align: center;
     .loadEventsTD {
         margin-left: 45%;
     }
-
-    .mainBodyLeftHidden {
-    		display: flex;
-        padding-left: 13px;
-        min-height: 92vh;
-        flex-grow: 5;
-        flex-direction: column;
-    }
-
-    .mainBodyRightHidden {
-    		display: flex;
-        padding-left: 13px;
-        min-height: 92vh;
-        flex-grow: 5;
-        flex-direction: column;
-    }
-
-    .mainBodyAllHidden {
-    		display: flex;
-        padding-left: 13px;
-        min-height: 92vh;
-        flex-grow: 5;
-        flex-direction: column;
-    }
-
     .leftBar {
         background-color: #1D252B;
         color: white;
