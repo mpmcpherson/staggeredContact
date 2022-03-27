@@ -464,29 +464,10 @@ function loadUI(){
 
 	showHidePeopleButton.addEventListener("click", function(){
 		toggleHiddenFlex("leftBar");
-		// if(mainDiv.className==="mainBody full"){ //if nothing is hidden
-		// 	mainDiv.className = "mainBodyLeftHidden full";
-		// }else if(mainDiv.className==="mainBodyLeftHidden full"){//if the left bar is hidden
-		// 	mainDiv.className = "mainBody full";
-		// }else if(mainDiv.className==="mainBodyRightHidden full"){//if the right bar is hidden
-		// 	mainDiv.className = "mainBodyAllHidden full";
-		// }else if (mainDiv.className==="mainBodyAllHidden full"){//if everything is hidden
-		// 	mainDiv.className = "mainBodyRightHidden full";
-		// }
-
 	});
 
 	showHideEventsButton.addEventListener("click", function(){
 		toggleHiddenFlex("rightBar");
-		// if(mainDiv.className==="mainBody full"){ //if nothing is hidden
-		// 	mainDiv.className = "mainBodyRightHidden full";
-		// }else if(mainDiv.className==="mainBodyRightHidden full"){//if the left bar is hidden
-		// 	mainDiv.className = "mainBody full";
-		// }else if(mainDiv.className==="mainBodyLeftHidden full"){//if the right bar is hidden
-		// 	mainDiv.className = "mainBodyAllHidden full";
-		// }else if (mainDiv.className==="mainBodyAllHidden full"){//if everything is hidden
-		// 	mainDiv.className = "mainBodyLeftHidden full";
-		// }
 	});
 
 	let screenWidth = window.innerWidth;
@@ -637,12 +618,3 @@ docReady(function() {
 		loadUI();
 	}
 });
-
-//192.168.1.127
-
-//192.168.1.124
-
-/*
-this should get me all the IDs with a certain prefix
-document.querySelectorAll('[id^="[MY PREFIX HERE]"]').id;
-*/
