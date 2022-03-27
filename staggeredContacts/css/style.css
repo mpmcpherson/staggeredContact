@@ -69,6 +69,7 @@ text-align: center;
     box-shadow: 10px 5px 5px gray;
     min-height: 92vh;
     overflow-y: scroll;
+    flex-basis: 15%;
 }
 
 .rightBar {
@@ -76,6 +77,7 @@ text-align: center;
     display: flex;
     flex-flow: column;
     min-height: 92vh;
+    flex-basis: 40%;
     box-shadow: -10px 5px 5px gray;
 }
 
