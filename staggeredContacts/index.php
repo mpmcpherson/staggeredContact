@@ -56,6 +56,7 @@
 				<div id="array_of_events"></div>
 			</div>
 		</div>
+		
 		<div id="addPersonModal" class="modal">
 			<!-- Modal content -->
 			<div class="modal-content">
