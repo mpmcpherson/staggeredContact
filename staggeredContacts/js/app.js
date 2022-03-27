@@ -10,7 +10,7 @@ function globalClickListener(){
 	window.onresize(function(){
 		setTextBoxHeight();
 	});
-	
+
 	window.onclick = function(event) {
 
 		if (event.target === personModal) {
@@ -637,7 +637,7 @@ function setTextBoxHeight(){
 
 	let maxHeight = mainBody.height;
 	let nonTextHeight = textAreaHeaderBox.height+dueToday.height+sendIt.height;
-	let textArea.height=maxHeight - nonTextHeight;
+	textArea.height=maxHeight - nonTextHeight;
 }
 
 docReady(function() {
