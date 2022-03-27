@@ -234,11 +234,6 @@ text-align: center;
     background-color: blue !important;
 }
 
-.textAreaHolder{
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-}
 @media (prefers-color-scheme: dark) {
     html {
         height: 100vh;

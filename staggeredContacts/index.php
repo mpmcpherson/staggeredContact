@@ -29,7 +29,7 @@
 			</div>
 			
 			<div id="body" class="mainBody full">
-				<div class=""> 
+				<div id="headerHolder"> 
 					<table class="mainBodyHeaderTable"> <tr>
 						<td><div id="showHidePeople" class="button">show/hide people</div></td>
 						<td><h3 class=""><?php echo $viewportTitle; ?></h3></td>
@@ -41,9 +41,7 @@
 				</table>
 				</div>
 				<div id="dueToday"></div>
-				<div class="textAreaHolder">
 				<textarea id="mainTextArea" onfocusout="updateMailto()"></textarea>
-				</div>
 				<a href="mailto:" id="sendIt"><button id="sendButton" class="staggeredButtons">>send it!<</button></a>
 				<div>settings</div>
 			</div>
