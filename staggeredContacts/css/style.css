@@ -258,6 +258,7 @@ text-align: center;
         display: flex;
         flex-flow: column;
         height:  fit-content;
+        width:  fit-content;
         background-color: #1D252B;
         overflow-y: scroll;
     }
