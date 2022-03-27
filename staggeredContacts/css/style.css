@@ -266,6 +266,7 @@ text-align: center;
     }
 
     .mainBody {
+    		display: flex;
         padding-left: 13px;
         min-height: 92vh;
         flex-grow: 5;

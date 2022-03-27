@@ -8,7 +8,7 @@ function globalClickListener(){
 	let logout = document.getElementById("logOut");
 
 	window.onresize(function(){
-		setTextBoxHeight();
+		//setTextBoxHeight();
 	});
 
 	window.onclick = function(event) {
@@ -644,7 +644,7 @@ docReady(function() {
 	globalClickListener();
 	keypressListener();
 
-	setTextBoxHeight();
+	//setTextBoxHeight();
 	
 	let user = getCookie(document.cookie, "userid");
 	let sessionID = window.localStorage.getItem("sessionToken");
