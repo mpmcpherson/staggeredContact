@@ -10,7 +10,7 @@ body {
     height: 100vh;
     margin: 0px;
     padding: 0px;
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
     display: flex;
     flex-flow: column;
 }
@@ -39,7 +39,7 @@ body {
     box-shadow: 10px 5px 5px gray;
     display: flex;
     flex-flow: row;
-    height: 6%;
+    /*height: 6%;*/
 
 }
 
