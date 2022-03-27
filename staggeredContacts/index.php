@@ -43,7 +43,7 @@
 				<div id="dueToday"></div>
 				<textarea id="mainTextArea" onfocusout="updateMailto()"></textarea>
 				<a href="mailto:" id="sendIt"><button id="sendButton" class="staggeredButtons">>send it!<</button></a>
-				<div>settings</div>
+				<div id="settings" class="button logOutButton">settings</div>
 			</div>
 			
 			<div class="rightBar full" id="rightBar">
