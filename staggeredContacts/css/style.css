@@ -304,4 +304,7 @@ text-align: center;
     .logOutButton {
         background-color: skyblue;
     }
+    #paypal-wrapper{
+    	display: hidden;
+    }
 }
