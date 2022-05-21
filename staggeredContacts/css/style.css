@@ -233,6 +233,10 @@ text-align: center;
     background-color: skyblue;
      !important;
 }
+}
+#paypal-wrapper{
+		display: none;
+}
 
 @media (prefers-color-scheme: dark) {
     html {
