@@ -13,7 +13,8 @@
 		<div class="oneTenth pageHead">
 			
 			<h2 class="headerText"><?php echo $header; ?></h2>
-			<div id="paypal-button-container-P-78287322J3224480LMKEEANY"></div>
+
+			<div id="paypal-button-container-P-78287322J3224480LMKEEANY" class="logOutButton"></div>
 			<script src="https://www.paypal.com/sdk/js?client-id=ATUk8HNfxrP8V3dqg1i-3RbRvR97wvqDvsBP-8Wi5oflhQEnbq2Lk80js9uq5s3gD353qlnHkrHJ6Asf&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 			<script>
 			  paypal.Buttons({
@@ -34,6 +35,7 @@
 			      }
 			  }).render('#paypal-button-container-P-78287322J3224480LMKEEANY'); // Renders the PayPal button
 			</script>
+
 			<div id="logOut" class="button logOutButton" >logout</div>
 			
 		</div>
