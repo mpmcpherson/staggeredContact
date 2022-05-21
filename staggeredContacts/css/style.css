@@ -305,6 +305,6 @@ text-align: center;
         background-color: skyblue;
     }
     #paypal-wrapper{
-    	display: hidden;
+    	display: none;
     }
 }
