@@ -190,4 +190,4 @@
 </script>
 <!--<script type="text/javascript" src="js\helper.js"></script>-->
 
-<script type="text/javascript" src="js\app.js"></script>
+<script type="module" src="js\app.js"></script>
