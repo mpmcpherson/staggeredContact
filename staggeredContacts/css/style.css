@@ -312,7 +312,7 @@ text-align: center;
 	    padding: .3em;
 	    background-color: skyblue;
 	    display: inline-flex;
-	    flex-diretion: row;
+	    flex-direction: column;
 	    margin-left: auto;
 	    margin-top: auto;
 	    margin-bottom: auto;
