@@ -1,4 +1,4 @@
-import {docReady, getRequest, postRequest, toggleHidden, toggleHiddenFlex, getCookie, parseCookie, keyupListener, setCookie, addCookie, validEmail, clearAllCookies} from './js/helper.js';
+import {docReady, getRequest, postRequest, toggleHidden, toggleHiddenFlex, getCookie, parseCookie, keyupListener, setCookie, addCookie, validEmail, clearAllCookies} from './helper.js';
 
 function globalClickListener(){
 	let personModal = document.getElementById("addPersonModal");
