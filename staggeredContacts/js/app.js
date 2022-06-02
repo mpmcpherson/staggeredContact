@@ -1,3 +1,5 @@
+import {docReady, getRequest, postRequest, toggleHidden, toggleHiddenFlex, getCookie, parseCookie, keyupListener, setCookie, addCookie, validEmail, clearAllCookies} from './helper.js';
+
 function globalClickListener(){
 	let personModal = document.getElementById("addPersonModal");
 	let eventModal = document.getElementById("addEventModal");
@@ -337,7 +339,7 @@ function selectEventsSinceLastContact(personId){
 	console.log("select events since user last contacted "+personId);
 
 
-	userId = {
+	let userId = {
 		"userId" : getCookie(document.cookie, "userid"),
 		"sessionID": window.localStorage.getItem("sessionToken"),
 		"personId": personId
@@ -354,7 +356,7 @@ function selectEventsSinceLastContact(personId){
 			d.forEach(function(value, event){
 				//console.log(value[0]);
 				let labelTarget = document.getElementById("events"+value[0]);
-				if(labelTarget.checked==false){
+				if(labelTarget.checked===false){
 					labelTarget.checked=true;
 			}else{
 				labelTarget.checked=false;
@@ -366,15 +368,15 @@ function selectEventsSinceLastContact(personId){
 	},
 	function(response){
 		console.log(response);
-		resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
+		//resultDiv.innerHTML = 'An error occurred during your request: ' +  response.status + ' ' + response.statusText;
 	},
 	data);
 }
 
-function addPerson(first_name, last_name, userId, intervalAmount, intervalType, channelName, channelValue){
+function addPerson(firstName, lastName, userId, intervalAmount, intervalType, channelName, channelValue){
 	let values = {
-		"first_name" : first_name, 
-		"last_name": last_name, 
+		"first_name" : firstName, 
+		"last_name": lastName, 
 		"userId" : userId, 
 		"intervalAmount" : intervalAmount,
 		"intervalType" : intervalType, 
@@ -414,7 +416,7 @@ function keypressListener(){
 		eventCount.innerHTML = textArea.value.length+1;
 	});
 	personEmail.addEventListener("keypress",function(){
-		if(validEmail(personEmail.value)==false){
+		if(validEmail(personEmail.value)===false){
 						personEmail.className = "invalidEmail";
 		}
 		else{
@@ -423,7 +425,7 @@ function keypressListener(){
 	});
 }
 
-function updateMailto(){
+export function updateMailto(){
 	let mainTextArea = document.getElementById("mainTextArea");
 	let mailToButton = document.getElementById("sendIt");
 
@@ -488,7 +490,7 @@ function loadUI(){
 
 	loadAllEvents(uid, "array_of_events");
 
-
+	document.getElementById("mainTextArea").addEventListener("focusout",updateMailto());
 
 
 	//swap between having all people visible, and the due to contact people visible
@@ -578,7 +580,7 @@ function loginOrRegister(){
 	});
 
 	loginPasswordBox.addEventListener("keypress", function(e){
-		if(e.keyCode==13){
+		if(e.keyCode===13){
 			let loginBtn = document.getElementById("login_btn");
 			loginBtn.click();
 		}
@@ -612,7 +614,7 @@ docReady(function() {
 	
 	let user = getCookie(document.cookie, "userid");
 	let sessionID = window.localStorage.getItem("sessionToken");
-	if(user==''||sessionID==''|| !sessionID){
+	if(user===''||sessionID===''|| !sessionID){
 		loginOrRegister();
 	}else{
 		loadUI();

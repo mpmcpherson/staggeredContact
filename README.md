@@ -22,19 +22,19 @@ Framing this out really quickly, just because I need to get it down.
 - [X] build database tables
 - [X] reframe UI slightly
 - [X] start cranking out logic
-- [ ] make selecting a person to mail things to populate their email when you hit send
+- [X] make selecting a person to mail things to populate their email when you hit send
 - [X] highlight the person you've selected (okay, it's only sorta done. Suck it up.)
 - [X] make the events a multiselect, so you can pick them easily
 - [X] sort your events in reverse order
 - [X] Make the events pane reload after adding an event.
 - [X] unbreak the userauth so that someone purporting to be a user can't just...get everything
-- [ ] work out the logic for 'last contacted'
-- [ ] UI to load only elements since you last contacted a selected person (who is selected in the Contacts pane)
+- [X] work out the logic for 'last contacted'
+- [X] UI to load only elements since you last contacted a selected person (who is selected in the Contacts pane)
 - [ ] consider creating implementing the tagging feature that the DB supports
 - [ ] nag-mail to user when someone is due for a contact.
-- [ ] UI to actually *send* the email you're working on (two steps for that, a button and a "confirm" with a countdown timer because otherwise it's way too easy to send accidentally
+- [?] UI to actually *send* the email you're working on (two steps for that, a button and a "confirm" with a countdown timer because otherwise it's way too easy to send accidentally
 - [ ] rytr integration for the lulz?
-- [ ] light mode, dark mode, switch selector
+- [ ] light mode, dark mode, switch selector (actually seems to be impossible without a lot of custom code)
 - [ ] paypal begging button
 - [ ] subscription feature which hides the paypal nag button
 - [ ] unsubscribe feature? (or does the paypal subscription take are of that?)
@@ -42,7 +42,7 @@ Framing this out really quickly, just because I need to get it down.
 - [ ] work out logic for 'last contacted'
 - [ ] UI to load only elements since you last contacted a selected person (who is selected in the contacts pane
 - [ ] fix the UI to not suck
-- [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a person journal? 
+- [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a personal journal? 
 - [ ] UI to manually reset dates for events, so that you can get those right as you're going along? Autoselected first so that you don't have to fuck with it if you dont' want to
 
 ## this really only works for one user
