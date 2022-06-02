@@ -416,7 +416,7 @@ function keypressListener(){
 		eventCount.innerHTML = textArea.value.length+1;
 	});
 	personEmail.addEventListener("keypress",function(){
-		if(validEmail(personEmail.value)==false){
+		if(validEmail(personEmail.value)===false){
 						personEmail.className = "invalidEmail";
 		}
 		else{
@@ -490,7 +490,7 @@ function loadUI(){
 
 	loadAllEvents(uid, "array_of_events");
 
-
+	document.getElementById("mainTextArea").addEventListener("focusout",updateMailto());
 
 
 	//swap between having all people visible, and the due to contact people visible
