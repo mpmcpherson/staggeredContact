@@ -1,4 +1,4 @@
-function docReady(fn) {
+export function docReady(fn) {
     // see if DOM is already available
     if (document.readyState === "complete" || document.readyState === "interactive") {
         // call on next available tick
@@ -8,9 +8,7 @@ function docReady(fn) {
     }
 }    
 
-
-// helper function for cross-browser request object
-function getRequest(url, success, error, params) {
+export function getRequest(url, success, error, params) {
     var req = false;
     try{
         // most browsers
@@ -57,8 +55,7 @@ function getRequest(url, success, error, params) {
     return req;
 }
 
-
-function postRequest(url, success, error, data){
+export function postRequest(url, success, error, data){
 	
 	var xhr = false;
     try{
@@ -97,7 +94,7 @@ function postRequest(url, success, error, data){
 	return xhr;
 }
 
-function toggleHidden(targetDiv) {
+export function toggleHidden(targetDiv) {
   var x = document.getElementById(targetDiv);
   if (x.style.display === "none") {
     x.style.display = "block";
@@ -106,7 +103,7 @@ function toggleHidden(targetDiv) {
   }
 } 
 
-function toggleHiddenFlex(targetDiv) {
+export function toggleHiddenFlex(targetDiv) {
   var x = document.getElementById(targetDiv);
   if (x.style.display === "none") {
     x.style.display = "flex";
@@ -115,7 +112,7 @@ function toggleHiddenFlex(targetDiv) {
   }
 } 
 
-function getCookie(inputString, searchTerm)
+export function getCookie(inputString, searchTerm)
 {
     var v = parseCookie(inputString);
     var x;
@@ -129,7 +126,7 @@ function getCookie(inputString, searchTerm)
     }
     return false;
 }
-function parseCookie(inputString)
+export function parseCookie(inputString)
 {
 
 
@@ -145,7 +142,7 @@ function parseCookie(inputString)
     return KvP;
 }
 
-function keyupListener() {
+export function keyupListener() {
     window.onkeyup = function(e) {
         if ( e.keyCode === 27 ) {
             //toggleMenuOff();
@@ -153,7 +150,7 @@ function keyupListener() {
         };
 }
 
-function setCookie(fullCookieString)
+export function setCookie(fullCookieString)
 {
     //console.log(fullCookieString);
 
@@ -162,15 +159,15 @@ function setCookie(fullCookieString)
     let expires = "expires="+d.toUTCString();
     document.cookie = fullCookieString+ ";" + expires + ";path=/";
 }
-function addCookie(cname, cvalue) {
+export function addCookie(cname, cvalue) {
     setCookie(cname + "=" + cvalue + ";");
     //sessionStorage.setItem(cname,cvalue);
 }
-function validEmail(e) {
+export function validEmail(e) {
     var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
     return String(e).search (filter) != -1;
 }
-function clearAllCookies(){
+export function clearAllCookies(){
     (function () {
     var cookies = document.cookie.split("; ");
     for (var c = 0; c < cookies.length; c++) {
