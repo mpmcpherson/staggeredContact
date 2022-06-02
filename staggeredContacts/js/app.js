@@ -425,7 +425,7 @@ function keypressListener(){
 	});
 }
 
-function updateMailto(){
+export function updateMailto(){
 	let mainTextArea = document.getElementById("mainTextArea");
 	let mailToButton = document.getElementById("sendIt");
 
