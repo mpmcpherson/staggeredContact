@@ -1,3 +1,5 @@
+import {docReady, getRequest, postRequest, toggleHidden, toggleHiddenFlex, getCookie, parseCookie, keyupListener, setCookie, addCookie, validEmail, clearAllCookies} from './helper.js';
+
 function globalClickListener(){
 	let personModal = document.getElementById("addPersonModal");
 	let eventModal = document.getElementById("addEventModal");
@@ -578,7 +580,7 @@ function loginOrRegister(){
 	});
 
 	loginPasswordBox.addEventListener("keypress", function(e){
-		if(e.keyCode==13){
+		if(e.keyCode===13){
 			let loginBtn = document.getElementById("login_btn");
 			loginBtn.click();
 		}
@@ -612,10 +614,9 @@ docReady(function() {
 	
 	let user = getCookie(document.cookie, "userid");
 	let sessionID = window.localStorage.getItem("sessionToken");
-	if(user==''||sessionID==''|| !sessionID){
+	if(user===''||sessionID===''|| !sessionID){
 		loginOrRegister();
 	}else{
 		loadUI();
 	}
 });
-`	`
