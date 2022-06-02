@@ -18,7 +18,8 @@
 			<div id = "headerRightFloat" class="logOutButton">
 			
 			<div id="logOut" class="button" >logout</div>
-			<div id="support">subscribe to support!
+			<div id="support">
+				subscribe to support!
 				<div id="paypal-wrapper">
 					<div id="paypal-button-container-P-78287322J3224480LMKEEANY" class=""></div>
 					<script src="https://www.paypal.com/sdk/js?client-id=ATUk8HNfxrP8V3dqg1i-3RbRvR97wvqDvsBP-8Wi5oflhQEnbq2Lk80js9uq5s3gD353qlnHkrHJ6Asf&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>

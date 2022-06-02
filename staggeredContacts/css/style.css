@@ -317,6 +317,12 @@ text-align: center;
 	    margin-bottom: auto;
 	    text-align: center;
     }
+    #logOut {
+	    display: inline-flex;
+	    margin-left: auto;
+	    margin-top: auto;
+	    margin-bottom: auto;
+		}
     #paypal-wrapper{
     	display: none;
     }
