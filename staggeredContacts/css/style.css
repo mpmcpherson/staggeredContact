@@ -203,7 +203,10 @@ text-align: center;
     /*float: right;*/
     padding: .3em;
     background-color: skyblue;
-    display: inline-block;
+    display: inline-flex;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     text-align: center;
 }
 
@@ -306,7 +309,13 @@ text-align: center;
     }
 
     .logOutButton {
-        background-color: skyblue;
+	    padding: .3em;
+	    background-color: skyblue;
+	    display: inline-flex;
+	    margin-left: auto;
+	    margin-top: auto;
+	    margin-bottom: auto;
+	    text-align: center;
     }
     #paypal-wrapper{
     	display: none;
