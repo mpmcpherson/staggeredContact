@@ -18,7 +18,7 @@
 			<div id = "headerRightFloat" class="logOutButton">
 			
 			<div id="logOut" class="button" >logout</div>
-			<!--
+			
 			<div id="support">
 				subscribe to support!
 				<div id="paypal-wrapper">
@@ -49,7 +49,7 @@
 			</div>
 
 			</div>
-		-->
+		
 		</div>
 
 		<div class="wrapper ninety" id="container">
