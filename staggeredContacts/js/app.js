@@ -614,7 +614,7 @@ docReady(function() {
 	
 	let user = getCookie(document.cookie, "userid");
 	let sessionID = window.localStorage.getItem("sessionToken");
-	if(user===''||sessionID===''|| !sessionID){
+	if(user==''||sessionID===''|| !sessionID){
 		loginOrRegister();
 	}else{
 		loadUI();
