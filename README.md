@@ -30,20 +30,17 @@ Framing this out really quickly, just because I need to get it down.
 - [X] unbreak the userauth so that someone purporting to be a user can't just...get everything
 - [X] work out the logic for 'last contacted'
 - [X] UI to load only elements since you last contacted a selected person (who is selected in the Contacts pane)
-- [ ] consider creating implementing the tagging feature that the DB supports
-- [ ] nag-mail to user when someone is due for a contact.
+- [X] work out logic for 'last contacted'
+- [X] UI to load only elements since you last contacted a selected person (who is selected in the contacts pane
 - [?] UI to actually *send* the email you're working on (two steps for that, a button and a "confirm" with a countdown timer because otherwise it's way too easy to send accidentally
+- [ ] light mode, dark mode, switch selector (actually seems to be impossible without a lot of custom code) (abandoned)
+- [ ] paypal begging button (what a pain in the ass to actually stick in there)
 - [ ] rytr integration for the lulz?
-- [ ] light mode, dark mode, switch selector (actually seems to be impossible without a lot of custom code)
-- [ ] paypal begging button
-- [ ] subscription feature which hides the paypal nag button
-- [ ] unsubscribe feature? (or does the paypal subscription take are of that?)
 - [ ] new page for "journaling" sort of like tumblr or LJ back in the day?
-- [ ] work out logic for 'last contacted'
-- [ ] UI to load only elements since you last contacted a selected person (who is selected in the contacts pane
-- [ ] fix the UI to not suck
-- [ ] new page for 'journaling'? Like tumblr, if you use tumblr for a personal journal? 
 - [ ] UI to manually reset dates for events, so that you can get those right as you're going along? Autoselected first so that you don't have to fuck with it if you dont' want to
+- [ ] nag-mail to user when someone is due for a contact.
+- [ ] consider creating implementing the tagging feature that the DB supports
+- [ ] fix the UI to not suck
 
 ## this really only works for one user
 

@@ -101,16 +101,16 @@
 
 
  #eventSubject {
-     width: 100%;
+     width: 99%;
      padding-bottom: 3%;
-     display: inline-block;
+     display: flex;
  }
 
  #eventText {
-     width: 103%;
+     width: 99%;
      margin-top: 5px;
      margin-bottom: 5px;
-     display: inline-block;
+     display: flex;
  }
 
  #charCountHolder {
@@ -120,7 +120,7 @@
 
  #add_event_submission {
      float: right;
-     margin-right: -1em;
+     margin-right: 0em;
  }
 
  /* Add Animation */

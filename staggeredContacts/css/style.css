@@ -179,14 +179,17 @@ text-align: center;
 .login_uname {
     width: 100%;
     /* padding-bottom: 3%; */
-    display: inline-block;
+    display: flex;
+    margin-right: 1%;
+
 }
 
 .login_pw {
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    display: inline-block;
+    display: flex;
+    margin-right: 1%;
 }
 
 .loginBtnClass {
