@@ -245,13 +245,6 @@ text-align: center;
 		display: none;
 }
 
-#eventSubject{
-    display: flex;
-}
-#eventText{
-    display: flex;
-}
-
 @media (prefers-color-scheme: dark) {
     html {
         height: 100vh;
