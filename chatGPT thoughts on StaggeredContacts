@@ -1,0 +1,86 @@
+chatGPT thoughts on StaggeredContacts
+
+Q: What method would be most useful for people with executive function disorders to keep in touch with their friends and family?
+
+A: For people with executive function disorders, staying in touch with friends and family can be challenging. However, there are several methods that can be useful to help them stay connected:
+
+    Reminders and Alarms: Setting reminders and alarms can help individuals remember to reach out to their loved ones. This can be done using a smartphone or a smartwatch, or with a digital assistant like Alexa or Google Home.
+
+    Calendar: Using a calendar to schedule regular check-ins with friends and family can be helpful. This way, the individual can see when they last spoke with their loved ones and when they're due for the next call.
+
+    Social Media: Social media can be a useful tool for staying in touch with friends and family. Platforms like Facebook, Instagram, and Twitter allow users to connect with others and share updates about their lives.
+
+    Text Messaging: Text messaging is a simple way to stay in touch with friends and family. It's quick, easy, and doesn't require a lot of effort or planning.
+
+    Video Calls: Video calls can provide a more personal touch and help individuals feel more connected to their loved ones. Platforms like Zoom, FaceTime, and Skype can be used for this purpose.
+
+Ultimately, the best method for staying in touch will depend on the individual and their specific needs and preferences. It may be helpful for them to try out different methods and see what works best for them.
+
+Q: Posit a hybrid smartphone application/website to fulfill the needs outlined above
+
+A: One possible hybrid smartphone application/website that could fulfill the needs outlined above for people with executive function disorders is a to-do list application that incorporates features for staying in touch with friends and family.
+
+The application could include a to-do list for scheduling regular check-ins with loved ones, with the ability to set reminders and alarms for each task. The user could also have the option to choose the method of communication for each check-in, such as a phone call, text message, or video call.
+
+In addition to the to-do list, the application could also include a social media feed that displays updates from the user's friends and family. This could help the user stay connected and up-to-date with the latest news from their loved ones, without the need to actively seek out updates.
+
+The application could also include a messaging feature that allows the user to send text messages, voice messages, or make video calls to their loved ones, all within the same platform. This could help simplify the communication process and reduce the need to switch between multiple applications.
+
+To ensure accessibility, the application should be designed with a user-friendly interface that is easy to navigate and understand. It should also be customizable to meet the specific needs of each user.
+
+Overall, a hybrid smartphone application/website that combines a to-do list with social media and communication features could be a useful tool for people with executive function disorders to stay in touch with their friends and family.
+
+Q: For such an application, list the critical pages in the user interface, including ASCII art outlining the layout
+
+A: Here are some critical pages in the user interface for the hybrid smartphone application/website that I proposed, along with ASCII art outlining the layout of each page:
+
+    Login/Registration Page
+
+╔══════════════════════╗
+║ Login / Register ║
+╚══════════════════════╝
+
+    To-Do List Page
+
+╔══════════════════════╗
+║ To-Do List ║
+╠══════════════════════╣
+║ Task 1 [ ] [ ] [ ] ║
+║ Task 2 [ ] [ ] [ ] ║
+║ Task 3 [ ] [ ] [ ] ║
+╚══════════════════════╝
+
+    New Task Page
+
+╔══════════════════════╗
+║ New Task ║
+╠══════════════════════╣
+║ Title: ║
+║ Description: ║
+║ Date/Time: ║
+║ Method of Contact: ║
+╠══════════════════════╣
+║ Save Cancel ║
+╚══════════════════════╝
+
+    Social Media Feed Page
+
+╔══════════════════════╗
+║ Social Media Feed ║
+╠══════════════════════╣
+║ Post 1 ║
+║ Post 2 ║
+║ Post 3 ║
+╚══════════════════════╝
+
+    Messaging Page
+
+╔══════════════════════╗
+║ Messaging ║
+╠══════════════════════╣
+║ Conversation 1 ║
+║ Conversation 2 ║
+║ Conversation 3 ║
+╚══════════════════════╝
+
+These layouts are just a rough example, and the actual design would depend on the specific features and user needs of the application.

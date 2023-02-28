@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<?php require 'resources/uiConfig.php';?>
