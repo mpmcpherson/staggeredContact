@@ -35,7 +35,7 @@ if(!empty($userId)) {
 				left join userIntervalLink uil on uil.userId = lc.originPersonId
 				left join intervalTypes it on it.id = uil.intervalType
 				where p.possessingUserId = ".$userId."
-				and CURRENT_DATE() >= DATE_ADD(lc.lastContactedDate, INTERVAL uil.intervalAmount it.intervalType)"; 
+				and CURRENT_DATE() >= DATE_ADD(lc.lastContactedDate, INTERVAL uil.intervalAmount it.intervalType)";
 
 		$result = mysqli_query($dbhandle, $qq);
 

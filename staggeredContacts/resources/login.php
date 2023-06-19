@@ -55,7 +55,7 @@ if (password_verify($userPass, $resPass[0])) {
     'httponly' => false,
     'samesite' => 'None',
     ]);
-    
+
     setcookie('sessionID', $rnd,  [
     'expires' => time()+60*60*1,
     'path' => '/',
@@ -64,12 +64,13 @@ if (password_verify($userPass, $resPass[0])) {
     'httponly' => false,
     'samesite' => 'None',
     ]);
-    
+
     $newQ = "UPDATE general_dev_bastion.users SET sessionID = ".$sessionID." WHERE user_id = '".$_SESSION['userid']."'";
 
     $result = mysqli_query($dbhandle, $newQ);
-    
+
     echo json_encode([true,$userid,$sessionID]);
-} else { 
-    echo json_encode([false, $userName, $userPass]);
+} else {
+    echo var_dump($gets);
+    //echo json_encode([false, $userName, $userPass]);
 }
