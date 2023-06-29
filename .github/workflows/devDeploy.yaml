@@ -13,7 +13,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         server: 69.163.197.191
-        username: micmcp3
+        username: devstagg
         password: ${{ secrets.FTPASS }}
         server-dir: dev.staggeredcontacts.com/
         local-dir: ./staggeredContacts/
